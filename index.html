@@ -753,13 +753,13 @@
   </div>
 </div>
 
-<!-- Interactive Order & Full Menu Modal -->
+<!-- Interactive Order & Full Menu Modal with Live Receipt -->
 <div class="gt-modal-overlay" id="orderModal" aria-modal="true" role="dialog">
   <div class="gt-modal gt-menu-modal">
     <button type="button" class="gt-modal-close" aria-label="Close modal">×</button>
-    <span class="eyebrow">Full Menu &amp; Ordering</span>
-    <h3>The Thikana Menu</h3>
-    <p class="sub">Explore our full repertoire of dishes. Add items to order directly or connect on WhatsApp.</p>
+    <span class="eyebrow">24/7 Kitchen &amp; Takeaway</span>
+    <h3>Order Food with Instant WhatsApp Receipt</h3>
+    <p class="sub">Select your cravings below, add your details, and get an authentic restaurant bill receipt sent directly to WhatsApp.</p>
 
     <!-- Tabs -->
     <div class="gt-menu-tabs">
@@ -772,23 +772,182 @@
       <button type="button" class="gt-tab-btn" data-cat="drinks">Shakes &amp; Sips</button>
     </div>
 
-    <!-- Items Grid -->
-    <div class="gt-menu-items-grid" id="gtMenuGrid"></div>
-
-    <!-- Order Summary Bar -->
-    <div class="gt-order-summary">
-      <div class="cart-tally">
-        <div class="cart-badge" id="cartBadge">0</div>
-        <span>Items Selected · Total:</span>
-        <span class="cart-total" id="cartTotal">₹0</span>
+    <!-- Two-column Layout: Menu Items + Live Bill -->
+    <div class="order-modal-layout">
+      <!-- Items Column -->
+      <div class="order-items-col">
+        <div class="gt-menu-items-grid" id="gtMenuGrid"></div>
       </div>
-      <button type="button" class="btn btn-gold" id="placeOrderBtn">
-        Send Order to WhatsApp 🛵
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+
+      <!-- Live Cart & Customer Form Column -->
+      <div class="order-cart-col">
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:10px;">
+          <span style="font-family:var(--f-display);font-size:1.3rem;color:var(--cream);">Your Order Receipt</span>
+          <span class="cart-badge" id="cartBadge" style="background:var(--gold-grad);color:#241a06;font-weight:700;padding:2px 8px;border-radius:100px;font-size:0.75rem;">0 Items</span>
+        </div>
+
+        <!-- Order Type Selection -->
+        <div>
+          <label style="display:block;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:600;">Order Type</label>
+          <div class="order-type-group">
+            <button type="button" class="order-type-btn active" data-type="Home Delivery">🛵 Delivery</button>
+            <button type="button" class="order-type-btn" data-type="Dine-In">🍽️ Dine-In</button>
+            <button type="button" class="order-type-btn" data-type="Takeaway">🛍️ Takeaway</button>
+          </div>
+        </div>
+
+        <!-- Selected Items List -->
+        <div class="cart-items-list" id="cartItemsList">
+          <p style="color:var(--cream-faint);font-size:0.85rem;text-align:center;padding:20px 0;">No items added yet. Click <b>+ Add</b> on any dish!</p>
+        </div>
+
+        <!-- Customer Inputs -->
+        <div class="gt-form-group" style="margin-bottom:8px;">
+          <label for="custName">Your Name *</label>
+          <input type="text" id="custName" placeholder="e.g. Raghav Sharma" required>
+        </div>
+
+        <div class="gt-form-group" style="margin-bottom:8px;">
+          <label for="custPhone">Phone Number *</label>
+          <input type="tel" id="custPhone" placeholder="e.g. 9876543210" required>
+        </div>
+
+        <div class="gt-form-group" style="margin-bottom:8px;">
+          <label for="custLoc" id="custLocLabel">Delivery Address *</label>
+          <input type="text" id="custLoc" placeholder="House / Flat No, Street, Landmark" required>
+        </div>
+
+        <div class="gt-form-group" style="margin-bottom:8px;">
+          <label for="custNotes">Special Instructions</label>
+          <input type="text" id="custNotes" placeholder="e.g. Extra spicy, less ice, green dip">
+        </div>
+
+        <!-- Bill Totals -->
+        <div style="background:rgba(5,9,26,0.6);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:0.85rem;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;color:var(--cream-dim);">
+            <span>Item Subtotal:</span>
+            <span id="billSubtotal" style="font-family:var(--f-display);color:var(--cream);font-size:1.05rem;">₹0</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;color:var(--cream-dim);">
+            <span>Delivery / Packing:</span>
+            <span style="color:#22c55e;font-weight:600;">FREE (₹0)</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;color:var(--cream-dim);">
+            <span>GST (5% Inclusive):</span>
+            <span style="color:var(--cream-dim);">₹0.00</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;border-top:1px dashed var(--line);padding-top:8px;margin-top:6px;font-weight:700;">
+            <span style="color:var(--gold);">GRAND TOTAL:</span>
+            <span id="billGrandTotal" style="font-family:var(--f-display);font-size:1.35rem;color:var(--gold-hi);">₹0</span>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-gold btn-lg" id="placeOrderBtn" style="width:100%;justify-content:center;margin-top:4px;">
+          ⚡ Send Order to WhatsApp Receipt
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- On-Screen Digital Thermal Receipt Modal -->
+<div class="gt-modal-overlay" id="receiptModal" aria-modal="true" role="dialog">
+  <div class="receipt-ticket-wrap">
+    <div class="receipt-ticket" id="thermalReceipt">
+      <div class="receipt-header">
+        <h2>GUPSHUP THIKANA</h2>
+        <div class="tagline">Cafe &amp; Restaurant · Open 24/7</div>
+        <div class="meta-info">
+          D-5, Kalwar Rd, near D-Mart, Kardhani, Jhotwara, Jaipur<br>
+          📞 +91 91459 93363 / +91 96608 46011
+        </div>
+      </div>
+
+      <div class="receipt-meta">
+        <div>
+          <span>RECEIPT: <b id="rcptId">#GT-8492</b></span><br>
+          <span>TYPE: <b id="rcptType">HOME DELIVERY</b></span>
+        </div>
+        <div style="text-align:right;">
+          <span id="rcptDate">13 Sep 2026</span><br>
+          <span id="rcptTime">05:30 AM</span>
+        </div>
+      </div>
+
+      <div class="receipt-customer">
+        <div>CUSTOMER: <b id="rcptName">Raghav Sharma</b></div>
+        <div>CONTACT: <b id="rcptPhone">9876543210</b></div>
+        <div>LOCATION: <b id="rcptLoc">Kalwar Road, Jhotwara</b></div>
+      </div>
+
+      <table class="receipt-table">
+        <thead>
+          <tr>
+            <th style="width:15%">QTY</th>
+            <th style="width:60%">ITEM</th>
+            <th style="width:25%;text-align:right;">AMT</th>
+          </tr>
+        </thead>
+        <tbody id="rcptTableBody">
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+
+      <div class="receipt-totals">
+        <div class="line">
+          <span>Subtotal:</span>
+          <span id="rcptSubtotal">₹0</span>
+        </div>
+        <div class="line">
+          <span>Delivery &amp; Packing:</span>
+          <span style="color:#15803d;font-weight:700;">FREE (₹0)</span>
+        </div>
+        <div class="line">
+          <span>Taxes (5% GST):</span>
+          <span>Inclusive</span>
+        </div>
+        <div class="line grand">
+          <span>TOTAL DUE:</span>
+          <span id="rcptTotal">₹0</span>
+        </div>
+      </div>
+
+      <div style="font-size:0.75rem;border-bottom:1px dashed #aaa;padding-bottom:8px;margin-bottom:8px;">
+        <span>NOTE: <i id="rcptNotes">None</i></span><br>
+        <span>PAYMENT: <b>Cash on Delivery / UPI on Delivery</b></span>
+      </div>
+
+      <div class="receipt-barcode" aria-hidden="true">
+        <span style="width:2px;"></span><span style="width:4px;"></span><span style="width:1px;"></span>
+        <span style="width:3px;"></span><span style="width:1px;"></span><span style="width:5px;"></span>
+        <span style="width:2px;"></span><span style="width:4px;"></span><span style="width:2px;"></span>
+        <span style="width:3px;"></span><span style="width:1px;"></span><span style="width:4px;"></span>
+        <span style="width:2px;"></span><span style="width:5px;"></span><span style="width:1px;"></span>
+        <span style="width:3px;"></span><span style="width:4px;"></span><span style="width:2px;"></span>
+      </div>
+
+      <div class="receipt-footer">
+        *** SENT TO WHATSAPP (+91 91459 93363) ***<br>
+        Thank you for choosing Gupshup Thikana!<br>
+        Taste the tale, visit us again soon.
+      </div>
+    </div>
+
+    <div class="receipt-actions">
+      <button type="button" class="btn btn-gold" id="rcptWhatsAppBtn">
+        Open in WhatsApp 💬
+      </button>
+      <button type="button" class="btn btn-ghost" onclick="window.print()">
+        Print Bill 🖨️
+      </button>
+      <button type="button" class="btn btn-ghost" data-modal-close>
+        Close ✕
       </button>
     </div>
   </div>
 </div>
+
 
 <!-- Floating 24/7 Action Pill -->
 <a href="https://wa.me/919145993363?text=Namaste%20Gupshup%20Thikana!%20I%20would%20like%20to%20order%20food%20/%20reserve%20a%20table." target="_blank" rel="noopener" class="floating-action-pill" aria-label="Chat on WhatsApp 24/7">

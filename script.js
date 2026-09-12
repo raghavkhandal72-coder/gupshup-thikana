@@ -425,8 +425,9 @@
   if (yr) yr.textContent = new Date().getFullYear();
 
   /* =============================================================
-     GUPSHUP THIKANA — MODALS & INTERACTIVE ORDERING
+     GUPSHUP THIKANA — LIVE BILLING & WHATSAPP RECEIPT SYSTEM
      ============================================================= */
+
   function showToast(msg) {
     var toast = document.querySelector('.gt-toast');
     if (!toast) {
@@ -481,6 +482,294 @@
     }
   });
 
+  /* Complete Menu Database */
+  var menuItems = [
+    { id: 'm1', name: 'Delhi Butter Handi Momos', cat: 'momos', price: 250, desc: 'Tender veg dimsums slow-simmered in rich tandoori butter gravy in clay pot.' },
+    { id: 'm2', name: 'Tandoori Fried Momos', cat: 'momos', price: 180, desc: 'Crispy fried momos tossed with chaat masala & fresh mint chutney.' },
+    { id: 'm3', name: 'Steamed Cheese Momos', cat: 'momos', price: 150, desc: 'Delicate steamed dumplings with molten cheese filling.' },
+    { id: 'm4', name: 'Kurkure Crunchy Momos', cat: 'momos', price: 170, desc: 'Extra crispy crumb-coated momos served with fiery schezwan dip.' },
+    { id: 'p1', name: 'Double Cheese Corn Pizza', cat: 'pizzas', price: 110, desc: 'Golden crust with double mozzarella & sweet American corn.' },
+    { id: 'p2', name: 'Farmhouse Gourmet Pizza', cat: 'pizzas', price: 140, desc: 'Black olives, fiery jalapenos, onions, capsicum & mozzarella.' },
+    { id: 'p3', name: 'Paneer Makhani Pizza', cat: 'pizzas', price: 160, desc: 'Tandoori spiced paneer cubes on rich makhani sauce base.' },
+    { id: 'p4', name: 'Spicy Peri Peri Pizza', cat: 'pizzas', price: 150, desc: 'Fiery peri peri spiced veggies and mozzarella cheese.' },
+    { id: 'g1', name: 'Skillet Melted Cheesy Maggi', cat: 'maggi', price: 100, desc: 'Double noodles with butter, corn, herbs & thick cheese pull.' },
+    { id: 'g2', name: 'Tandoori Tadka Maggi', cat: 'maggi', price: 80, desc: 'Spicy smoky maggi with fresh veggies and homemade secret spices.' },
+    { id: 'g3', name: 'Red Sauce Italian Pasta', cat: 'maggi', price: 130, desc: 'Penne pasta tossed in tangy tomato-basil marinara with cheese.' },
+    { id: 'g4', name: 'Creamy White Sauce Pasta', cat: 'maggi', price: 140, desc: 'Rich velvety alfredo pasta loaded with sweet corn & herbs.' },
+    { id: 's1', name: 'Cheese Corn Grilled Sandwich', cat: 'sandwiches', price: 130, desc: 'Triple-decker golden toasted bread loaded with sweet corn & cheese.' },
+    { id: 's2', name: 'Bombay Masala Grill Sandwich', cat: 'sandwiches', price: 100, desc: 'Spiced potato mash, tomatoes, cucumber, mint chutney & cheese.' },
+    { id: 's3', name: 'Crispy Veg Supreme Burger', cat: 'sandwiches', price: 90, desc: 'Crispy herb potato patty, cheddar slice, lettuce & mayo.' },
+    { id: 'd1', name: 'Artisanal Hazelnut Cold Coffee', cat: 'drinks', price: 120, desc: 'Chilled espresso with roasted hazelnut and dark chocolate drizzle.' },
+    { id: 'd2', name: 'Two-Swirl Mango Thick Shake', cat: 'drinks', price: 110, desc: 'Alphonso puree churned with thick dairy cream and vanilla scoop.' },
+    { id: 'd3', name: 'Oreo KitKat Overload Shake', cat: 'drinks', price: 140, desc: 'Loaded chocolate shake with crushed oreo, kitkat and fudge.' },
+    { id: 'd4', name: 'Special Adrak Masala Chai', cat: 'drinks', price: 35, desc: 'Brewed fresh 24/7 with ginger, cardamom, clove and fresh milk.' },
+    { id: 'k1', name: 'Peri Peri Crispy French Fries', cat: 'starters', price: 90, desc: 'Crispy golden potato fingers tossed in fiery peri peri seasoning.' },
+    { id: 'k2', name: 'Chilli Paneer Dry', cat: 'starters', price: 160, desc: 'Crispy wok-tossed cottage cheese with bell peppers & garlic.' }
+  ];
+
+  var currentCat = 'all';
+  var cart = {}; // { id: count }
+  var orderType = 'Home Delivery';
+  var lastWhatsAppUrl = '';
+
+  /* Render Menu Grid with Steppers */
+  function renderMenuGrid() {
+    var grid = document.getElementById('gtMenuGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    var filtered = currentCat === 'all' ? menuItems : menuItems.filter(function (x) { return x.cat === currentCat; });
+    filtered.forEach(function (item) {
+      var qty = cart[item.id] || 0;
+      var card = document.createElement('div');
+      card.className = 'gt-menu-card';
+      card.innerHTML = 
+        '<div class="info">' +
+          '<h4>' + item.name + '</h4>' +
+          '<p>' + item.desc + '</p>' +
+        '</div>' +
+        '<div class="price-action">' +
+          '<div class="price">₹' + item.price + '</div>' +
+          (qty === 0 
+            ? '<button type="button" class="add-btn" data-id="' + item.id + '">+ Add</button>'
+            : '<div class="qty-stepper">' +
+                '<button type="button" class="qty-btn" data-action="dec" data-id="' + item.id + '">−</button>' +
+                '<span class="qty-val">' + qty + '</span>' +
+                '<button type="button" class="qty-btn" data-action="inc" data-id="' + item.id + '">+</button>' +
+              '</div>'
+          ) +
+        '</div>';
+      grid.appendChild(card);
+    });
+
+    grid.querySelectorAll('.add-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-id');
+        cart[id] = 1;
+        renderMenuGrid();
+        updateCartAndBill();
+        showToast('Added to order!');
+      });
+    });
+
+    grid.querySelectorAll('.qty-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-id');
+        var action = btn.getAttribute('data-action');
+        if (action === 'inc') {
+          cart[id] = (cart[id] || 0) + 1;
+        } else if (action === 'dec') {
+          if (cart[id] > 1) cart[id]--;
+          else delete cart[id];
+        }
+        renderMenuGrid();
+        updateCartAndBill();
+      });
+    });
+  }
+
+  /* Update Cart List & Total calculations */
+  function updateCartAndBill() {
+    var listEl = document.getElementById('cartItemsList');
+    var badge = document.getElementById('cartBadge');
+    var subtotalEl = document.getElementById('billSubtotal');
+    var grandTotalEl = document.getElementById('billGrandTotal');
+    
+    var totalCount = 0;
+    var subtotal = 0;
+    var hasItems = false;
+
+    if (listEl) listEl.innerHTML = '';
+
+    for (var id in cart) {
+      var count = cart[id];
+      var item = menuItems.find(function (m) { return m.id === id; });
+      if (item && count > 0) {
+        hasItems = true;
+        totalCount += count;
+        var lineTotal = item.price * count;
+        subtotal += lineTotal;
+
+        if (listEl) {
+          var row = document.createElement('div');
+          row.className = 'cart-row';
+          row.innerHTML = 
+            '<div><b>' + count + 'x</b> ' + item.name + '</div>' +
+            '<div class="cart-price">₹' + lineTotal + '</div>';
+          listEl.appendChild(row);
+        }
+      }
+    }
+
+    if (!hasItems && listEl) {
+      listEl.innerHTML = '<p style="color:var(--cream-faint);font-size:0.85rem;text-align:center;padding:20px 0;">No items added yet. Click <b>+ Add</b> on any dish!</p>';
+    }
+
+    if (badge) badge.textContent = totalCount + ' Items';
+    if (subtotalEl) subtotalEl.textContent = '₹' + subtotal;
+    if (grandTotalEl) grandTotalEl.textContent = '₹' + subtotal;
+  }
+
+  /* Order Type Switcher */
+  document.querySelectorAll('.order-type-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.order-type-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      orderType = btn.getAttribute('data-type');
+      
+      var locLabel = document.getElementById('custLocLabel');
+      var locInput = document.getElementById('custLoc');
+      if (orderType === 'Dine-In') {
+        if (locLabel) locLabel.textContent = 'Table Number *';
+        if (locInput) locInput.placeholder = 'e.g. Table 4 or Corner Lounge';
+      } else if (orderType === 'Takeaway') {
+        if (locLabel) locLabel.textContent = 'Pickup Time / Vehicle No (Optional)';
+        if (locInput) locInput.placeholder = 'e.g. Ready in 15 mins';
+      } else {
+        if (locLabel) locLabel.textContent = 'Delivery Address *';
+        if (locInput) locInput.placeholder = 'House / Flat No, Street, Landmark';
+      }
+    });
+  });
+
+  /* Category tabs in menu modal */
+  document.querySelectorAll('.gt-tab-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.gt-tab-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      currentCat = btn.getAttribute('data-cat') || 'all';
+      renderMenuGrid();
+    });
+  });
+
+  /* Place Order & Generate Receipt */
+  var placeOrderBtn = document.getElementById('placeOrderBtn');
+  if (placeOrderBtn) {
+    placeOrderBtn.addEventListener('click', function () {
+      var name = (document.getElementById('custName') ? document.getElementById('custName').value : '').trim();
+      var phone = (document.getElementById('custPhone') ? document.getElementById('custPhone').value : '').trim();
+      var loc = (document.getElementById('custLoc') ? document.getElementById('custLoc').value : '').trim();
+      var notes = (document.getElementById('custNotes') ? document.getElementById('custNotes').value : '').trim();
+
+      var items = [];
+      var total = 0;
+      for (var id in cart) {
+        var count = cart[id];
+        var item = menuItems.find(function (m) { return m.id === id; });
+        if (item && count > 0) {
+          items.push({ name: item.name, qty: count, price: item.price, total: item.price * count });
+          total += item.price * count;
+        }
+      }
+
+      if (items.length === 0) {
+        showToast('Please add dishes to your order first!');
+        return;
+      }
+      if (!name) {
+        showToast('Please enter your name!');
+        if (document.getElementById('custName')) document.getElementById('custName').focus();
+        return;
+      }
+      if (!phone) {
+        showToast('Please enter your phone number!');
+        if (document.getElementById('custPhone')) document.getElementById('custPhone').focus();
+        return;
+      }
+      if (orderType !== 'Takeaway' && !loc) {
+        showToast(orderType === 'Dine-In' ? 'Please specify your Table Number!' : 'Please enter your delivery address!');
+        if (document.getElementById('custLoc')) document.getElementById('custLoc').focus();
+        return;
+      }
+
+      // Generate Unique Receipt ID and Timestamp
+      var receiptId = '#GT-' + Math.floor(1000 + Math.random() * 9000);
+      var now = new Date();
+      var dateStr = now.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+      var timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true });
+
+      // 1. Build Formatted WhatsApp Receipt Text (Just like a restaurant bill)
+      var itemLines = items.map(function (it) {
+        var padName = it.name.length > 22 ? it.name.substring(0, 20) + '..' : it.name;
+        return ' ' + it.qty + 'x  ' + padName + '  : ₹' + it.total;
+      }).join('\n');
+
+      var waReceipt = 
+        '╔═══════════════════════════════╗\n' +
+        '   🧾 *GUPSHUP THIKANA* 🍽️\n' +
+        '   _Cafe & Restaurant · Open 24/7_\n' +
+        '   📍 Kalwar Rd, near D-Mart, Jhotwara\n' +
+        '   📞 +91 91459 93363 / +91 96608 46011\n' +
+        '╚═══════════════════════════════╝\n\n' +
+        '*DINING & ORDER RECEIPT*\n' +
+        '───────────────────────────────\n' +
+        '• Receipt No : *' + receiptId + '*\n' +
+        '• Date/Time  : ' + dateStr + ', ' + timeStr + '\n' +
+        '• Order Type : *' + orderType.toUpperCase() + '*\n' +
+        '• Status     : *ORDER PLACED (CONFIRMED)*\n' +
+        '───────────────────────────────\n' +
+        '*CUSTOMER DETAILS*\n' +
+        '👤 Name      : ' + name + '\n' +
+        '📱 Phone     : ' + phone + '\n' +
+        '📍 Location  : ' + (loc || 'Counter Pickup') + '\n' +
+        '───────────────────────────────\n' +
+        '*ITEMIZED BILL*\n' +
+        '───────────────────────────────\n' +
+        itemLines + '\n' +
+        '───────────────────────────────\n' +
+        '• Subtotal        : ₹' + total + '\n' +
+        '• Delivery & Pack : FREE (₹0)\n' +
+        '• GST (5% Incl.)  : ₹0.00\n' +
+        '*💰 GRAND TOTAL   : ₹' + total + '*\n' +
+        '───────────────────────────────\n' +
+        '• Instructions    : ' + (notes ? notes : 'None') + '\n' +
+        '• Payment Mode    : Cash / UPI on Delivery\n' +
+        '═══════════════════════════════\n' +
+        '✨ _Thank you for choosing Gupshup Thikana!_\n' +
+        '_Your food is being prepared steaming hot in our kitchen._';
+
+      lastWhatsAppUrl = 'https://wa.me/919145993363?text=' + encodeURIComponent(waReceipt);
+
+      // 2. Populate On-Screen Thermal Receipt Modal
+      if (document.getElementById('rcptId')) document.getElementById('rcptId').textContent = receiptId;
+      if (document.getElementById('rcptType')) document.getElementById('rcptType').textContent = orderType.toUpperCase();
+      if (document.getElementById('rcptDate')) document.getElementById('rcptDate').textContent = dateStr;
+      if (document.getElementById('rcptTime')) document.getElementById('rcptTime').textContent = timeStr;
+      if (document.getElementById('rcptName')) document.getElementById('rcptName').textContent = name;
+      if (document.getElementById('rcptPhone')) document.getElementById('rcptPhone').textContent = phone;
+      if (document.getElementById('rcptLoc')) document.getElementById('rcptLoc').textContent = loc || 'Counter Pickup';
+      if (document.getElementById('rcptSubtotal')) document.getElementById('rcptSubtotal').textContent = '₹' + total;
+      if (document.getElementById('rcptTotal')) document.getElementById('rcptTotal').textContent = '₹' + total;
+      if (document.getElementById('rcptNotes')) document.getElementById('rcptNotes').textContent = notes || 'None';
+
+      var tbody = document.getElementById('rcptTableBody');
+      if (tbody) {
+        tbody.innerHTML = '';
+        items.forEach(function (it) {
+          var tr = document.createElement('tr');
+          tr.innerHTML = '<td>' + it.qty + 'x</td><td>' + it.name + '</td><td class="num">₹' + it.total + '</td>';
+          tbody.appendChild(tr);
+        });
+      }
+
+      // Close order modal, open receipt modal & trigger WhatsApp
+      closeModal(placeOrderBtn);
+      openModal('#receiptModal');
+      showToast('🎉 Order Placed! Generating receipt and opening WhatsApp...');
+
+      setTimeout(function () {
+        window.open(lastWhatsAppUrl, '_blank');
+      }, 900);
+    });
+  }
+
+  var rcptWhatsAppBtn = document.getElementById('rcptWhatsAppBtn');
+  if (rcptWhatsAppBtn) {
+    rcptWhatsAppBtn.addEventListener('click', function () {
+      if (lastWhatsAppUrl) window.open(lastWhatsAppUrl, '_blank');
+    });
+  }
+
+  /* Reservation Form -> Table Pass Receipt to WhatsApp */
   var reserveForm = document.getElementById('reservationForm');
   if (reserveForm) {
     reserveForm.addEventListener('submit', function (e) {
@@ -491,119 +780,41 @@
       var date = document.getElementById('resDate') ? document.getElementById('resDate').value : '';
       var time = document.getElementById('resTime') ? document.getElementById('resTime').value : '';
       var notes = document.getElementById('resNotes') ? document.getElementById('resNotes').value : '';
-      var text = 'Namaste Gupshup Thikana! 🍽️ I would like to reserve a table:\n' +
-        '• Name: ' + name + '\n' +
-        '• Phone: ' + phone + '\n' +
-        '• Guests: ' + guests + ' People\n' +
-        '• Date: ' + date + '\n' +
-        '• Time: ' + time + (notes ? ('\n• Note: ' + notes) : '') + '\n' +
-        'Please confirm availability. Thank you!';
-      var waUrl = 'https://wa.me/919145993363?text=' + encodeURIComponent(text);
+
+      var passId = '#RES-' + Math.floor(1000 + Math.random() * 9000);
+
+      var passText = 
+        '╔═══════════════════════════════╗\n' +
+        '   🍽️ *GUPSHUP THIKANA (24/7)*\n' +
+        '   *TABLE RESERVATION PASS*\n' +
+        '   📍 Kalwar Rd, Jhotwara, Jaipur\n' +
+        '   📞 +91 91459 93363\n' +
+        '╚═══════════════════════════════╝\n\n' +
+        '*BOOKING RECEIPT*\n' +
+        '───────────────────────────────\n' +
+        '• Pass ID    : *' + passId + '*\n' +
+        '• Guest Name : ' + name + '\n' +
+        '• Contact    : ' + phone + '\n' +
+        '• Party Size : *' + guests + ' Guests*\n' +
+        '• Date       : ' + date + '\n' +
+        '• Time Slot  : ' + time + '\n' +
+        '• Occasion   : ' + (notes ? notes : 'Casual Dining') + '\n' +
+        '───────────────────────────────\n' +
+        '• Table Allotment : Priority Table (AC Lounge)\n' +
+        '• Status          : *CONFIRMED VIA WHATSAPP*\n' +
+        '───────────────────────────────\n' +
+        '_Please present this pass upon arrival._\n' +
+        '_We look forward to hosting your celebration beneath the warm Edison glow!_\n' +
+        '═══════════════════════════════';
+
+      var waUrl = 'https://wa.me/919145993363?text=' + encodeURIComponent(passText);
       closeModal(reserveForm);
-      showToast('🎉 Opening WhatsApp for instant reservation confirmation...');
+      showToast('🎉 Table Reserved! Opening WhatsApp reservation pass...');
       setTimeout(function () { window.open(waUrl, '_blank'); }, 700);
     });
   }
 
-  var menuItems = [
-    { name: 'Delhi Butter Handi Momos', cat: 'momos', price: 250, desc: 'Tender veg dimsums slow-simmered in rich tandoori butter gravy.' },
-    { name: 'Tandoori Fried Momos', cat: 'momos', price: 180, desc: 'Crispy fried momos tossed with chaat masala & mint chutney.' },
-    { name: 'Steamed Cheese Momos', cat: 'momos', price: 150, desc: 'Delicate steamed dumplings with molten cheese filling.' },
-    { name: 'Double Cheese Corn Pizza', cat: 'pizzas', price: 110, desc: 'Golden crust with double mozzarella & sweet American corn.' },
-    { name: 'Farmhouse Gourmet Pizza', cat: 'pizzas', price: 140, desc: 'Black olives, jalapenos, onions, capsicum & mozzarella.' },
-    { name: 'Paneer Makhani Pizza', cat: 'pizzas', price: 160, desc: 'Tandoori spiced paneer cubes on rich makhani sauce base.' },
-    { name: 'Skillet Melted Cheesy Maggi', cat: 'maggi', price: 100, desc: 'Double noodles with butter, corn, herbs & thick cheese pull.' },
-    { name: 'Tandoori Tadka Maggi', cat: 'maggi', price: 80, desc: 'Spicy smoky maggi with veggies and homemade secret spices.' },
-    { name: 'Cheese Corn Grilled Sandwich', cat: 'sandwiches', price: 130, desc: 'Triple-decker golden toasted bread loaded with sweet corn.' },
-    { name: 'Bombay Masala Grill Sandwich', cat: 'sandwiches', price: 100, desc: 'Spiced potato mash, tomatoes, cucumber, mint chutney & cheese.' },
-    { name: 'Artisanal Hazelnut Cold Coffee', cat: 'drinks', price: 120, desc: 'Chilled espresso with roasted hazelnut and dark chocolate drizzle.' },
-    { name: 'Two-Swirl Mango Thick Shake', cat: 'drinks', price: 110, desc: 'Alphonso puree churned with thick cream and ice cream scoop.' },
-    { name: 'Oreo KitKat Overload Shake', cat: 'drinks', price: 140, desc: 'Loaded chocolate shake with crushed oreo, kitkat and fudge.' },
-    { name: 'Special Adrak Masala Chai', cat: 'drinks', price: 35, desc: 'Brewed fresh 24/7 with ginger, cardamom, clove and fresh milk.' },
-    { name: 'Peri Peri Crispy French Fries', cat: 'starters', price: 90, desc: 'Crispy golden potato fingers tossed in fiery peri peri.' },
-    { name: 'Chilli Paneer Dry', cat: 'starters', price: 160, desc: 'Crispy wok-tossed cottage cheese with bell peppers & garlic.' }
-  ];
-
-  var currentCat = 'all';
-  var cart = {};
-
-  function renderMenuGrid() {
-    var grid = document.getElementById('gtMenuGrid');
-    if (!grid) return;
-    grid.innerHTML = '';
-    var filtered = currentCat === 'all' ? menuItems : menuItems.filter(function (x) { return x.cat === currentCat; });
-    filtered.forEach(function (item) {
-      var card = document.createElement('div');
-      card.className = 'gt-menu-card';
-      card.innerHTML = '<div class="info"><h4>' + item.name + '</h4><p>' + item.desc + '</p></div>' +
-        '<div class="price-action"><div class="price">₹' + item.price + '</div>' +
-        '<button type="button" class="add-btn" data-add-item="' + item.name + '">+ Add</button></div>';
-      grid.appendChild(card);
-    });
-
-    grid.querySelectorAll('[data-add-item]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var name = btn.getAttribute('data-add-item');
-        var found = menuItems.find(function (m) { return m.name === name; });
-        if (found) {
-          cart[name] = (cart[name] || 0) + 1;
-          updateCartUI();
-          showToast('Added ' + name + ' to order!');
-        }
-      });
-    });
-  }
-
-  function updateCartUI() {
-    var count = 0, total = 0;
-    for (var k in cart) {
-      var item = menuItems.find(function (m) { return m.name === k; });
-      if (item) {
-        count += cart[k];
-        total += item.price * cart[k];
-      }
-    }
-    var badge = document.getElementById('cartBadge');
-    var totalEl = document.getElementById('cartTotal');
-    if (badge) badge.textContent = count;
-    if (totalEl) totalEl.textContent = '₹' + total;
-  }
-
-  document.querySelectorAll('.gt-tab-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      document.querySelectorAll('.gt-tab-btn').forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      currentCat = btn.getAttribute('data-cat') || 'all';
-      renderMenuGrid();
-    });
-  });
-
-  var placeOrderBtn = document.getElementById('placeOrderBtn');
-  if (placeOrderBtn) {
-    placeOrderBtn.addEventListener('click', function () {
-      var itemsList = [];
-      var total = 0;
-      for (var k in cart) {
-        var item = menuItems.find(function (m) { return m.name === k; });
-        if (item) {
-          itemsList.push('• ' + k + ' x' + cart[k] + ' (₹' + (item.price * cart[k]) + ')');
-          total += item.price * cart[k];
-        }
-      }
-      if (itemsList.length === 0) {
-        showToast('Please add items to your order first!');
-        return;
-      }
-      var msg = 'Hello Gupshup Thikana! 🛵 I would like to place an order:\n\n' +
-        itemsList.join('\n') + '\n\n' +
-        'Total Amount: ₹' + total + '\n' +
-        'Please confirm order and delivery time. Thank you!';
-      var waUrl = 'https://wa.me/919145993363?text=' + encodeURIComponent(msg);
-      window.open(waUrl, '_blank');
-    });
-  }
-
   renderMenuGrid();
-  updateCartUI();
+  updateCartAndBill();
 
 })();

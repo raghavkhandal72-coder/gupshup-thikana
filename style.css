@@ -381,3 +381,279 @@ body.admin-bar .site-header { top: 32px; } @media screen and (max-width: 782px) 
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+/* =============================================================
+   THERMAL RESTAURANT RECEIPT & BILLING MODAL STYLES
+   ============================================================= */
+
+/* Quantity Stepper in Menu Cards */
+.qty-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(5, 9, 26, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 3px 8px;
+  margin-top: 6px;
+}
+.qty-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(201, 162, 75, 0.15);
+  color: var(--gold-hi);
+  font-weight: 700;
+  font-size: 1rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.qty-btn:hover {
+  background: var(--gold-grad);
+  color: #241a06;
+  border-color: transparent;
+}
+.qty-val {
+  font-family: var(--f-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--cream);
+  min-width: 18px;
+  text-align: center;
+}
+
+/* Order Drawer Layout with Form and Cart */
+.order-modal-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+  margin-top: 14px;
+}
+@media (max-width: 900px) {
+  .order-modal-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.order-items-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-cart-col {
+  background: rgba(8, 14, 34, 0.85);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 68vh;
+  overflow-y: auto;
+}
+
+.cart-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 12px;
+}
+.cart-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.86rem;
+  color: var(--cream-dim);
+}
+.cart-row b {
+  color: var(--cream);
+}
+.cart-row .cart-price {
+  font-family: var(--f-display);
+  color: var(--gold-hi);
+  font-size: 1.05rem;
+}
+
+/* Order Type Pills */
+.order-type-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.order-type-btn {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: rgba(5, 9, 26, 0.5);
+  color: var(--cream-dim);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+.order-type-btn.active {
+  background: var(--gold-grad);
+  color: #241a06;
+  font-weight: 700;
+  border-color: transparent;
+}
+
+/* Receipt Ticket UI (On-Screen Thermal Bill) */
+#receiptModal {
+  align-items: flex-start;
+  overflow-y: auto;
+  padding-top: clamp(24px, 5vh, 60px);
+  padding-bottom: clamp(30px, 6vh, 60px);
+}
+.receipt-ticket-wrap {
+  max-width: 440px;
+  width: 100%;
+  margin: auto;
+}
+.receipt-ticket {
+  background: #FAF8F2;
+  color: #1A1A1A;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 28px 24px 34px;
+  border-radius: 6px;
+  position: relative;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+  line-height: 1.4;
+  margin-inline: auto;
+}
+.receipt-ticket::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: radial-gradient(circle, transparent 4px, #FAF8F2 5px) repeat-x;
+  background-size: 12px 8px;
+}
+.receipt-ticket::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: radial-gradient(circle, transparent 4px, #FAF8F2 5px) repeat-x;
+  background-size: 12px 8px;
+  transform: rotate(180deg);
+}
+.receipt-header {
+  text-align: center;
+  border-bottom: 2px dashed #888;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+}
+.receipt-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 2px;
+  letter-spacing: -0.01em;
+}
+.receipt-header .tagline {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #555;
+}
+.receipt-header .meta-info {
+  font-size: 0.76rem;
+  color: #444;
+  margin-top: 6px;
+}
+.receipt-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.76rem;
+  color: #333;
+  margin-bottom: 12px;
+  border-bottom: 1px dashed #aaa;
+  padding-bottom: 10px;
+}
+.receipt-customer {
+  font-size: 0.78rem;
+  color: #222;
+  margin-bottom: 14px;
+  border-bottom: 1px dashed #aaa;
+  padding-bottom: 10px;
+}
+.receipt-table {
+  width: 100%;
+  font-size: 0.8rem;
+  border-collapse: collapse;
+  margin-bottom: 14px;
+}
+.receipt-table th {
+  text-align: left;
+  border-bottom: 1px solid #333;
+  padding-bottom: 4px;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+}
+.receipt-table td {
+  padding: 6px 0;
+}
+.receipt-table td.num {
+  text-align: right;
+  font-weight: 600;
+}
+.receipt-totals {
+  border-top: 1px dashed #555;
+  padding-top: 10px;
+  margin-bottom: 14px;
+  font-size: 0.82rem;
+}
+.receipt-totals .line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.receipt-totals .grand {
+  font-size: 1.15rem;
+  font-weight: 800;
+  border-top: 2px solid #111;
+  border-bottom: 2px solid #111;
+  padding: 6px 0;
+  margin-top: 6px;
+}
+.receipt-footer {
+  text-align: center;
+  font-size: 0.72rem;
+  color: #555;
+  margin-top: 16px;
+}
+.receipt-barcode {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  height: 38px;
+  margin: 12px 0 6px;
+}
+.receipt-barcode span {
+  background: #222;
+  display: inline-block;
+  height: 100%;
+}
+.receipt-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.receipt-actions .btn {
+  flex: 1;
+  justify-content: center;
+}
