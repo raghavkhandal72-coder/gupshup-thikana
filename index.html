@@ -303,78 +303,49 @@
     </div>
 
     <div class="region-row reveal d1">
-      <a class="region" href="#orderModal" data-modal-target="#orderModal">
+      <a class="region" href="#orderModal" data-modal-target="#orderModal" data-select-cat="momos">
         <div class="region__img"><img src="assets/handi-momos.jpg" alt="Handi Momos" loading="lazy"></div>
         <h3>Handi Momos</h3>
         <p>Smoky tandoori gravy baked in clay pots.</p>
       </a>
 
-      <a class="region" href="#orderModal" data-modal-target="#orderModal">
+      <a class="region" href="#orderModal" data-modal-target="#orderModal" data-select-cat="pizza">
         <div class="region__img"><img src="assets/cheese-corn-pizza.jpg" alt="Stone Oven Pizzas" loading="lazy"></div>
         <h3>Stone-Oven Pizzas</h3>
         <p>Crispy crust, loaded mozzarella &amp; farm toppings.</p>
       </a>
 
-      <a class="region" href="#orderModal" data-modal-target="#orderModal">
+      <a class="region" href="#orderModal" data-modal-target="#orderModal" data-select-cat="sandwiches">
         <div class="region__img"><img src="assets/grilled-sandwich.jpg" alt="Grilled Sandwiches" loading="lazy"></div>
         <h3>Grilled Sandwiches</h3>
         <p>Triple-layered, golden toasted with cheese &amp; corn.</p>
       </a>
 
-      <a class="region" href="#orderModal" data-modal-target="#orderModal">
+      <a class="region" href="#orderModal" data-modal-target="#orderModal" data-select-cat="maggi">
         <div class="region__img"><img src="assets/skillet-cheesy-maggi.jpg" alt="Cheesy Maggi &amp; Pastas" loading="lazy"></div>
         <h3>Cheesy Maggi</h3>
         <p>Served bubbling in hot iron skillets with butter.</p>
       </a>
 
-      <a class="region" href="#orderModal" data-modal-target="#orderModal">
+      <a class="region" href="#orderModal" data-modal-target="#orderModal" data-select-cat="fries_nachos">
         <div class="region__img"><img src="assets/farmhouse-gourmet-pizza.jpg" alt="Quick Bites &amp; Starters" loading="lazy"></div>
         <h3>Quick Bites</h3>
         <p>Peri-peri fries, crunchy chilli paneer &amp; snacks.</p>
       </a>
 
-      <a class="region" href="#orderModal" data-modal-target="#orderModal">
+      <a class="region" href="#orderModal" data-modal-target="#orderModal" data-select-cat="shakes">
         <div class="region__img"><img src="assets/mango-thick-shake.jpg" alt="Drinks &amp; Shakes" loading="lazy"></div>
         <h3>Shakes &amp; Sips</h3>
         <p>Thick mango swirl, hazelnut cold brew &amp; chai.</p>
       </a>
     </div>
 
-    <!-- On-Page Full Restaurant Menu Board -->
-    <div class="onpage-menu-container">
-      <div style="text-align:center;margin-top:clamp(14px,2vw,22px);margin-bottom:18px;">
-        <span class="eyebrow center">Complete Dishes &amp; Pricing</span>
-        <h3 style="font-family:var(--f-display);font-size:clamp(1.9rem,4vw,2.9rem);margin-bottom:8px;color:var(--cream);">
-          Gupshup Thikana <span class="gold-text">Specialty Menu</span>
-        </h3>
-        <p style="color:var(--cream-dim);max-width:640px;margin-inline:auto;font-size:0.95rem;">
-          Every single dish freshly prepared 24/7 with authentic ingredients. Click <b>+ Add</b> on any dish to build your order with an instant WhatsApp receipt.
-        </p>
-      </div>
-
-      <!-- Category Filter Pills on Page -->
-      <div class="onpage-menu-filter-bar">
-        <button type="button" class="gt-tab-btn active onpage-tab" data-cat="all">All Dishes (173)</button>
-        <button type="button" class="gt-tab-btn onpage-tab" data-cat="burger">🍔 Burger &amp; Vada Pav</button>
-        <button type="button" class="gt-tab-btn onpage-tab" data-cat="sandwiches">🥪 Sandwiches &amp; Baked</button>
-        <button type="button" class="gt-tab-btn onpage-tab" data-cat="pizza">🍕 Stone-Oven Pizzas</button>
-        <button type="button" class="gt-tab-btn onpage-tab" data-cat="maggi">🍜 Maggi Varieties</button>
-        <button type="button" class="gt-tab-btn onpage-tab" data-cat="chinese">🥢 Chinese &amp; Noodles</button>
-        <button type="button" class="gt-tab-btn onpage-tab" data-cat="rolls">🌯 Rolls &amp; Toast</button>
-        <button type="button" class="gt-tab-btn onpage-tab" data-cat="pasta">🍝 Pasta &amp; Garlic Bread</button>
-        <button type="button" class="gt-tab-btn onpage-tab" data-cat="fries_nachos">🍟 Fries &amp; Nachos</button>
-        <button type="button" class="gt-tab-btn onpage-tab" data-cat="chaat">🍿 Chaat &amp; Bites</button>
-        <button type="button" class="gt-tab-btn onpage-tab" data-cat="coffee">☕ Coffee (Hot &amp; Cold)</button>
-        <button type="button" class="gt-tab-btn onpage-tab" data-cat="tea">🫖 Chai &amp; Ice Tea</button>
-        <button type="button" class="gt-tab-btn onpage-tab" data-cat="shakes">🥤 Thick Shakes</button>
-        <button type="button" class="gt-tab-btn onpage-tab" data-cat="mocktails">🍹 Mocktails &amp; Lemonade</button>
-        <button type="button" class="gt-tab-btn onpage-tab" data-cat="momos">🥟 Handi Momos</button>
-      </div>
-
-      <!-- The Menu Items Grid Rendered on Page -->
-      <div class="onpage-menu-grid" id="onPageMenuGrid">
-        <!-- Rendered dynamically by script.js -->
-      </div>
+    <!-- Button to Open Full Interactive 173-Dish Menu & Order Modal -->
+    <div style="text-align:center;margin-top:clamp(28px,4vw,40px);">
+      <button type="button" class="btn btn-gold btn-lg" data-modal-target="#orderModal" style="padding:15px 32px;font-size:1.05rem;box-shadow:0 10px 30px rgba(201,162,75,0.35);">
+        <span>📖 View Complete 173 Dishes Menu &amp; Order Online</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;margin-left:8px;"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
     </div>
   </div>
 </section>

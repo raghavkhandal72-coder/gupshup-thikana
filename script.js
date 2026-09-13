@@ -2418,6 +2418,16 @@
     });
   }
 
+  document.querySelectorAll('[data-select-cat]').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var cat = card.getAttribute('data-select-cat');
+      var tab = document.querySelector('.gt-menu-tabs .gt-tab-btn[data-cat="' + cat + '"]');
+      if (tab) {
+        setTimeout(function () { tab.click(); }, 60);
+      }
+    });
+  });
+
   renderMenuGrid();
   renderOnPageMenu();
   updateCartAndBill();
