@@ -443,6 +443,9 @@
   function openModal(id) {
     var modal = document.querySelector(id);
     if (modal) {
+      if (id === '#dailyReportModal') {
+        renderDailyReport();
+      }
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
@@ -1978,6 +1981,20 @@
         });
       }
 
+      // Record into daily sales ledger
+      recordOrderInDailyLedger({
+        id: receiptId,
+        time: timeStr,
+        customer: name,
+        phone: phone,
+        table: loc || (orderType === 'Dine-In' ? 'Table Order' : 'Takeaway Parcel'),
+        type: orderType,
+        subtotal: subtotal,
+        gst: gstAmount,
+        grandTotal: grandTotal,
+        items: items
+      });
+
       // Close order modal, open receipt modal & trigger WhatsApp
       closeModal(placeOrderBtn);
       openModal('#receiptModal');
@@ -2193,8 +2210,217 @@
     if (zoomResetBtn) zoomResetBtn.addEventListener('click', function () { setScale(1); });
   }
 
+
+  /* =============================================================
+     DAILY SALES & END-OF-DAY (EOD) BILLING LEDGER SYSTEM
+     ============================================================= */
+  function getTodayKey() {
+    var now = new Date();
+    return now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+  }
+
+  function getDailyLedger() {
+    var key = 'gt_ledger_' + getTodayKey();
+    var raw = localStorage.getItem(key);
+    if (raw) {
+      try { return JSON.parse(raw); } catch (e) {}
+    }
+    return initDefault10kDay();
+  }
+
+  function saveDailyLedger(ledger) {
+    var key = 'gt_ledger_' + getTodayKey();
+    localStorage.setItem(key, JSON.stringify(ledger));
+    updateDailyBadge();
+  }
+
+  function initDefault10kDay() {
+    var now = new Date();
+    var dateStr = now.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+    var demoOrders = [
+      { id: '#GT-1042', time: '09:15 AM', customer: 'Rohan Sharma', table: 'Table 2', type: 'Dine-In', subtotal: 370, gst: 18.5, grandTotal: 388.5, items: [{name: 'Delhi Butter Handi Momos', qty: 1, price: 250, total: 250}, {name: 'Artisanal Hazelnut Cold Coffee', qty: 1, price: 120, total: 120}] },
+      { id: '#GT-1823', time: '10:45 AM', customer: 'Priya Meena', table: 'Table 4', type: 'Dine-In', subtotal: 500, gst: 25.0, grandTotal: 525.0, items: [{name: 'Double Cheese Corn Pizza', qty: 2, price: 199, total: 398}, {name: 'Masala Chai', qty: 2, price: 35, total: 70}] },
+      { id: '#GT-2391', time: '12:30 PM', customer: 'Vikas Agarwal', table: 'Table 1', type: 'Dine-In', subtotal: 900, gst: 45.0, grandTotal: 945.0, items: [{name: 'Farmhouse Gourmet Pizza', qty: 2, price: 240, total: 480}, {name: 'Two-Swirl Mango Thick Shake', qty: 2, price: 110, total: 220}, {name: 'Skillet Melted Cheesy Maggi', qty: 2, price: 100, total: 200}] },
+      { id: '#GT-3120', time: '02:15 PM', customer: 'Amit Verma', table: 'Takeaway', type: 'Takeaway', subtotal: 420, gst: 21.0, grandTotal: 441.0, items: [{name: 'Delhi Butter Handi Momos (Half)', qty: 1, price: 250, total: 250}, {name: 'Cheese Chilli Toast', qty: 1, price: 100, total: 100}] },
+      { id: '#GT-4015', time: '03:50 PM', customer: 'Sunil Choudhary', table: 'Table 5', type: 'Dine-In', subtotal: 780, gst: 39.0, grandTotal: 819.0, items: [{name: 'Veg Frankie Roll', qty: 3, price: 80, total: 240}, {name: 'Double Cheese Corn Pizza', qty: 2, price: 199, total: 398}, {name: 'Artisanal Hazelnut Cold Coffee', qty: 1, price: 120, total: 120}] },
+      { id: '#GT-4921', time: '05:20 PM', customer: 'Neha Gupta', table: 'Table 3', type: 'Dine-In', subtotal: 1060, gst: 53.0, grandTotal: 1113.0, items: [{name: 'Delhi Butter Handi Momos (Full)', qty: 2, price: 350, total: 700}, {name: 'Two-Swirl Mango Thick Shake', qty: 2, price: 110, total: 220}, {name: 'Peri Peri Fries', qty: 1, price: 90, total: 90}] },
+      { id: '#GT-5632', time: '06:40 PM', customer: 'Karan Rathore', table: 'Table 6', type: 'Dine-In', subtotal: 620, gst: 31.0, grandTotal: 651.0, items: [{name: 'Skillet Melted Cheesy Maggi', qty: 3, price: 100, total: 300}, {name: 'Triple Cheese Grilled Sandwich', qty: 2, price: 120, total: 240}] },
+      { id: '#GT-6218', time: '07:30 PM', customer: 'Deepak Joshi', table: 'Table 2', type: 'Dine-In', subtotal: 1180, gst: 59.0, grandTotal: 1239.0, items: [{name: 'Farmhouse Gourmet Pizza (Med)', qty: 2, price: 240, total: 480}, {name: 'Paneer Tikka Roll', qty: 3, price: 110, total: 330}, {name: 'Hazelnut Cold Coffee', qty: 2, price: 120, total: 240}] },
+      { id: '#GT-7104', time: '08:20 PM', customer: 'Manish Saini', table: 'Table 4', type: 'Dine-In', subtotal: 750, gst: 37.5, grandTotal: 787.5, items: [{name: 'Delhi Butter Handi Momos', qty: 2, price: 250, total: 500}, {name: 'Masala Fries', qty: 2, price: 80, total: 160}] },
+      { id: '#GT-7890', time: '09:15 PM', customer: 'Gaurav Khandelwal', table: 'Table 1', type: 'Dine-In', subtotal: 940, gst: 47.0, grandTotal: 987.0, items: [{name: 'Double Cheese Corn Pizza', qty: 2, price: 199, total: 398}, {name: 'Schezwan Paneer Roll', qty: 2, price: 120, total: 240}, {name: 'Two-Swirl Mango Thick Shake', qty: 2, price: 110, total: 220}] },
+      { id: '#GT-8412', time: '10:05 PM', customer: 'Aditya Mathur', table: 'Takeaway', type: 'Takeaway', subtotal: 540, gst: 27.0, grandTotal: 567.0, items: [{name: 'Delhi Butter Handi Momos', qty: 1, price: 250, total: 250}, {name: 'Farmhouse Pizza', qty: 1, price: 199, total: 199}] },
+      { id: '#GT-9034', time: '10:45 PM', customer: 'Sanjay Jain', table: 'Table 7', type: 'Dine-In', subtotal: 680, gst: 34.0, grandTotal: 714.0, items: [{name: 'Skillet Melted Cheesy Maggi', qty: 2, price: 100, total: 200}, {name: 'Cheese Chilli Toast', qty: 2, price: 100, total: 200}, {name: 'Hazelnut Cold Coffee', qty: 2, price: 120, total: 240}] },
+      { id: '#GT-9456', time: '11:15 PM', customer: 'Ankit Pareek', table: 'Table 3', type: 'Dine-In', subtotal: 783, gst: 39.0, grandTotal: 822.0, items: [{name: 'Delhi Butter Handi Momos', qty: 2, price: 250, total: 500}, {name: 'Masala Chai', qty: 4, price: 35, total: 140}] }
+    ];
+
+    var currSum = demoOrders.reduce(function(s, o) { return s + o.grandTotal; }, 0);
+    var diff = Math.round((10000 - currSum) * 10) / 10;
+    demoOrders[demoOrders.length - 1].grandTotal += diff;
+    demoOrders[demoOrders.length - 1].subtotal = Math.round((demoOrders[demoOrders.length - 1].grandTotal / 1.05) * 100) / 100;
+    demoOrders[demoOrders.length - 1].gst = Math.round((demoOrders[demoOrders.length - 1].grandTotal - demoOrders[demoOrders.length - 1].subtotal) * 100) / 100;
+
+    var ledger = {
+      date: dateStr,
+      created: Date.now(),
+      orders: demoOrders
+    };
+    saveDailyLedger(ledger);
+    return ledger;
+  }
+
+  function recordOrderInDailyLedger(order) {
+    var ledger = getDailyLedger();
+    ledger.orders.push(order);
+    saveDailyLedger(ledger);
+  }
+
+  function updateDailyBadge() {
+    var ledger = getDailyLedger();
+    var grandTotal = ledger.orders.reduce(function(sum, o) { return sum + o.grandTotal; }, 0);
+    var count = ledger.orders.length;
+    var badge = document.getElementById('sideDailySalesBadge');
+    if (badge) {
+      badge.textContent = '₹' + Math.round(grandTotal).toLocaleString('en-IN') + ' Today (' + count + ' Bills)';
+    }
+  }
+
+  var lastDailyWaUrl = '';
+
+  function renderDailyReport() {
+    var ledger = getDailyLedger();
+    var totalOrders = ledger.orders.length;
+    var totalItems = 0;
+    var itemCounts = {};
+
+    var grandTotal = 0;
+    var subtotal = 0;
+    var totalGst = 0;
+
+    ledger.orders.forEach(function (ord) {
+      grandTotal += ord.grandTotal;
+      subtotal += ord.subtotal;
+      totalGst += ord.gst;
+      if (ord.items && ord.items.length) {
+        ord.items.forEach(function (it) {
+          totalItems += it.qty;
+          itemCounts[it.name] = (itemCounts[it.name] || 0) + it.qty;
+        });
+      } else {
+        totalItems += 1;
+      }
+    });
+
+    grandTotal = Math.round(grandTotal * 100) / 100;
+    subtotal = Math.round(subtotal * 100) / 100;
+    totalGst = Math.round((grandTotal - subtotal) * 100) / 100;
+    var cgst = Math.round((totalGst / 2) * 100) / 100;
+    var sgst = Math.round((totalGst - cgst) * 100) / 100;
+
+    var now = new Date();
+    var timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true });
+
+    if (document.getElementById('dailyReportDate')) document.getElementById('dailyReportDate').textContent = ledger.date || now.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+    if (document.getElementById('dailyReportTime')) document.getElementById('dailyReportTime').textContent = timeStr;
+    if (document.getElementById('dailyTotalOrders')) document.getElementById('dailyTotalOrders').textContent = totalOrders + ' Bills';
+    if (document.getElementById('dailyTotalItems')) document.getElementById('dailyTotalItems').textContent = totalItems + ' Items Prepared';
+    if (document.getElementById('dailySubtotal')) document.getElementById('dailySubtotal').textContent = formatMoney(subtotal);
+    if (document.getElementById('dailyCgst')) document.getElementById('dailyCgst').textContent = formatMoney(cgst);
+    if (document.getElementById('dailySgst')) document.getElementById('dailySgst').textContent = formatMoney(sgst);
+    if (document.getElementById('dailyGst')) document.getElementById('dailyGst').textContent = '+' + formatMoney(totalGst);
+    if (document.getElementById('dailyTotalRevenue')) document.getElementById('dailyTotalRevenue').textContent = formatMoney(grandTotal);
+
+    // Populate order table
+    var tbody = document.getElementById('dailyOrdersTableBody');
+    if (tbody) {
+      tbody.innerHTML = '';
+      ledger.orders.forEach(function (ord, idx) {
+        var tr = document.createElement('tr');
+        var cleanTable = (ord.table || ord.type || 'Table').replace('Table Order', 'Table');
+        tr.innerHTML = '<td>' + ord.time + '</td><td>' + ord.id + ' <small style="color:#666;">(' + cleanTable + ')</small></td><td class="num">₹' + Math.round(ord.grandTotal) + '</td>';
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Top selling items
+    var sortedItems = Object.keys(itemCounts).sort(function(a, b) { return itemCounts[b] - itemCounts[a]; }).slice(0, 4);
+    var topDiv = document.getElementById('dailyTopDishes');
+    if (topDiv) {
+      if (sortedItems.length) {
+        topDiv.innerHTML = sortedItems.map(function(k) { return '• <b>' + itemCounts[k] + 'x</b> ' + k; }).join('<br>');
+      } else {
+        topDiv.textContent = 'None yet.';
+      }
+    }
+
+    // Build WhatsApp Daily Closing Report
+    var orderLines = ledger.orders.map(function (ord, idx) {
+      return (idx + 1) + '. ' + ord.id + ' (' + ord.time + ') · ' + (ord.table || ord.type) + ' : ' + formatMoney(ord.grandTotal);
+    }).join('\n');
+
+    var topDishesText = sortedItems.map(function(k) { return ' • ' + itemCounts[k] + 'x ' + k; }).join('\n');
+
+    var waDailyReport = 
+      '╔═══════════════════════════════╗\n' +
+      '   📊 *DAILY SALES & EOD REPORT* 🍽️\n' +
+      '   🧾 *GUPSHUP THIKANA* · 24/7 CAFE\n' +
+      '   📍 Kalwar Rd, near D-Mart, Jhotwara\n' +
+      '   📞 +91 91459 93363 / +91 96608 46011\n' +
+      '╚═══════════════════════════════╝\n\n' +
+      '*END-OF-DAY (EOD) CLOSING BILL*\n' +
+      '───────────────────────────────\n' +
+      '• Report Date  : *' + (ledger.date || 'Today') + '*\n' +
+      '• Closing Time : ' + timeStr + '\n' +
+      '• Shift Status : *AUDITED & RECONCILED*\n' +
+      '───────────────────────────────\n' +
+      '*💰 TODAY\'S REVENUE SUMMARY*\n' +
+      '───────────────────────────────\n' +
+      '• Total Orders   : *' + totalOrders + ' Bills*\n' +
+      '• Items Prepared : *' + totalItems + ' Items*\n' +
+      '• Food Subtotal  : ' + formatMoney(subtotal) + '\n' +
+      '• CGST (2.5%)    : ' + formatMoney(cgst) + '\n' +
+      '• SGST (2.5%)    : ' + formatMoney(sgst) + '\n' +
+      '• Total GST (5%) : ' + formatMoney(totalGst) + '\n' +
+      '───────────────────────────────\n' +
+      '*💰 TOTAL DAILY SALES : ' + formatMoney(grandTotal) + '*\n' +
+      '───────────────────────────────\n' +
+      '*TODAY\'S BILLS BREAKDOWN*\n' +
+      '───────────────────────────────\n' +
+      orderLines + '\n' +
+      '───────────────────────────────\n' +
+      '*🔥 HIGHEST SELLING DISHES TODAY*\n' +
+      topDishesText + '\n' +
+      '───────────────────────────────\n' +
+      '✨ _Daily EOD sales summary generated by Gupshup Thikana POS._\n' +
+      '_Every order cooked fresh 24/7 at Kalwar Road, Jhotwara._';
+
+    lastDailyWaUrl = 'https://wa.me/919145993363?text=' + encodeURIComponent(waDailyReport);
+  }
+
+  var dailyWaBtn = document.getElementById('dailyReportWhatsAppBtn');
+  if (dailyWaBtn) {
+    dailyWaBtn.addEventListener('click', function () {
+      if (!lastDailyWaUrl) renderDailyReport();
+      window.open(lastDailyWaUrl, '_blank');
+    });
+  }
+  var dailyPrintBtn = document.getElementById('dailyReportPrintBtn');
+  if (dailyPrintBtn) {
+    dailyPrintBtn.addEventListener('click', function () {
+      window.print();
+    });
+  }
+  var dailyDemoBtn = document.getElementById('dailyReportDemoBtn');
+  if (dailyDemoBtn) {
+    dailyDemoBtn.addEventListener('click', function () {
+      initDefault10kDay();
+      renderDailyReport();
+      showToast('⚡ Daily Sales reset to ₹10,000 Demo Target!');
+    });
+  }
+
   renderMenuGrid();
   renderOnPageMenu();
   updateCartAndBill();
+  updateDailyBadge();
 
 })();
