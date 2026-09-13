@@ -1029,7 +1029,9 @@ body.admin-bar .site-header { top: 32px; } @media screen and (max-width: 782px) 
    ON-PAGE RESTAURANT MENU BOARD & FLOATING ORDER STRIP
    ============================================================= */
 .onpage-menu-container {
-  margin-top: clamp(28px, 4vw, 44px);
+  margin-top: clamp(12px, 1.8vw, 22px) !important;
+  opacity: 1 !important;
+  transform: none !important;
 }
 .onpage-menu-filter-bar {
   display: flex;
