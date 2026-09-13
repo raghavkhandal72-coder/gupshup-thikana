@@ -1157,3 +1157,55 @@ body.admin-bar .site-header { top: 32px; } @media screen and (max-width: 782px) 
   font-size: 1.3rem;
 }
 
+/* =============================================================
+   OPTIMIZED SPACING FOR 'A FEAST WORTH GATHERING FOR' BANNER
+   ============================================================= */
+#cuisine {
+  padding-bottom: clamp(24px, 4vw, 44px) !important;
+}
+
+.menu-action-buttons-wrap {
+  margin-top: 24px !important;
+  margin-bottom: 0 !important;
+}
+
+.fullbleed {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  height: auto !important;
+  min-height: clamp(340px, 45vw, 500px) !important;
+  padding: clamp(50px, 7vw, 84px) var(--gutter) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.fullbleed__img {
+  background-attachment: scroll !important;
+  background-position: center center !important;
+  background-size: cover !important;
+}
+
+.fullbleed__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 820px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+.fullbleed h2 {
+  font-size: clamp(1.9rem, 4.5vw, 3.6rem) !important;
+  margin-top: 0.8rem !important;
+  margin-bottom: 0.8rem !important;
+}
+
+.fullbleed p {
+  margin: 0.8rem auto 0 !important;
+  font-size: clamp(0.95rem, 1.8vw, 1.25rem) !important;
+  line-height: 1.6 !important;
+  color: var(--cream-dim) !important;
+  max-width: 54ch !important;
+}
+
+
