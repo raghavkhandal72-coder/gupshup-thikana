@@ -339,6 +339,15 @@
         <p>Thick mango swirl, hazelnut cold brew &amp; chai.</p>
       </a>
     </div>
+
+    <div style="text-align:center;margin-top:clamp(32px,5vw,48px);" class="reveal d2">
+      <button type="button" class="btn btn-gold btn-lg" data-modal-target="#orderModal" style="margin-right:12px;margin-bottom:10px;">
+        Order Online (118 Items) 🛵
+      </button>
+      <button type="button" class="btn btn-ghost btn-lg" data-modal-target="#menuCardModal" style="margin-bottom:10px;">
+        📸 View Official Menu Card
+      </button>
+    </div>
   </div>
 </section>
 
@@ -761,15 +770,27 @@
     <h3>Order Food with Instant WhatsApp Receipt</h3>
     <p class="sub">Select your cravings below, add your details, and get an authentic restaurant bill receipt sent directly to WhatsApp.</p>
 
+    <!-- Menu Card Trigger & Tabs -->
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:8px;">
+      <span style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);">Filter by Category:</span>
+      <button type="button" class="btn btn-ghost" style="font-size:0.75rem;padding:5px 12px;border-radius:100px;" data-modal-target="#menuCardModal">
+        📸 View Original Printed Menu Card
+      </button>
+    </div>
+
     <!-- Tabs -->
     <div class="gt-menu-tabs">
-      <button type="button" class="gt-tab-btn active" data-cat="all">All Specialties</button>
-      <button type="button" class="gt-tab-btn" data-cat="momos">Handi Momos</button>
-      <button type="button" class="gt-tab-btn" data-cat="pizzas">Stone-Oven Pizzas</button>
-      <button type="button" class="gt-tab-btn" data-cat="maggi">Cheesy Maggi</button>
-      <button type="button" class="gt-tab-btn" data-cat="sandwiches">Sandwiches</button>
-      <button type="button" class="gt-tab-btn" data-cat="starters">Starters &amp; Fries</button>
-      <button type="button" class="gt-tab-btn" data-cat="drinks">Shakes &amp; Sips</button>
+      <button type="button" class="gt-tab-btn active" data-cat="all">All Items (118)</button>
+      <button type="button" class="gt-tab-btn" data-cat="coffee">☕ Coffee (Hot &amp; Cold)</button>
+      <button type="button" class="gt-tab-btn" data-cat="tea">🫖 Chai &amp; Ice Tea</button>
+      <button type="button" class="gt-tab-btn" data-cat="burger">🍔 Burger &amp; Vada Pav</button>
+      <button type="button" class="gt-tab-btn" data-cat="sandwiches">🥪 Sandwiches (Grill/Baked/Cold)</button>
+      <button type="button" class="gt-tab-btn" data-cat="pasta">🍝 Pasta &amp; Garlic Bread</button>
+      <button type="button" class="gt-tab-btn" data-cat="fries_nachos">🍟 Fries &amp; Nachos</button>
+      <button type="button" class="gt-tab-btn" data-cat="shakes">🥤 Shakes</button>
+      <button type="button" class="gt-tab-btn" data-cat="mocktails">🍹 Mocktails &amp; Lemonade</button>
+      <button type="button" class="gt-tab-btn" data-cat="chaat">🍿 Chaat &amp; Quick Bites</button>
+      <button type="button" class="gt-tab-btn" data-cat="momos">🥟 Momos &amp; Signatures</button>
     </div>
 
     <!-- Two-column Layout: Menu Items + Live Bill -->
@@ -941,6 +962,29 @@
       <button type="button" class="btn btn-ghost" onclick="window.print()">
         Print Bill 🖨️
       </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Viewing Official Printed Menu Card -->
+<div class="gt-modal-overlay" id="menuCardModal" aria-modal="true" role="dialog">
+  <div class="gt-modal" style="max-width:760px;text-align:center;">
+    <button type="button" class="gt-modal-close" data-modal-close aria-label="Close menu modal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <span class="eyebrow center">Original Counter Board</span>
+    <h3 style="font-size:clamp(1.6rem,3.5vw,2.2rem);margin-bottom:6px;">Official Gupshup Thikana Menu</h3>
+    <p class="sub" style="margin-bottom:16px;">Verified rates &amp; offerings directly from our physical cafe counter in Jhotwara.</p>
+    <div style="border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:0 15px 45px rgba(0,0,0,0.8);max-height:68vh;overflow-y:auto;background:#05091a;">
+      <img src="assets/gupshup-official-menu.jpg" alt="Official Gupshup Thikana Menu Card" style="width:100%;height:auto;display:block;">
+    </div>
+    <div style="margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="assets/gupshup-official-menu.jpg" download="Gupshup-Thikana-Official-Menu.jpg" class="btn btn-gold">
+        Download Menu Card 📥
+      </a>
+      <button type="button" class="btn btn-ghost" data-modal-close data-modal-target="#orderModal">
+        Order Food Online (118 Items) 🛵
+      </button>
       <button type="button" class="btn btn-ghost" data-modal-close>
         Close ✕
       </button>
@@ -948,8 +992,6 @@
   </div>
 </div>
 
-
-<!-- Floating 24/7 Action Pill -->
 <a href="https://wa.me/919145993363?text=Namaste%20Gupshup%20Thikana!%20I%20would%20like%20to%20order%20food%20/%20reserve%20a%20table." target="_blank" rel="noopener" class="floating-action-pill" aria-label="Chat on WhatsApp 24/7">
   <div class="pill-wa-btn">
     <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
