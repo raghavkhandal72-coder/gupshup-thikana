@@ -897,8 +897,8 @@
             <span style="color:#22c55e;font-weight:600;">FREE (₹0)</span>
           </div>
           <div style="display:flex;justify-content:space-between;margin-bottom:4px;color:var(--cream-dim);">
-            <span>GST (5% Inclusive):</span>
-            <span style="color:var(--cream-dim);">₹0.00</span>
+            <span>GST (+5% Extra):</span>
+            <span id="billGst" style="color:var(--gold);font-weight:600;">₹0</span>
           </div>
           <div style="display:flex;justify-content:space-between;border-top:1px dashed var(--line);padding-top:8px;margin-top:6px;font-weight:700;">
             <span style="color:var(--gold);">GRAND TOTAL:</span>
@@ -968,8 +968,16 @@
           <span style="color:#15803d;font-weight:700;">FREE (₹0)</span>
         </div>
         <div class="line">
-          <span>Taxes (5% GST):</span>
-          <span>Inclusive</span>
+          <span>CGST (2.5%):</span>
+          <span id="rcptCgst">₹0.00</span>
+        </div>
+        <div class="line">
+          <span>SGST (2.5%):</span>
+          <span id="rcptSgst">₹0.00</span>
+        </div>
+        <div class="line" style="font-weight:700;">
+          <span>GST (+5% Extra):</span>
+          <span id="rcptGst">₹0.00</span>
         </div>
         <div class="line grand">
           <span>TOTAL DUE:</span>

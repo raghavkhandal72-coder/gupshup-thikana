@@ -1757,11 +1757,21 @@
     });
   }
 
-  /* Update Cart List & Total calculations */
+  /* Format Currency with or without decimals */
+  function formatMoney(amount) {
+    if (typeof amount !== 'number') amount = parseFloat(amount) || 0;
+    if (amount % 1 === 0) {
+      return '₹' + amount;
+    }
+    return '₹' + amount.toFixed(2);
+  }
+
+  /* Update Cart List & Total calculations with 5% extra GST */
   function updateCartAndBill() {
     var listEl = document.getElementById('cartItemsList');
     var badge = document.getElementById('cartBadge');
     var subtotalEl = document.getElementById('billSubtotal');
+    var billGstEl = document.getElementById('billGst');
     var grandTotalEl = document.getElementById('billGrandTotal');
     var menuLiveBadge = document.getElementById('menuLiveBadge');
     var sideBadge = document.querySelector('#sideMenuWidget .gt-side-badge');
@@ -1796,13 +1806,18 @@
       listEl.innerHTML = '<p style="color:var(--cream-faint);font-size:0.85rem;text-align:center;padding:20px 0;">No items added yet. Click <b>+ Add</b> on any dish!</p>';
     }
 
+    // 5% GST extra calculation
+    var gstAmount = Math.round((subtotal * 0.05) * 100) / 100;
+    var grandTotal = Math.round((subtotal + gstAmount) * 100) / 100;
+
     if (badge) badge.textContent = totalCount + ' Items';
-    if (subtotalEl) subtotalEl.textContent = '₹' + subtotal;
-    if (grandTotalEl) grandTotalEl.textContent = '₹' + subtotal;
+    if (subtotalEl) subtotalEl.textContent = formatMoney(subtotal);
+    if (billGstEl) billGstEl.textContent = subtotal > 0 ? ('+' + formatMoney(gstAmount)) : '₹0';
+    if (grandTotalEl) grandTotalEl.textContent = formatMoney(grandTotal);
 
     if (menuLiveBadge) {
       if (totalCount > 0) {
-        menuLiveBadge.textContent = '₹' + subtotal + ' (' + totalCount + ' items)';
+        menuLiveBadge.textContent = formatMoney(grandTotal) + ' (' + totalCount + ' items • +5% GST)';
       } else {
         menuLiveBadge.textContent = '₹0 (0 items)';
       }
@@ -1855,13 +1870,13 @@
       var notes = (document.getElementById('custNotes') ? document.getElementById('custNotes').value : '').trim();
 
       var items = [];
-      var total = 0;
+      var subtotal = 0;
       for (var id in cart) {
         var count = cart[id];
         var item = menuItems.find(function (m) { return m.id === id; });
         if (item && count > 0) {
           items.push({ name: item.name, qty: count, price: item.price, total: item.price * count });
-          total += item.price * count;
+          subtotal += item.price * count;
         }
       }
 
@@ -1885,16 +1900,22 @@
         return;
       }
 
+      // 5% Extra GST calculation
+      var gstAmount = Math.round((subtotal * 0.05) * 100) / 100;
+      var cgst = Math.round((subtotal * 0.025) * 100) / 100;
+      var sgst = Math.round((gstAmount - cgst) * 100) / 100;
+      var grandTotal = Math.round((subtotal + gstAmount) * 100) / 100;
+
       // Generate Unique Receipt ID and Timestamp
       var receiptId = '#GT-' + Math.floor(1000 + Math.random() * 9000);
       var now = new Date();
       var dateStr = now.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
       var timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true });
 
-      // 1. Build Formatted WhatsApp Receipt Text (Just like a restaurant bill)
+      // 1. Build Formatted WhatsApp Receipt Text (Just like a real restaurant bill)
       var itemLines = items.map(function (it) {
-        var padName = it.name.length > 22 ? it.name.substring(0, 20) + '..' : it.name;
-        return ' ' + it.qty + 'x  ' + padName + '  : ₹' + it.total;
+        var padName = it.name.length > 20 ? it.name.substring(0, 18) + '..' : it.name;
+        return ' ' + it.qty + 'x  ' + padName + ' : ₹' + it.total;
       }).join('\n');
 
       var waReceipt = 
@@ -1920,10 +1941,13 @@
         '───────────────────────────────\n' +
         itemLines + '\n' +
         '───────────────────────────────\n' +
-        '• Subtotal        : ₹' + total + '\n' +
+        '• Subtotal        : ' + formatMoney(subtotal) + '\n' +
         '• Delivery & Pack : FREE (₹0)\n' +
-        '• GST (5% Incl.)  : ₹0.00\n' +
-        '*💰 GRAND TOTAL   : ₹' + total + '*\n' +
+        '• CGST (2.5%)     : ' + formatMoney(cgst) + '\n' +
+        '• SGST (2.5%)     : ' + formatMoney(sgst) + '\n' +
+        '• GST (+5% Extra) : ' + formatMoney(gstAmount) + '\n' +
+        '───────────────────────────────\n' +
+        '*💰 GRAND TOTAL   : ' + formatMoney(grandTotal) + '*\n' +
         '───────────────────────────────\n' +
         '• Instructions    : ' + (notes ? notes : 'None') + '\n' +
         '• Payment Mode    : Cash / UPI on Delivery\n' +
@@ -1941,8 +1965,11 @@
       if (document.getElementById('rcptName')) document.getElementById('rcptName').textContent = name;
       if (document.getElementById('rcptPhone')) document.getElementById('rcptPhone').textContent = phone;
       if (document.getElementById('rcptLoc')) document.getElementById('rcptLoc').textContent = loc || 'Counter Pickup';
-      if (document.getElementById('rcptSubtotal')) document.getElementById('rcptSubtotal').textContent = '₹' + total;
-      if (document.getElementById('rcptTotal')) document.getElementById('rcptTotal').textContent = '₹' + total;
+      if (document.getElementById('rcptSubtotal')) document.getElementById('rcptSubtotal').textContent = formatMoney(subtotal);
+      if (document.getElementById('rcptCgst')) document.getElementById('rcptCgst').textContent = formatMoney(cgst);
+      if (document.getElementById('rcptSgst')) document.getElementById('rcptSgst').textContent = formatMoney(sgst);
+      if (document.getElementById('rcptGst')) document.getElementById('rcptGst').textContent = '+' + formatMoney(gstAmount);
+      if (document.getElementById('rcptTotal')) document.getElementById('rcptTotal').textContent = formatMoney(grandTotal);
       if (document.getElementById('rcptNotes')) document.getElementById('rcptNotes').textContent = notes || 'None';
 
       var tbody = document.getElementById('rcptTableBody');
@@ -2058,6 +2085,7 @@
       btn.addEventListener('click', function () {
         var id = btn.getAttribute('data-id');
         cart[id] = 1;
+        renderOnPageMenu();
         updateCartAndBill();
         var it = menuItems.find(function(m) { return m.id === id; });
         showToast('Added ' + (it ? it.name : 'dish') + ' to order!');
@@ -2074,6 +2102,7 @@
           if (cart[id] > 1) cart[id]--;
           else delete cart[id];
         }
+        renderOnPageMenu();
         updateCartAndBill();
       });
     });
