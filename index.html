@@ -854,9 +854,8 @@
         <div>
           <label style="display:block;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:600;">Order Type</label>
           <div class="order-type-group">
-            <button type="button" class="order-type-btn active" data-type="Home Delivery">🛵 Delivery</button>
-            <button type="button" class="order-type-btn" data-type="Dine-In">🍽️ Dine-In</button>
-            <button type="button" class="order-type-btn" data-type="Takeaway">🛍️ Takeaway</button>
+            <button type="button" class="order-type-btn active" data-type="Dine-In">🍽️ Dine-In (Table)</button>
+            <button type="button" class="order-type-btn" data-type="Takeaway">🛍️ Takeaway / Parcel</button>
           </div>
         </div>
 
@@ -877,8 +876,8 @@
         </div>
 
         <div class="gt-form-group" style="margin-bottom:8px;">
-          <label for="custLoc" id="custLocLabel">Delivery Address *</label>
-          <input type="text" id="custLoc" placeholder="House / Flat No, Street, Landmark" required>
+          <label for="custLoc" id="custLocLabel">Table Number *</label>
+          <input type="text" id="custLoc" placeholder="e.g. Table 4 or AC Lounge" required>
         </div>
 
         <div class="gt-form-group" style="margin-bottom:8px;">
@@ -891,10 +890,6 @@
           <div style="display:flex;justify-content:space-between;margin-bottom:4px;color:var(--cream-dim);">
             <span>Item Subtotal:</span>
             <span id="billSubtotal" style="font-family:var(--f-display);color:var(--cream);font-size:1.05rem;">₹0</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;margin-bottom:4px;color:var(--cream-dim);">
-            <span>Delivery / Packing:</span>
-            <span style="color:#22c55e;font-weight:600;">FREE (₹0)</span>
           </div>
           <div style="display:flex;justify-content:space-between;margin-bottom:4px;color:var(--cream-dim);">
             <span>GST (+5% Extra):</span>
@@ -931,7 +926,7 @@
       <div class="receipt-meta">
         <div>
           <span>RECEIPT: <b id="rcptId">#GT-8492</b></span><br>
-          <span>TYPE: <b id="rcptType">HOME DELIVERY</b></span>
+          <span>ORDER: <b id="rcptType">DINE-IN</b></span>
         </div>
         <div style="text-align:right;">
           <span id="rcptDate">13 Sep 2026</span><br>
@@ -942,7 +937,7 @@
       <div class="receipt-customer">
         <div>CUSTOMER: <b id="rcptName">Raghav Sharma</b></div>
         <div>CONTACT: <b id="rcptPhone">9876543210</b></div>
-        <div>LOCATION: <b id="rcptLoc">Kalwar Road, Jhotwara</b></div>
+        <div>TABLE / ORDER: <b id="rcptLoc">Table 4</b></div>
       </div>
 
       <table class="receipt-table">
@@ -964,10 +959,6 @@
           <span id="rcptSubtotal">₹0</span>
         </div>
         <div class="line">
-          <span>Delivery &amp; Packing:</span>
-          <span style="color:#15803d;font-weight:700;">FREE (₹0)</span>
-        </div>
-        <div class="line">
           <span>CGST (2.5%):</span>
           <span id="rcptCgst">₹0.00</span>
         </div>
@@ -987,7 +978,7 @@
 
       <div style="font-size:0.75rem;border-bottom:1px dashed #aaa;padding-bottom:8px;margin-bottom:8px;">
         <span>NOTE: <i id="rcptNotes">None</i></span><br>
-        <span>PAYMENT: <b>Cash on Delivery / UPI on Delivery</b></span>
+        <span>PAYMENT: <b>Cash / UPI at Counter</b></span>
       </div>
 
       <div class="receipt-barcode" aria-hidden="true">

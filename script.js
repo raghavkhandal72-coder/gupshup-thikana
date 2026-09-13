@@ -1699,7 +1699,7 @@
 
   var currentCat = 'all';
   var cart = {}; // { id: count }
-  var orderType = 'Home Delivery';
+  var orderType = 'Dine-In';
   var lastWhatsAppUrl = '';
 
   /* Render Menu Grid with Steppers */
@@ -1840,12 +1840,9 @@
       if (orderType === 'Dine-In') {
         if (locLabel) locLabel.textContent = 'Table Number *';
         if (locInput) locInput.placeholder = 'e.g. Table 4 or Corner Lounge';
-      } else if (orderType === 'Takeaway') {
-        if (locLabel) locLabel.textContent = 'Pickup Time / Vehicle No (Optional)';
-        if (locInput) locInput.placeholder = 'e.g. Ready in 15 mins';
       } else {
-        if (locLabel) locLabel.textContent = 'Delivery Address *';
-        if (locInput) locInput.placeholder = 'House / Flat No, Street, Landmark';
+        if (locLabel) locLabel.textContent = 'Pickup Time / Instructions (Optional)';
+        if (locInput) locInput.placeholder = 'e.g. Ready in 15 mins';
       }
     });
   });
@@ -1894,8 +1891,8 @@
         if (document.getElementById('custPhone')) document.getElementById('custPhone').focus();
         return;
       }
-      if (orderType !== 'Takeaway' && !loc) {
-        showToast(orderType === 'Dine-In' ? 'Please specify your Table Number!' : 'Please enter your delivery address!');
+      if (orderType === 'Dine-In' && !loc) {
+        showToast('Please specify your Table Number!');
         if (document.getElementById('custLoc')) document.getElementById('custLoc').focus();
         return;
       }
@@ -1929,20 +1926,19 @@
         '───────────────────────────────\n' +
         '• Receipt No : *' + receiptId + '*\n' +
         '• Date/Time  : ' + dateStr + ', ' + timeStr + '\n' +
-        '• Order Type : *' + orderType.toUpperCase() + '*\n' +
+        '• Order Type : *' + (orderType === 'Dine-In' ? 'DINE-IN (TABLE)' : 'TAKEAWAY (PARCEL)') + '*\n' +
         '• Status     : *ORDER PLACED (CONFIRMED)*\n' +
         '───────────────────────────────\n' +
         '*CUSTOMER DETAILS*\n' +
         '👤 Name      : ' + name + '\n' +
         '📱 Phone     : ' + phone + '\n' +
-        '📍 Location  : ' + (loc || 'Counter Pickup') + '\n' +
+        '🍽️ Table/Note: ' + (loc || (orderType === 'Dine-In' ? 'Dine-In Table' : 'Takeaway Parcel')) + '\n' +
         '───────────────────────────────\n' +
         '*ITEMIZED BILL*\n' +
         '───────────────────────────────\n' +
         itemLines + '\n' +
         '───────────────────────────────\n' +
         '• Subtotal        : ' + formatMoney(subtotal) + '\n' +
-        '• Delivery & Pack : FREE (₹0)\n' +
         '• CGST (2.5%)     : ' + formatMoney(cgst) + '\n' +
         '• SGST (2.5%)     : ' + formatMoney(sgst) + '\n' +
         '• GST (+5% Extra) : ' + formatMoney(gstAmount) + '\n' +
@@ -1950,7 +1946,7 @@
         '*💰 GRAND TOTAL   : ' + formatMoney(grandTotal) + '*\n' +
         '───────────────────────────────\n' +
         '• Instructions    : ' + (notes ? notes : 'None') + '\n' +
-        '• Payment Mode    : Cash / UPI on Delivery\n' +
+        '• Payment Mode    : Cash / UPI at Counter\n' +
         '═══════════════════════════════\n' +
         '✨ _Thank you for choosing Gupshup Thikana!_\n' +
         '_Your food is being prepared steaming hot in our kitchen._';
@@ -1959,12 +1955,12 @@
 
       // 2. Populate On-Screen Thermal Receipt Modal
       if (document.getElementById('rcptId')) document.getElementById('rcptId').textContent = receiptId;
-      if (document.getElementById('rcptType')) document.getElementById('rcptType').textContent = orderType.toUpperCase();
+      if (document.getElementById('rcptType')) document.getElementById('rcptType').textContent = (orderType === 'Dine-In' ? 'DINE-IN' : 'TAKEAWAY');
       if (document.getElementById('rcptDate')) document.getElementById('rcptDate').textContent = dateStr;
       if (document.getElementById('rcptTime')) document.getElementById('rcptTime').textContent = timeStr;
       if (document.getElementById('rcptName')) document.getElementById('rcptName').textContent = name;
       if (document.getElementById('rcptPhone')) document.getElementById('rcptPhone').textContent = phone;
-      if (document.getElementById('rcptLoc')) document.getElementById('rcptLoc').textContent = loc || 'Counter Pickup';
+      if (document.getElementById('rcptLoc')) document.getElementById('rcptLoc').textContent = loc || (orderType === 'Dine-In' ? 'Table Order' : 'Takeaway Parcel');
       if (document.getElementById('rcptSubtotal')) document.getElementById('rcptSubtotal').textContent = formatMoney(subtotal);
       if (document.getElementById('rcptCgst')) document.getElementById('rcptCgst').textContent = formatMoney(cgst);
       if (document.getElementById('rcptSgst')) document.getElementById('rcptSgst').textContent = formatMoney(sgst);
