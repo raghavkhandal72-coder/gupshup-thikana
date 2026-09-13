@@ -340,13 +340,51 @@
       </a>
     </div>
 
-    <div style="text-align:center;margin-top:clamp(32px,5vw,48px);" class="reveal d2">
-      <button type="button" class="btn btn-gold btn-lg" data-modal-target="#orderModal" style="margin-right:12px;margin-bottom:10px;">
-        Order Online (118 Items) 🛵
-      </button>
-      <button type="button" class="btn btn-ghost btn-lg" data-modal-target="#menuCardModal" style="margin-bottom:10px;">
-        📸 View Official Menu Card
-      </button>
+    <!-- On-Page Full Restaurant Menu Board -->
+    <div class="onpage-menu-container reveal d2">
+      <div style="text-align:center;margin-top:clamp(36px,5vw,56px);margin-bottom:28px;">
+        <span class="eyebrow center">Complete Dishes &amp; Pricing</span>
+        <h3 style="font-family:var(--f-display);font-size:clamp(1.9rem,4vw,2.9rem);margin-bottom:8px;color:var(--cream);">
+          Gupshup Thikana <span class="gold-text">Specialty Menu</span>
+        </h3>
+        <p style="color:var(--cream-dim);max-width:640px;margin-inline:auto;font-size:0.95rem;">
+          Every single dish freshly prepared 24/7 with authentic ingredients. Click <b>+ Add</b> on any dish to build your order with an instant WhatsApp receipt.
+        </p>
+      </div>
+
+      <!-- Category Filter Pills on Page -->
+      <div class="onpage-menu-filter-bar">
+        <button type="button" class="gt-tab-btn active onpage-tab" data-cat="all">All Dishes (153)</button>
+        <button type="button" class="gt-tab-btn onpage-tab" data-cat="burger">🍔 Burger &amp; Vada Pav</button>
+        <button type="button" class="gt-tab-btn onpage-tab" data-cat="sandwiches">🥪 Sandwiches &amp; Baked</button>
+        <button type="button" class="gt-tab-btn onpage-tab" data-cat="pizza">🍕 Stone-Oven Pizzas</button>
+        <button type="button" class="gt-tab-btn onpage-tab" data-cat="maggi">🍜 Maggi Varieties</button>
+        <button type="button" class="gt-tab-btn onpage-tab" data-cat="chinese">🥢 Chinese &amp; Noodles</button>
+        <button type="button" class="gt-tab-btn onpage-tab" data-cat="rolls">🌯 Rolls &amp; Toast</button>
+        <button type="button" class="gt-tab-btn onpage-tab" data-cat="pasta">🍝 Pasta &amp; Garlic Bread</button>
+        <button type="button" class="gt-tab-btn onpage-tab" data-cat="fries_nachos">🍟 Fries &amp; Nachos</button>
+        <button type="button" class="gt-tab-btn onpage-tab" data-cat="chaat">🍿 Chaat &amp; Bites</button>
+        <button type="button" class="gt-tab-btn onpage-tab" data-cat="coffee">☕ Coffee (Hot &amp; Cold)</button>
+        <button type="button" class="gt-tab-btn onpage-tab" data-cat="tea">🫖 Chai &amp; Ice Tea</button>
+        <button type="button" class="gt-tab-btn onpage-tab" data-cat="shakes">🥤 Thick Shakes</button>
+        <button type="button" class="gt-tab-btn onpage-tab" data-cat="mocktails">🍹 Mocktails &amp; Lemonade</button>
+        <button type="button" class="gt-tab-btn onpage-tab" data-cat="momos">🥟 Handi Momos</button>
+      </div>
+
+      <!-- The Menu Items Grid Rendered on Page -->
+      <div class="onpage-menu-grid" id="onPageMenuGrid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+
+      <!-- Action Footer -->
+      <div style="text-align:center;margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <button type="button" class="btn btn-gold btn-lg" data-modal-target="#orderModal">
+          View Selected Order &amp; WhatsApp Receipt ⚡
+        </button>
+        <button type="button" class="btn btn-ghost btn-lg" data-modal-target="#menuCardModal">
+          📸 View Original Printed Menu Cards
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -780,17 +818,21 @@
 
     <!-- Tabs -->
     <div class="gt-menu-tabs">
-      <button type="button" class="gt-tab-btn active" data-cat="all">All Items (118)</button>
-      <button type="button" class="gt-tab-btn" data-cat="coffee">☕ Coffee (Hot &amp; Cold)</button>
-      <button type="button" class="gt-tab-btn" data-cat="tea">🫖 Chai &amp; Ice Tea</button>
+      <button type="button" class="gt-tab-btn active" data-cat="all">All Dishes (153)</button>
       <button type="button" class="gt-tab-btn" data-cat="burger">🍔 Burger &amp; Vada Pav</button>
-      <button type="button" class="gt-tab-btn" data-cat="sandwiches">🥪 Sandwiches (Grill/Baked/Cold)</button>
+      <button type="button" class="gt-tab-btn" data-cat="sandwiches">🥪 Sandwiches &amp; Baked</button>
+      <button type="button" class="gt-tab-btn" data-cat="pizza">🍕 Stone-Oven Pizzas</button>
+      <button type="button" class="gt-tab-btn" data-cat="maggi">🍜 Maggi Varieties</button>
+      <button type="button" class="gt-tab-btn" data-cat="chinese">🥢 Chinese &amp; Noodles</button>
+      <button type="button" class="gt-tab-btn" data-cat="rolls">🌯 Rolls &amp; Toast</button>
       <button type="button" class="gt-tab-btn" data-cat="pasta">🍝 Pasta &amp; Garlic Bread</button>
       <button type="button" class="gt-tab-btn" data-cat="fries_nachos">🍟 Fries &amp; Nachos</button>
-      <button type="button" class="gt-tab-btn" data-cat="shakes">🥤 Shakes</button>
+      <button type="button" class="gt-tab-btn" data-cat="chaat">🍿 Chaat &amp; Bites</button>
+      <button type="button" class="gt-tab-btn" data-cat="coffee">☕ Coffee (Hot &amp; Cold)</button>
+      <button type="button" class="gt-tab-btn" data-cat="tea">🫖 Chai &amp; Ice Tea</button>
+      <button type="button" class="gt-tab-btn" data-cat="shakes">🥤 Thick Shakes</button>
       <button type="button" class="gt-tab-btn" data-cat="mocktails">🍹 Mocktails &amp; Lemonade</button>
-      <button type="button" class="gt-tab-btn" data-cat="chaat">🍿 Chaat &amp; Quick Bites</button>
-      <button type="button" class="gt-tab-btn" data-cat="momos">🥟 Momos &amp; Signatures</button>
+      <button type="button" class="gt-tab-btn" data-cat="momos">🥟 Handi Momos</button>
     </div>
 
     <!-- Two-column Layout: Menu Items + Live Bill -->

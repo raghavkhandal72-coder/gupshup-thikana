@@ -660,81 +660,459 @@
         "desc": "Heavy loaded cheese baked over spiced veggie filling."
     },
     {
-        "id": "ht1",
-        "name": "Apni Chai",
-        "cat": "tea",
-        "price": 25,
-        "desc": "Classic home-style kadak milk tea brewed fresh 24/7."
+        "id": "pz1",
+        "name": "Margherita Pizza (Regular)",
+        "cat": "pizza",
+        "price": 99,
+        "desc": "Classic hand-stretched crust with Italian basil & mozzarella cheese."
     },
     {
-        "id": "ht2",
-        "name": "Ginger Elaichi Tea",
-        "cat": "tea",
-        "price": 30,
-        "desc": "Infused with crushed fresh ginger root and green cardamom."
+        "id": "pz2",
+        "name": "Margherita Pizza (Medium)",
+        "cat": "pizza",
+        "price": 180,
+        "desc": "Medium 8-inch classic pizza loaded with gooey mozzarella."
     },
     {
-        "id": "ht3",
-        "name": "Masala Tea",
-        "cat": "tea",
-        "price": 35,
-        "desc": "Secret 5-spice royal masala blend simmered in fresh milk."
-    },
-    {
-        "id": "ht4",
-        "name": "Lemon Ginger Tea",
-        "cat": "tea",
-        "price": 50,
-        "desc": "Zesty fresh lemon juice with steeped crushed ginger."
-    },
-    {
-        "id": "ht5",
-        "name": "Green Tea",
-        "cat": "tea",
-        "price": 50,
-        "desc": "Antioxidant rich whole leaf organic green tea."
-    },
-    {
-        "id": "ht6",
-        "name": "Kesar Elaichi Tea",
-        "cat": "tea",
-        "price": 70,
-        "desc": "Premium saffron strands and aromatic green cardamom milk tea."
-    },
-    {
-        "id": "it1",
-        "name": "Peach Ice Tea",
-        "cat": "tea",
-        "price": 80,
-        "desc": "Sweet sun-ripened peach syrup shaken with chilled brewed tea."
-    },
-    {
-        "id": "it2",
-        "name": "Lemon Ice Tea",
-        "cat": "tea",
-        "price": 80,
-        "desc": "Zesty fresh lemon & mint shaken with crushed ice and iced tea."
-    },
-    {
-        "id": "it3",
-        "name": "Green Apple Ice Tea",
-        "cat": "tea",
-        "price": 100,
-        "desc": "Crisp sour green apple essence with invigorating iced tea."
-    },
-    {
-        "id": "it4",
-        "name": "Red Bull Ice Tea",
-        "cat": "tea",
-        "price": 150,
-        "desc": "High-energy boost of Red Bull infused with iced tea and lime."
-    },
-    {
-        "id": "it5",
-        "name": "Raspberry Ice Tea",
-        "cat": "tea",
+        "id": "pz3",
+        "name": "Double Cheese Corn Pizza (Regular)",
+        "cat": "pizza",
         "price": 110,
-        "desc": "Sweet tart wild raspberry syrup shaken over chilled iced tea."
+        "desc": "Golden crust with double mozzarella & sweet American corn."
+    },
+    {
+        "id": "pz4",
+        "name": "Double Cheese Corn Pizza (Medium)",
+        "cat": "pizza",
+        "price": 199,
+        "desc": "Medium 8-inch crust with double mozzarella & golden sweetcorn."
+    },
+    {
+        "id": "pz5",
+        "name": "Farmhouse Gourmet Pizza (Regular)",
+        "cat": "pizza",
+        "price": 140,
+        "desc": "Black olives, fiery jalapenos, onions, capsicum & mozzarella."
+    },
+    {
+        "id": "pz6",
+        "name": "Farmhouse Gourmet Pizza (Medium)",
+        "cat": "pizza",
+        "price": 240,
+        "desc": "Medium 8-inch farm fresh pizza loaded with vegetables & herbs."
+    },
+    {
+        "id": "pz7",
+        "name": "Spicy Peri Peri Pizza (Regular)",
+        "cat": "pizza",
+        "price": 150,
+        "desc": "Fiery peri peri spiced veggies, capsicum, onion and mozzarella."
+    },
+    {
+        "id": "pz8",
+        "name": "Spicy Peri Peri Pizza (Medium)",
+        "cat": "pizza",
+        "price": 250,
+        "desc": "Medium peri peri pizza packed with zesty toppings."
+    },
+    {
+        "id": "pz9",
+        "name": "Paneer Makhani Pizza (Regular)",
+        "cat": "pizza",
+        "price": 160,
+        "desc": "Tandoori spiced paneer cubes on rich makhani sauce base."
+    },
+    {
+        "id": "pz10",
+        "name": "Paneer Makhani Pizza (Medium)",
+        "cat": "pizza",
+        "price": 260,
+        "desc": "Medium makhani pizza topped with buttery spiced cottage cheese."
+    },
+    {
+        "id": "pz11",
+        "name": "Tandoori Paneer Pizza (Regular)",
+        "cat": "pizza",
+        "price": 170,
+        "desc": "Clay oven spiced paneer chunks, red paprika, onion & cheese."
+    },
+    {
+        "id": "pz12",
+        "name": "Tandoori Paneer Pizza (Medium)",
+        "cat": "pizza",
+        "price": 270,
+        "desc": "Medium smoky tandoori paneer pizza with melted cheese pull."
+    },
+    {
+        "id": "pz13",
+        "name": "Veggie Delight Pizza (Regular)",
+        "cat": "pizza",
+        "price": 130,
+        "desc": "Loaded with onions, crisp capsicum and fresh tomato slices."
+    },
+    {
+        "id": "pz14",
+        "name": "Veggie Delight Pizza (Medium)",
+        "cat": "pizza",
+        "price": 220,
+        "desc": "Medium classic vegetable pizza with mozzarella."
+    },
+    {
+        "id": "pz15",
+        "name": "Paneer Tikka Pizza (Regular)",
+        "cat": "pizza",
+        "price": 160,
+        "desc": "Marinated paneer tikka, capsicum, onion and tandoori herbs."
+    },
+    {
+        "id": "pz16",
+        "name": "Paneer Tikka Pizza (Medium)",
+        "cat": "pizza",
+        "price": 260,
+        "desc": "Medium paneer tikka pizza loaded with cheese."
+    },
+    {
+        "id": "pz17",
+        "name": "Gupshup Special Pizza (Regular)",
+        "cat": "pizza",
+        "price": 199,
+        "desc": "The ultimate chef creation overloaded with all veggies & double cheese."
+    },
+    {
+        "id": "pz18",
+        "name": "Gupshup Special Pizza (Medium)",
+        "cat": "pizza",
+        "price": 299,
+        "desc": "Chef signature medium pizza with exotic veggies, olives & cheese."
+    },
+    {
+        "id": "mg1",
+        "name": "Plain Maggi",
+        "cat": "maggi",
+        "price": 50,
+        "desc": "Simple & comforting classic maggi cooked to piping hot perfection."
+    },
+    {
+        "id": "mg2",
+        "name": "Masala Maggi",
+        "cat": "maggi",
+        "price": 60,
+        "desc": "Tossed with extra chatpata spices, butter and fresh coriander."
+    },
+    {
+        "id": "mg3",
+        "name": "Veggie Maggi",
+        "cat": "maggi",
+        "price": 70,
+        "desc": "Loaded with sweet corn, onions, green peas and carrots."
+    },
+    {
+        "id": "mg4",
+        "name": "Skillet Melted Cheesy Maggi",
+        "cat": "maggi",
+        "price": 100,
+        "desc": "Double noodles with butter, corn, herbs & thick molten cheese pull."
+    },
+    {
+        "id": "mg5",
+        "name": "Tandoori Tadka Maggi",
+        "cat": "maggi",
+        "price": 110,
+        "desc": "Smoky clay oven tandoori tadka with fresh chopped veggies."
+    },
+    {
+        "id": "ch1",
+        "name": "Veg Noodles",
+        "cat": "chinese",
+        "price": 80,
+        "desc": "Wok-tossed thin noodles with crunchy julienne vegetables."
+    },
+    {
+        "id": "ch2",
+        "name": "Hakka Noodles",
+        "cat": "chinese",
+        "price": 90,
+        "desc": "Classic street style Indo-Chinese hakka noodles with soya and chilli."
+    },
+    {
+        "id": "ch3",
+        "name": "Schezwan Noodles",
+        "cat": "chinese",
+        "price": 100,
+        "desc": "Spicy wok noodles tossed in fiery homemade schezwan sauce."
+    },
+    {
+        "id": "ch4",
+        "name": "Chilli Garlic Noodles",
+        "cat": "chinese",
+        "price": 110,
+        "desc": "Infused with roasted crushed garlic, dry red chillies and scallions."
+    },
+    {
+        "id": "ch5",
+        "name": "Veg Fried Rice",
+        "cat": "chinese",
+        "price": 90,
+        "desc": "Fragrant basmati rice wok-fried with crisp garden vegetables."
+    },
+    {
+        "id": "ch6",
+        "name": "Schezwan Fried Rice",
+        "cat": "chinese",
+        "price": 100,
+        "desc": "Zesty fried rice tossed with fiery schezwan paste and herbs."
+    },
+    {
+        "id": "ch7",
+        "name": "Chilli Paneer Dry",
+        "cat": "chinese",
+        "price": 140,
+        "desc": "Crispy golden paneer cubes wok-tossed with bell peppers & garlic."
+    },
+    {
+        "id": "ch8",
+        "name": "Chilli Paneer Gravy",
+        "cat": "chinese",
+        "price": 160,
+        "desc": "Paneer simmered in savory soya garlic gravy — pairs great with fried rice."
+    },
+    {
+        "id": "ch9",
+        "name": "Veg Manchurian Dry",
+        "cat": "chinese",
+        "price": 130,
+        "desc": "Crispy vegetable dumplings tossed in tangy ginger-garlic sauce."
+    },
+    {
+        "id": "ch10",
+        "name": "Veg Manchurian Gravy",
+        "cat": "chinese",
+        "price": 140,
+        "desc": "Vegetable manchurian balls in rich aromatic Indo-Chinese gravy."
+    },
+    {
+        "id": "ch11",
+        "name": "Honey Chilli Potato",
+        "cat": "chinese",
+        "price": 120,
+        "desc": "Crispy potato fingers glazed with sweet honey and roasted sesame seeds."
+    },
+    {
+        "id": "ch12",
+        "name": "Crispy Corn",
+        "cat": "chinese",
+        "price": 110,
+        "desc": "Golden fried American sweetcorn kernels tossed with salt, pepper & lemon."
+    },
+    {
+        "id": "wr1",
+        "name": "Veg Frankie Roll",
+        "cat": "rolls",
+        "price": 80,
+        "desc": "Crisp flaky paratha wrapped with spiced veggie potato patty & onions."
+    },
+    {
+        "id": "wr2",
+        "name": "Paneer Tikka Roll",
+        "cat": "rolls",
+        "price": 110,
+        "desc": "Marinated paneer chunks with mint dip rolled in hot buttered wrap."
+    },
+    {
+        "id": "wr3",
+        "name": "Schezwan Paneer Roll",
+        "cat": "rolls",
+        "price": 120,
+        "desc": "Fiery schezwan paneer tossed with capsicum and rolled fresh."
+    },
+    {
+        "id": "gb5",
+        "name": "Cheese Chilli Toast",
+        "cat": "rolls",
+        "price": 100,
+        "desc": "Crisp toasted bread topped with molten cheese and spicy green chillies."
+    },
+    {
+        "id": "gb1",
+        "name": "Plain Garlic Bread",
+        "cat": "pasta",
+        "price": 60,
+        "desc": "Toasted baguette slices rubbed with roasted garlic herb butter."
+    },
+    {
+        "id": "gb2",
+        "name": "Cheese Garlic Bread",
+        "cat": "pasta",
+        "price": 90,
+        "desc": "Melted mozzarella layered over garlic herb butter toast."
+    },
+    {
+        "id": "gb3",
+        "name": "Double Cheese Garlic Bread",
+        "cat": "pasta",
+        "price": 110,
+        "desc": "Double layer of rich stretchy cheese over crispy garlic toast."
+    },
+    {
+        "id": "gb4",
+        "name": "Veggie Cheese Garlic Bread",
+        "cat": "pasta",
+        "price": 130,
+        "desc": "Topped with sweet corn, jalapenos, onions & molten cheese."
+    },
+    {
+        "id": "ps1",
+        "name": "Red Pasta",
+        "cat": "pasta",
+        "price": 110,
+        "desc": "Penne tossed in spicy tangy tomato-basil arrabbiata sauce."
+    },
+    {
+        "id": "ps2",
+        "name": "White Pasta",
+        "cat": "pasta",
+        "price": 150,
+        "desc": "Rich velvety alfredo cream sauce tossed with sweet corn & herbs."
+    },
+    {
+        "id": "ps3",
+        "name": "Pink Pasta",
+        "cat": "pasta",
+        "price": 160,
+        "desc": "Chef special blend of tangy marinara and velvety cream sauce."
+    },
+    {
+        "id": "ps4",
+        "name": "Tandoori Creamy Pasta",
+        "cat": "pasta",
+        "price": 180,
+        "desc": "Spicy tandoori spiced sauce with smoked veggies & cheese."
+    },
+    {
+        "id": "ps5",
+        "name": "Makhani Creamy Pasta",
+        "cat": "pasta",
+        "price": 180,
+        "desc": "Buttery rich makhani gravy tossed with Italian penne."
+    },
+    {
+        "id": "ps6",
+        "name": "Kadhai Pasta",
+        "cat": "pasta",
+        "price": 180,
+        "desc": "Wok tossed spicy kadhai masala pasta with bell peppers."
+    },
+    {
+        "id": "ps7",
+        "name": "Mac. Cheese Pasta",
+        "cat": "pasta",
+        "price": 199,
+        "desc": "Classic macaroni baked in thick creamy Cheddar & mozzarella sauce."
+    },
+    {
+        "id": "ps8",
+        "name": "Mac. Tomato Baked Pasta",
+        "cat": "pasta",
+        "price": 199,
+        "desc": "Oven-baked macaroni in rich tomato ragu with golden cheese crust."
+    },
+    {
+        "id": "fr1",
+        "name": "Masala Fries",
+        "cat": "fries_nachos",
+        "price": 80,
+        "desc": "Crispy golden french fries tossed in spicy chatpata masala."
+    },
+    {
+        "id": "fr2",
+        "name": "Mexican Fries",
+        "cat": "fries_nachos",
+        "price": 90,
+        "desc": "Fries dusted with tangy Mexican salsa seasoning."
+    },
+    {
+        "id": "fr3",
+        "name": "Peri Peri Fries",
+        "cat": "fries_nachos",
+        "price": 90,
+        "desc": "Fiery peri peri spiced crispy golden potato fries."
+    },
+    {
+        "id": "fr4",
+        "name": "Cheesy Loaded Fries",
+        "cat": "fries_nachos",
+        "price": 110,
+        "desc": "Crispy fries smothered in liquid cheese & jalapeño relish."
+    },
+    {
+        "id": "fr5",
+        "name": "Tandoori Loaded Fries",
+        "cat": "fries_nachos",
+        "price": 110,
+        "desc": "Loaded fries topped with tandoori gravy & herbs."
+    },
+    {
+        "id": "fr6",
+        "name": "Extra Dip",
+        "cat": "fries_nachos",
+        "price": 20,
+        "desc": "Side of creamy mayo, garlic dip or schezwan dip."
+    },
+    {
+        "id": "nc1",
+        "name": "Nachos With Dip",
+        "cat": "fries_nachos",
+        "price": 90,
+        "desc": "Crispy corn tortilla chips served with cheesy salsa dip."
+    },
+    {
+        "id": "nc2",
+        "name": "Cheese Nachos",
+        "cat": "fries_nachos",
+        "price": 120,
+        "desc": "Tortilla chips smothered in melted yellow cheese sauce."
+    },
+    {
+        "id": "nc3",
+        "name": "Masala Cheese Nachos",
+        "cat": "fries_nachos",
+        "price": 140,
+        "desc": "Topped with chopped tomatoes, onions, spices & cheese."
+    },
+    {
+        "id": "nc4",
+        "name": "Baked Cheese Nachos",
+        "cat": "fries_nachos",
+        "price": 160,
+        "desc": "Oven-baked nachos with olives, jalapeños & golden bubbling cheese."
+    },
+    {
+        "id": "ct1",
+        "name": "Crunchy Chaat (Kurkure)",
+        "cat": "chaat",
+        "price": 70,
+        "desc": "Crispy kurkure tossed with onions, tomatoes, lemon & chaat masala."
+    },
+    {
+        "id": "ct2",
+        "name": "Tangy Bhel (Rings)",
+        "cat": "chaat",
+        "price": 70,
+        "desc": "Tangy puffed rings bhel tossed with fresh mint & tamarind chutneys."
+    },
+    {
+        "id": "ct3",
+        "name": "Kurkure Bhel",
+        "cat": "chaat",
+        "price": 80,
+        "desc": "Spicy fusion bhel tossed with crunchy kurkure and chutneys."
+    },
+    {
+        "id": "ct4",
+        "name": "Veg. Spring Roll (6 pcs)",
+        "cat": "chaat",
+        "price": 120,
+        "desc": "Crispy golden fried rolls stuffed with seasoned wok veggies."
     },
     {
         "id": "hc1",
@@ -891,193 +1269,172 @@
         "desc": "Large cold coffee with ice cream & crunchy choco chips."
     },
     {
-        "id": "gb1",
-        "name": "Plain Garlic Bread",
-        "cat": "pasta",
-        "price": 60,
-        "desc": "Toasted baguette slices rubbed with roasted garlic herb butter."
+        "id": "ht1",
+        "name": "Apni Chai",
+        "cat": "tea",
+        "price": 25,
+        "desc": "Classic home-style kadak milk tea brewed fresh 24/7."
     },
     {
-        "id": "gb2",
-        "name": "Cheese Garlic Bread",
-        "cat": "pasta",
-        "price": 90,
-        "desc": "Melted mozzarella layered over garlic herb butter toast."
+        "id": "ht2",
+        "name": "Ginger Elaichi Tea",
+        "cat": "tea",
+        "price": 30,
+        "desc": "Infused with crushed fresh ginger root and green cardamom."
     },
     {
-        "id": "gb3",
-        "name": "Double Cheese Garlic Bread",
-        "cat": "pasta",
-        "price": 110,
-        "desc": "Double layer of rich stretchy cheese over crispy garlic toast."
+        "id": "ht3",
+        "name": "Masala Tea",
+        "cat": "tea",
+        "price": 35,
+        "desc": "Secret 5-spice royal masala blend simmered in fresh milk."
     },
     {
-        "id": "gb4",
-        "name": "Veggie Cheese Garlic Bread",
-        "cat": "pasta",
-        "price": 130,
-        "desc": "Topped with sweet corn, jalapenos, onions & molten cheese."
+        "id": "ht4",
+        "name": "Lemon Ginger Tea",
+        "cat": "tea",
+        "price": 50,
+        "desc": "Zesty fresh lemon juice with steeped crushed ginger."
     },
     {
-        "id": "ps1",
-        "name": "Red Pasta",
-        "cat": "pasta",
-        "price": 110,
-        "desc": "Penne tossed in spicy tangy tomato-basil arrabbiata sauce."
+        "id": "ht5",
+        "name": "Green Tea",
+        "cat": "tea",
+        "price": 50,
+        "desc": "Antioxidant rich whole leaf organic green tea."
     },
     {
-        "id": "ps2",
-        "name": "White Pasta",
-        "cat": "pasta",
+        "id": "ht6",
+        "name": "Kesar Elaichi Tea",
+        "cat": "tea",
+        "price": 70,
+        "desc": "Premium saffron strands and aromatic green cardamom milk tea."
+    },
+    {
+        "id": "it1",
+        "name": "Peach Ice Tea",
+        "cat": "tea",
+        "price": 80,
+        "desc": "Sweet sun-ripened peach syrup shaken with chilled brewed tea."
+    },
+    {
+        "id": "it2",
+        "name": "Lemon Ice Tea",
+        "cat": "tea",
+        "price": 80,
+        "desc": "Zesty fresh lemon & mint shaken with crushed ice and iced tea."
+    },
+    {
+        "id": "it3",
+        "name": "Green Apple Ice Tea",
+        "cat": "tea",
+        "price": 100,
+        "desc": "Crisp sour green apple essence with invigorating iced tea."
+    },
+    {
+        "id": "it4",
+        "name": "Red Bull Ice Tea",
+        "cat": "tea",
         "price": 150,
-        "desc": "Rich velvety alfredo cream sauce tossed with sweet corn & herbs."
+        "desc": "High-energy boost of Red Bull infused with iced tea and lime."
     },
     {
-        "id": "ps3",
-        "name": "Pink Pasta",
-        "cat": "pasta",
-        "price": 160,
-        "desc": "Chef special blend of tangy marinara and velvety cream sauce."
-    },
-    {
-        "id": "ps4",
-        "name": "Tandoori Creamy Pasta",
-        "cat": "pasta",
-        "price": 180,
-        "desc": "Spicy tandoori spiced sauce with smoked veggies & cheese."
-    },
-    {
-        "id": "ps5",
-        "name": "Makhani Creamy Pasta",
-        "cat": "pasta",
-        "price": 180,
-        "desc": "Buttery rich makhani gravy tossed with Italian penne."
-    },
-    {
-        "id": "ps6",
-        "name": "Kadhai Pasta",
-        "cat": "pasta",
-        "price": 180,
-        "desc": "Wok tossed spicy kadhai masala pasta with bell peppers."
-    },
-    {
-        "id": "ps7",
-        "name": "Mac. Cheese Pasta",
-        "cat": "pasta",
-        "price": 199,
-        "desc": "Classic macaroni baked in thick creamy Cheddar & mozzarella sauce."
-    },
-    {
-        "id": "ps8",
-        "name": "Mac. Tomato Backed Pasta",
-        "cat": "pasta",
-        "price": 199,
-        "desc": "Oven-baked macaroni in rich tomato ragu with golden cheese crust."
-    },
-    {
-        "id": "fr1",
-        "name": "Masala Fries",
-        "cat": "fries_nachos",
-        "price": 80,
-        "desc": "Crispy golden french fries tossed in spicy chatpata masala."
-    },
-    {
-        "id": "fr2",
-        "name": "Mexican Fries",
-        "cat": "fries_nachos",
-        "price": 90,
-        "desc": "Fries dusted with tangy Mexican salsa seasoning."
-    },
-    {
-        "id": "fr3",
-        "name": "Peri Peri Fries",
-        "cat": "fries_nachos",
-        "price": 90,
-        "desc": "Fiery peri peri spiced crispy golden potato fries."
-    },
-    {
-        "id": "fr4",
-        "name": "Cheesy Loaded Fries",
-        "cat": "fries_nachos",
+        "id": "it5",
+        "name": "Raspberry Ice Tea",
+        "cat": "tea",
         "price": 110,
-        "desc": "Crispy fries smothered in liquid cheese & jalapeño relish."
+        "desc": "Sweet tart wild raspberry syrup shaken over chilled iced tea."
     },
     {
-        "id": "fr5",
-        "name": "Tandoori Loaded Fries",
-        "cat": "fries_nachos",
-        "price": 110,
-        "desc": "Loaded fries topped with tandoori gravy & herbs."
-    },
-    {
-        "id": "fr6",
-        "name": "Extra Dip",
-        "cat": "fries_nachos",
-        "price": 20,
-        "desc": "Side of creamy mayo, garlic dip or schezwan dip."
-    },
-    {
-        "id": "nc1",
-        "name": "Nachos With Dip",
-        "cat": "fries_nachos",
+        "id": "sh1",
+        "name": "Chocolate Shake",
+        "cat": "shakes",
         "price": 90,
-        "desc": "Crispy corn tortilla chips served with cheesy salsa dip."
+        "desc": "Creamy chilled chocolate thick shake."
     },
     {
-        "id": "nc2",
-        "name": "Cheese Nachos",
-        "cat": "fries_nachos",
+        "id": "sh2",
+        "name": "Butter Scotch Shake",
+        "cat": "shakes",
+        "price": 100,
+        "desc": "Velvety butterscotch shake with caramelized praline crunch."
+    },
+    {
+        "id": "sh3",
+        "name": "Strawberry Shake",
+        "cat": "shakes",
+        "price": 100,
+        "desc": "Sweet strawberry cream shake with berry drizzle."
+    },
+    {
+        "id": "sh4",
+        "name": "Paan Shake",
+        "cat": "shakes",
+        "price": 100,
+        "desc": "Royal refreshing meetha paan infused thick dairy shake."
+    },
+    {
+        "id": "sh5",
+        "name": "Banana Caramel Shake",
+        "cat": "shakes",
         "price": 120,
-        "desc": "Tortilla chips smothered in melted yellow cheese sauce."
+        "desc": "Ripe bananas blended with golden caramel and ice cream."
     },
     {
-        "id": "nc3",
-        "name": "Masala Cheese Nachos",
-        "cat": "fries_nachos",
-        "price": 140,
-        "desc": "Topped with chopped tomatoes, onions, spices & cheese."
-    },
-    {
-        "id": "nc4",
-        "name": "Baked Cheese Nachos",
-        "cat": "fries_nachos",
-        "price": 160,
-        "desc": "Oven-baked nachos with olives, jalapeños & golden bubbling cheese."
-    },
-    {
-        "id": "ch1",
-        "name": "Crunchy Chaat (Kurkure)",
-        "cat": "chaat",
-        "price": 70,
-        "desc": "Crispy kurkure tossed with onions, tomatoes, lemon & chaat masala."
-    },
-    {
-        "id": "ch2",
-        "name": "Tangy Bhel (Rings)",
-        "cat": "chaat",
-        "price": 70,
-        "desc": "Tangy puffed rings bhel tossed with fresh mint & tamarind chutneys."
-    },
-    {
-        "id": "ch3",
-        "name": "Kurkure Bhel",
-        "cat": "chaat",
-        "price": 80,
-        "desc": "Spicy fusion bhel tossed with crunchy kurkure and chutneys."
-    },
-    {
-        "id": "ch4",
-        "name": "Crispy Corn",
-        "cat": "chaat",
-        "price": 110,
-        "desc": "Golden fried sweet corn kernels tossed with pepper and spices."
-    },
-    {
-        "id": "ch5",
-        "name": "Veg. Spring Roll (6 pcs)",
-        "cat": "chaat",
+        "id": "sh6",
+        "name": "Oreo Shake",
+        "cat": "shakes",
         "price": 120,
-        "desc": "Crispy golden fried rolls stuffed with seasoned wok veggies."
+        "desc": "Crushed chocolate Oreo cookies churned with vanilla cream."
+    },
+    {
+        "id": "sh7",
+        "name": "Kit Kat Shake",
+        "cat": "shakes",
+        "price": 120,
+        "desc": "Crispy KitKat wafer bars blended into thick chocolate shake."
+    },
+    {
+        "id": "sh8",
+        "name": "Blueberry Shake",
+        "cat": "shakes",
+        "price": 130,
+        "desc": "Wild blueberry puree blended with thick dairy ice cream."
+    },
+    {
+        "id": "sh9",
+        "name": "DBC Shake (Death By Chocolate)",
+        "cat": "shakes",
+        "price": 150,
+        "desc": "Overloaded with dark chocolate, brownie bits and fudge."
+    },
+    {
+        "id": "sh10",
+        "name": "Butterscotch Oreo Shake",
+        "cat": "shakes",
+        "price": 150,
+        "desc": "Crunchy butterscotch praline married with crushed Oreo."
+    },
+    {
+        "id": "sh11",
+        "name": "Peanut Butter Shake",
+        "cat": "shakes",
+        "price": 150,
+        "desc": "Creamy peanut butter churned with vanilla ice cream."
+    },
+    {
+        "id": "sh12",
+        "name": "Peanut Butter Oreo Shake",
+        "cat": "shakes",
+        "price": 180,
+        "desc": "Indulgent blend of crunchy peanut butter and Oreo cookies."
+    },
+    {
+        "id": "sh13",
+        "name": "Hazelnut Brownie Shake",
+        "cat": "shakes",
+        "price": 180,
+        "desc": "Chewy chocolate brownie and roasted hazelnut thick shake."
     },
     {
         "id": "mk1",
@@ -1185,97 +1542,6 @@
         "desc": "Fresh watermelon juice shaken with lime and chilled soda."
     },
     {
-        "id": "sh1",
-        "name": "Chocolate Shake",
-        "cat": "shakes",
-        "price": 90,
-        "desc": "Creamy chilled chocolate thick shake."
-    },
-    {
-        "id": "sh2",
-        "name": "Butter Scotch Shake",
-        "cat": "shakes",
-        "price": 100,
-        "desc": "Velvety butterscotch shake with caramelized praline crunch."
-    },
-    {
-        "id": "sh3",
-        "name": "Strawberry Shake",
-        "cat": "shakes",
-        "price": 100,
-        "desc": "Sweet strawberry cream shake with berry drizzle."
-    },
-    {
-        "id": "sh4",
-        "name": "Paan Shake",
-        "cat": "shakes",
-        "price": 100,
-        "desc": "Royal refreshing meetha paan infused thick dairy shake."
-    },
-    {
-        "id": "sh5",
-        "name": "Banana Caramel Shake",
-        "cat": "shakes",
-        "price": 120,
-        "desc": "Ripe bananas blended with golden caramel and ice cream."
-    },
-    {
-        "id": "sh6",
-        "name": "Oreo Shake",
-        "cat": "shakes",
-        "price": 120,
-        "desc": "Crushed chocolate Oreo cookies churned with vanilla cream."
-    },
-    {
-        "id": "sh7",
-        "name": "Kit Kat Shake",
-        "cat": "shakes",
-        "price": 120,
-        "desc": "Crispy KitKat wafer bars blended into thick chocolate shake."
-    },
-    {
-        "id": "sh8",
-        "name": "Blueberry Shake",
-        "cat": "shakes",
-        "price": 130,
-        "desc": "Wild blueberry puree blended with thick dairy ice cream."
-    },
-    {
-        "id": "sh9",
-        "name": "DBC Shake (Death By Chocolate)",
-        "cat": "shakes",
-        "price": 150,
-        "desc": "Overloaded with dark chocolate, brownie bits and fudge."
-    },
-    {
-        "id": "sh10",
-        "name": "Butterscotch Oreo Shake",
-        "cat": "shakes",
-        "price": 150,
-        "desc": "Crunchy butterscotch praline married with crushed Oreo."
-    },
-    {
-        "id": "sh11",
-        "name": "Peanut Butter Shake",
-        "cat": "shakes",
-        "price": 150,
-        "desc": "Creamy peanut butter churned with vanilla ice cream."
-    },
-    {
-        "id": "sh12",
-        "name": "Peanut Butter Oreo Shake",
-        "cat": "shakes",
-        "price": 180,
-        "desc": "Indulgent blend of crunchy peanut butter and Oreo cookies."
-    },
-    {
-        "id": "sh13",
-        "name": "Hazelnut Brownie Shake",
-        "cat": "shakes",
-        "price": 180,
-        "desc": "Chewy chocolate brownie and roasted hazelnut thick shake."
-    },
-    {
         "id": "sp1",
         "name": "Delhi Butter Handi Momos",
         "cat": "momos",
@@ -1288,27 +1554,6 @@
         "cat": "momos",
         "price": 180,
         "desc": "Crispy fried momos tossed with chaat masala & fresh mint chutney."
-    },
-    {
-        "id": "sp3",
-        "name": "Double Cheese Corn Pizza",
-        "cat": "pizza",
-        "price": 110,
-        "desc": "Golden crust with double mozzarella & sweet American corn."
-    },
-    {
-        "id": "sp4",
-        "name": "Farmhouse Gourmet Pizza",
-        "cat": "pizza",
-        "price": 140,
-        "desc": "Black olives, fiery jalapenos, onions, capsicum & mozzarella."
-    },
-    {
-        "id": "sp5",
-        "name": "Skillet Melted Cheesy Maggi",
-        "cat": "maggi",
-        "price": 100,
-        "desc": "Double noodles with butter, corn, herbs & thick cheese pull."
     }
 ];
 
@@ -1620,7 +1865,79 @@
     });
   }
 
+  
+  /* Render On-Page Menu Grid */
+  var onPageCat = 'all';
+  function renderOnPageMenu() {
+    var grid = document.getElementById('onPageMenuGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    var filtered = onPageCat === 'all' ? menuItems : menuItems.filter(function (x) { return x.cat === onPageCat; });
+    filtered.forEach(function (item) {
+      var qty = cart[item.id] || 0;
+      var card = document.createElement('div');
+      card.className = 'onpage-menu-item';
+      
+      var catBadgeName = item.cat.toUpperCase().replace('_', ' & ');
+      
+      card.innerHTML = 
+        '<div class="onpage-item-head">' +
+          '<div class="onpage-item-name">' + item.name + '</div>' +
+          '<div class="onpage-item-dots"></div>' +
+          '<div class="onpage-item-price">₹' + item.price + '</div>' +
+        '</div>' +
+        '<p class="onpage-item-desc">' + item.desc + '</p>' +
+        '<div class="onpage-item-foot">' +
+          '<span class="onpage-cat-badge">' + catBadgeName + '</span>' +
+          (qty === 0 
+            ? '<button type="button" class="btn btn-gold btn-sm add-btn" data-id="' + item.id + '" style="padding:4px 14px;font-size:0.75rem;">+ Add</button>'
+            : '<div class="qty-stepper">' +
+                '<button type="button" class="qty-btn" data-action="dec" data-id="' + item.id + '">−</button>' +
+                '<span class="qty-val">' + qty + '</span>' +
+                '<button type="button" class="qty-btn" data-action="inc" data-id="' + item.id + '">+</button>' +
+              '</div>'
+          ) +
+        '</div>';
+      grid.appendChild(card);
+    });
+
+    grid.querySelectorAll('.add-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-id');
+        cart[id] = 1;
+        updateCartAndBill();
+        var it = menuItems.find(function(m) { return m.id === id; });
+        showToast('Added ' + (it ? it.name : 'dish') + ' to order!');
+      });
+    });
+
+    grid.querySelectorAll('.qty-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-id');
+        var action = btn.getAttribute('data-action');
+        if (action === 'inc') {
+          cart[id] = (cart[id] || 0) + 1;
+        } else if (action === 'dec') {
+          if (cart[id] > 1) cart[id]--;
+          else delete cart[id];
+        }
+        updateCartAndBill();
+      });
+    });
+  }
+
+  /* Listen for on-page tab switches */
+  document.querySelectorAll('.onpage-tab').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.onpage-tab').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      onPageCat = btn.getAttribute('data-cat') || 'all';
+      renderOnPageMenu();
+    });
+  });
+
   renderMenuGrid();
+  renderOnPageMenu();
   updateCartAndBill();
 
 })();
