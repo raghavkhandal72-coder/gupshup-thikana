@@ -377,12 +377,13 @@
       </div>
 
       <!-- Action Footer -->
-      <div style="text-align:center;margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <button type="button" class="btn btn-gold btn-lg" data-modal-target="#orderModal">
-          View Selected Order &amp; WhatsApp Receipt ⚡
+      <div class="menu-action-buttons-wrap">
+        <button type="button" class="btn btn-gold btn-lg menu-main-action-btn" data-modal-target="#orderModal">
+          <span>⚡ View Selected Order &amp; WhatsApp Receipt</span>
+          <span class="btn-live-badge" id="menuLiveBadge">₹0 (0 items)</span>
         </button>
-        <button type="button" class="btn btn-ghost btn-lg" data-modal-target="#menuCardModal">
-          📸 View Original Printed Menu Cards
+        <button type="button" class="btn btn-ghost btn-lg menu-main-action-btn" data-modal-target="#menuCardModal">
+          <span>📸 View Original Printed Menu Cards (HD)</span>
         </button>
       </div>
     </div>
@@ -1008,28 +1009,99 @@
   </div>
 </div>
 
-<!-- Modal for Viewing Official Printed Menu Card -->
+<!-- Modal for Viewing Official Printed Menu Cards (HD & Zoomable) -->
 <div class="gt-modal-overlay" id="menuCardModal" aria-modal="true" role="dialog">
-  <div class="gt-modal" style="max-width:760px;text-align:center;">
+  <div class="gt-modal menu-card-modal-box">
     <button type="button" class="gt-modal-close" data-modal-close aria-label="Close menu modal">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
-    <span class="eyebrow center">Original Counter Board</span>
-    <h3 style="font-size:clamp(1.6rem,3.5vw,2.2rem);margin-bottom:6px;">Official Gupshup Thikana Menu</h3>
-    <p class="sub" style="margin-bottom:16px;">Verified rates &amp; offerings directly from our physical cafe counter in Jhotwara.</p>
-    <div style="border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:0 15px 45px rgba(0,0,0,0.8);max-height:68vh;overflow-y:auto;background:#05091a;">
-      <img src="assets/gupshup-official-menu.jpg" alt="Official Gupshup Thikana Menu Card" style="width:100%;height:auto;display:block;">
+    <span class="eyebrow center">Physical Cafe Counter Boards</span>
+    <h3 style="font-size:clamp(1.5rem,3.5vw,2.2rem);margin-bottom:6px;">Official Printed Menu Cards</h3>
+    <p class="sub" style="margin-bottom:14px;">View official rates &amp; offerings directly from our physical counter in Jhotwara, Jaipur.</p>
+
+    <!-- Menu Card Tabs -->
+    <div class="menu-card-tabs">
+      <button type="button" class="menu-card-tab-btn active" data-card="1">
+        🥤 Card 1: Beverages, Shakes &amp; Snacks
+      </button>
+      <button type="button" class="menu-card-tab-btn" data-card="2">
+        🍕 Card 2: Food, Pizzas, Chinese &amp; Burgers
+      </button>
     </div>
-    <div style="margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-      <a href="assets/gupshup-official-menu.jpg" download="Gupshup-Thikana-Official-Menu.jpg" class="btn btn-gold">
-        Download Menu Card 📥
-      </a>
-      <button type="button" class="btn btn-ghost" data-modal-close data-modal-target="#orderModal">
-        Order Food Online (118 Items) 🛵
+
+    <!-- Zoom & Viewer Controls -->
+    <div class="menu-card-controls">
+      <button type="button" class="btn btn-ghost btn-sm" id="menuZoomInBtn">🔍+ Zoom In</button>
+      <button type="button" class="btn btn-ghost btn-sm" id="menuZoomOutBtn">🔍- Zoom Out</button>
+      <button type="button" class="btn btn-ghost btn-sm" id="menuZoomResetBtn">↺ Reset</button>
+      <a href="assets/gupshup-official-menu.jpg" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" id="menuOpenRawBtn">⛶ Fullscreen HD</a>
+      <a href="assets/gupshup-official-menu.jpg" download="Gupshup-Thikana-Beverages-Menu.jpg" class="btn btn-gold btn-sm" id="menuDownloadBtn">📥 Download</a>
+    </div>
+
+    <!-- Image Viewport Container -->
+    <div class="menu-card-viewer" id="menuCardViewer">
+      <img src="assets/gupshup-official-menu.jpg" alt="Gupshup Thikana Printed Menu Card 1" id="menuCardImg" class="menu-card-img">
+    </div>
+
+    <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <button type="button" class="btn btn-gold" data-modal-close data-modal-target="#orderModal">
+        Order Online (173 Items) 🛵
       </button>
       <button type="button" class="btn btn-ghost" data-modal-close>
-        Close ✕
+        Close Viewer ✕
       </button>
+    </div>
+  </div>
+</div>
+
+<!-- Floating Side Menu Widget (Mobile & PC) -->
+<div class="gt-side-menu-widget" id="sideMenuWidget">
+  <button type="button" class="gt-side-menu-trigger" id="sideMenuTrigger" aria-label="Quick Menu &amp; Actions">
+    <span class="gt-side-icon">📋</span>
+    <span class="gt-side-label">Menu &amp; Order</span>
+    <span class="gt-side-badge">173</span>
+  </button>
+  <div class="gt-side-menu-panel" id="sideMenuPanel">
+    <div class="gt-side-panel-header">
+      <h4>Gupshup Thikana</h4>
+      <span>24/7 Cafe &amp; Kitchen</span>
+    </div>
+    <div class="gt-side-panel-links">
+      <a href="#cuisine" class="gt-side-link" id="sideLinkMenu">
+        <span class="icon">📖</span>
+        <div>
+          <b>Browse 173 Dishes</b>
+          <small>Interactive on-page menu</small>
+        </div>
+      </a>
+      <button type="button" class="gt-side-link" data-modal-target="#orderModal">
+        <span class="icon">⚡</span>
+        <div>
+          <b>Review Cart &amp; Bill</b>
+          <small>Instant 78mm thermal receipt</small>
+        </div>
+      </button>
+      <button type="button" class="gt-side-link" data-modal-target="#menuCardModal">
+        <span class="icon">📸</span>
+        <div>
+          <b>Original Printed Cards</b>
+          <small>View &amp; download physical menus</small>
+        </div>
+      </button>
+      <a href="https://wa.me/919145993363" target="_blank" rel="noopener" class="gt-side-link highlight">
+        <span class="icon">💬</span>
+        <div>
+          <b>WhatsApp Direct Order</b>
+          <small>Chat with counter staff 24/7</small>
+        </div>
+      </a>
+      <a href="tel:+919145993363" class="gt-side-link">
+        <span class="icon">📞</span>
+        <div>
+          <b>Call Cafe (+91 91459 93363)</b>
+          <small>Instant phone booking &amp; takeaway</small>
+        </div>
+      </a>
     </div>
   </div>
 </div>

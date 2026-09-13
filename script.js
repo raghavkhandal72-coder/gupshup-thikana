@@ -1763,6 +1763,8 @@
     var badge = document.getElementById('cartBadge');
     var subtotalEl = document.getElementById('billSubtotal');
     var grandTotalEl = document.getElementById('billGrandTotal');
+    var menuLiveBadge = document.getElementById('menuLiveBadge');
+    var sideBadge = document.querySelector('#sideMenuWidget .gt-side-badge');
     
     var totalCount = 0;
     var subtotal = 0;
@@ -1797,6 +1799,18 @@
     if (badge) badge.textContent = totalCount + ' Items';
     if (subtotalEl) subtotalEl.textContent = '₹' + subtotal;
     if (grandTotalEl) grandTotalEl.textContent = '₹' + subtotal;
+
+    if (menuLiveBadge) {
+      if (totalCount > 0) {
+        menuLiveBadge.textContent = '₹' + subtotal + ' (' + totalCount + ' items)';
+      } else {
+        menuLiveBadge.textContent = '₹0 (0 items)';
+      }
+    }
+
+    if (sideBadge) {
+      sideBadge.textContent = totalCount > 0 ? (totalCount + ' in Cart') : '173';
+    }
   }
 
   /* Order Type Switcher */
@@ -2074,6 +2088,85 @@
       renderOnPageMenu();
     });
   });
+
+  /* ---------- Floating Side Menu Widget ---------- */
+  var sideTrigger = document.getElementById('sideMenuTrigger');
+  var sidePanel = document.getElementById('sideMenuPanel');
+  if (sideTrigger && sidePanel) {
+    sideTrigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      sidePanel.classList.toggle('open');
+    });
+    document.addEventListener('click', function (e) {
+      if (!sidePanel.contains(e.target) && e.target !== sideTrigger) {
+        sidePanel.classList.remove('open');
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') sidePanel.classList.remove('open');
+    });
+    sidePanel.querySelectorAll('a, button').forEach(function (el) {
+      el.addEventListener('click', function () {
+        sidePanel.classList.remove('open');
+      });
+    });
+  }
+
+  /* ---------- Menu Card Modal (Tabs & HD Zoom Controls) ---------- */
+  var cardTabs = document.querySelectorAll('.menu-card-tab-btn');
+  var cardImg = document.getElementById('menuCardImg');
+  var downloadBtn = document.getElementById('menuDownloadBtn');
+  var openRawBtn = document.getElementById('menuOpenRawBtn');
+  var zoomInBtn = document.getElementById('menuZoomInBtn');
+  var zoomOutBtn = document.getElementById('menuZoomOutBtn');
+  var zoomResetBtn = document.getElementById('menuZoomResetBtn');
+
+  var currentScale = 1;
+  var cardData = {
+    '1': {
+      src: 'assets/gupshup-official-menu.jpg',
+      download: 'Gupshup-Thikana-Beverages-Menu.jpg',
+      alt: 'Gupshup Thikana Printed Menu Card 1: Beverages, Shakes & Snacks'
+    },
+    '2': {
+      src: 'assets/gupshup-food-menu-card.png',
+      download: 'Gupshup-Thikana-Food-Menu.png',
+      alt: 'Gupshup Thikana Printed Menu Card 2: Food, Pizzas, Chinese & Burgers'
+    }
+  };
+
+  function setScale(scale) {
+    currentScale = Math.max(1, Math.min(3, Math.round(scale * 10) / 10));
+    if (cardImg) {
+      cardImg.style.transform = 'scale(' + currentScale + ')';
+      cardImg.style.cursor = currentScale > 1 ? 'grab' : 'default';
+    }
+  }
+
+  if (cardTabs.length && cardImg) {
+    cardTabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        cardTabs.forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        var cardId = tab.getAttribute('data-card');
+        var data = cardData[cardId] || cardData['1'];
+        cardImg.src = data.src;
+        cardImg.alt = data.alt;
+        if (downloadBtn) {
+          downloadBtn.href = data.src;
+          downloadBtn.download = data.download;
+        }
+        if (openRawBtn) {
+          openRawBtn.href = data.src;
+        }
+        setScale(1);
+      });
+    });
+
+    if (zoomInBtn) zoomInBtn.addEventListener('click', function () { setScale(currentScale + 0.35); });
+    if (zoomOutBtn) zoomOutBtn.addEventListener('click', function () { setScale(currentScale - 0.35); });
+    if (zoomResetBtn) zoomResetBtn.addEventListener('click', function () { setScale(1); });
+  }
 
   renderMenuGrid();
   renderOnPageMenu();

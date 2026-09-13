@@ -506,28 +506,35 @@ body.admin-bar .site-header { top: 32px; } @media screen and (max-width: 782px) 
   border-color: transparent;
 }
 
-/* Receipt Ticket UI (On-Screen Thermal Bill) */
+/* Receipt Ticket UI (On-Screen Thermal Bill: EXACT 78MM WIDTH) */
 #receiptModal {
   align-items: flex-start;
   overflow-y: auto;
-  padding-top: clamp(24px, 5vh, 60px);
+  padding-top: clamp(16px, 4vh, 40px);
   padding-bottom: clamp(30px, 6vh, 60px);
 }
 .receipt-ticket-wrap {
-  max-width: 440px;
-  width: 100%;
-  margin: auto;
+  width: 78mm !important;
+  max-width: 78mm !important;
+  min-width: min(78mm, 92vw) !important;
+  margin: 0 auto !important;
 }
 .receipt-ticket {
+  width: 78mm !important;
+  max-width: 78mm !important;
+  min-width: min(78mm, 92vw) !important;
+  height: auto !important;
+  min-height: auto !important;
   background: #FAF8F2;
-  color: #1A1A1A;
+  color: #111111;
   font-family: 'Courier New', Courier, monospace;
-  padding: 28px 24px 34px;
-  border-radius: 6px;
+  padding: 18px 12px 24px;
+  border-radius: 4px;
   position: relative;
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
-  line-height: 1.4;
-  margin-inline: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
+  line-height: 1.35;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 .receipt-ticket::before {
   content: "";
@@ -553,95 +560,101 @@ body.admin-bar .site-header { top: 32px; } @media screen and (max-width: 782px) 
 .receipt-header {
   text-align: center;
   border-bottom: 2px dashed #888;
-  padding-bottom: 14px;
-  margin-bottom: 14px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 .receipt-header h2 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.85rem;
+  font-size: 1.55rem;
   font-weight: 700;
   color: #111;
   margin-bottom: 2px;
   letter-spacing: -0.01em;
 }
 .receipt-header .tagline {
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   color: #555;
 }
 .receipt-header .meta-info {
-  font-size: 0.76rem;
+  font-size: 0.68rem;
   color: #444;
-  margin-top: 6px;
+  margin-top: 4px;
+  line-height: 1.3;
 }
 .receipt-meta {
   display: flex;
   justify-content: space-between;
-  font-size: 0.76rem;
+  font-size: 0.68rem;
   color: #333;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   border-bottom: 1px dashed #aaa;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
 }
 .receipt-customer {
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   color: #222;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   border-bottom: 1px dashed #aaa;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
+  line-height: 1.35;
 }
 .receipt-table {
   width: 100%;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   border-collapse: collapse;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 .receipt-table th {
   text-align: left;
   border-bottom: 1px solid #333;
   padding-bottom: 4px;
-  font-size: 0.74rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
 }
 .receipt-table td {
-  padding: 6px 0;
+  padding: 4px 0;
+  vertical-align: top;
+  word-break: break-word;
 }
 .receipt-table td.num {
   text-align: right;
   font-weight: 600;
+  white-space: nowrap;
 }
 .receipt-totals {
   border-top: 1px dashed #555;
-  padding-top: 10px;
-  margin-bottom: 14px;
-  font-size: 0.82rem;
+  padding-top: 8px;
+  margin-bottom: 10px;
+  font-size: 0.72rem;
 }
 .receipt-totals .line {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 .receipt-totals .grand {
-  font-size: 1.15rem;
+  font-size: 0.98rem;
   font-weight: 800;
   border-top: 2px solid #111;
   border-bottom: 2px solid #111;
-  padding: 6px 0;
-  margin-top: 6px;
+  padding: 5px 0;
+  margin-top: 5px;
 }
 .receipt-footer {
   text-align: center;
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   color: #555;
-  margin-top: 16px;
+  margin-top: 12px;
+  line-height: 1.3;
 }
 .receipt-barcode {
   display: flex;
   justify-content: center;
   gap: 2px;
-  height: 38px;
-  margin: 12px 0 6px;
+  height: 32px;
+  margin: 10px 0 4px;
 }
 .receipt-barcode span {
   background: #222;
@@ -650,12 +663,364 @@ body.admin-bar .site-header { top: 32px; } @media screen and (max-width: 782px) 
 }
 .receipt-actions {
   display: flex;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 8px;
+  margin-top: 16px;
+  width: 100%;
 }
 .receipt-actions .btn {
   flex: 1;
   justify-content: center;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+}
+
+/* Print Stylesheet for 78mm Thermal Receipt Printer */
+@page {
+  size: 78mm auto;
+  margin: 0;
+}
+@media print {
+  html, body {
+    width: 78mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
+  body * {
+    visibility: hidden;
+  }
+  #receiptModal, #receiptModal * {
+    visibility: visible;
+  }
+  #receiptModal {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 78mm !important;
+    max-width: 78mm !important;
+    min-width: 78mm !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #fff !important;
+    display: block !important;
+  }
+  .receipt-ticket-wrap {
+    width: 78mm !important;
+    max-width: 78mm !important;
+    min-width: 78mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .receipt-ticket {
+    width: 78mm !important;
+    max-width: 78mm !important;
+    min-width: 78mm !important;
+    height: auto !important;
+    padding: 4mm 3mm !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .receipt-ticket::before,
+  .receipt-ticket::after,
+  .receipt-actions {
+    display: none !important;
+  }
+}
+
+/* =============================================================
+   FLOATING SIDE MENU WIDGET (MOBILE & PC)
+   ============================================================= */
+.gt-side-menu-widget {
+  position: fixed;
+  right: 0;
+  top: 48%;
+  transform: translateY(-50%);
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.gt-side-menu-trigger {
+  background: linear-gradient(135deg, #c9a24b 0%, #8a6a24 100%);
+  color: #060918;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(201, 162, 75, 0.4);
+  padding: 10px 14px 10px 18px;
+  border-radius: 30px 0 0 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  user-select: none;
+}
+
+.gt-side-menu-trigger:hover {
+  transform: translateX(-4px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(201, 162, 75, 0.6);
+  background: linear-gradient(135deg, #e5b95d 0%, #a47e2c 100%);
+}
+
+.gt-side-icon {
+  font-size: 1.15rem;
+}
+
+.gt-side-badge {
+  background: #060918;
+  color: #e5b95d;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 20px;
+  border: 1px solid #c9a24b;
+}
+
+.gt-side-menu-panel {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%) scale(0.92);
+  width: 300px;
+  background: rgba(6, 10, 28, 0.98);
+  border: 1px solid var(--gold);
+  border-radius: 18px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 40px rgba(201, 162, 75, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 18px 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 999;
+}
+
+.gt-side-menu-panel.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scale(1);
+}
+
+.gt-side-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.gt-side-panel-header h4 {
+  font-family: var(--f-display);
+  color: var(--cream);
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.gt-side-panel-header span {
+  font-size: 0.72rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.gt-side-panel-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gt-side-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--cream);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--f-sans);
+  outline: none;
+}
+
+.gt-side-link:hover {
+  background: rgba(201, 162, 75, 0.12);
+  border-color: var(--gold);
+  transform: translateX(-3px);
+}
+
+.gt-side-link.highlight {
+  background: rgba(34, 197, 94, 0.12);
+  border-color: rgba(34, 197, 94, 0.4);
+}
+
+.gt-side-link.highlight:hover {
+  background: rgba(34, 197, 94, 0.22);
+}
+
+.gt-side-link .icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.gt-side-link b {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--cream);
+}
+
+.gt-side-link small {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--cream-dim);
+}
+
+@media (max-width: 768px) {
+  .gt-side-menu-widget {
+    right: 0;
+    top: auto;
+    bottom: 84px;
+    transform: none;
+  }
+  .gt-side-menu-trigger {
+    padding: 8px 12px;
+    font-size: 0.76rem;
+    border-radius: 24px 0 0 24px;
+  }
+  .gt-side-menu-panel {
+    right: 8px;
+    bottom: 50px;
+    top: auto;
+    transform: translateY(20px) scale(0.95);
+    width: min(310px, 94vw);
+  }
+  .gt-side-menu-panel.open {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =============================================================
+   MENU CARD VIEWER MODAL (HD & ZOOM CONTROLS)
+   ============================================================= */
+.menu-card-modal-box {
+  max-width: 880px !important;
+  width: 95vw !important;
+  text-align: center;
+  padding: clamp(18px, 3.5vw, 30px) !important;
+}
+
+.menu-card-tabs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.menu-card-tab-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  color: var(--cream-dim);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.menu-card-tab-btn.active,
+.menu-card-tab-btn:hover {
+  background: var(--gold);
+  color: #060918;
+  border-color: var(--gold);
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(201, 162, 75, 0.35);
+}
+
+.menu-card-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.menu-card-viewer {
+  border-radius: 12px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8);
+  max-height: 64vh;
+  min-height: 280px;
+  background: #030612;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+
+.menu-card-viewer:active {
+  cursor: grabbing;
+}
+
+.menu-card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.2s ease-out;
+  transform-origin: top center;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Menu Action Buttons */
+.menu-action-buttons-wrap {
+  text-align: center;
+  margin-top: 36px;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.menu-main-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 24px;
+  border-radius: 50px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-live-badge {
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--gold-hi);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(201, 162, 75, 0.5);
+  font-family: var(--f-sans);
 }
 
 /* =============================================================
