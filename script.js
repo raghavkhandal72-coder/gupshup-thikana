@@ -485,1078 +485,1217 @@
   /* Complete Official Menu Database (100% matched with Gupshup Thikana Menu Card) */
   var menuItems = [
     {
-        "id": "bg1",
+        "id": "bg_at",
         "name": "Aloo Tikki Burger",
         "cat": "burger",
-        "price": 35,
-        "desc": "Classic spiced potato patty, onion slices & house burger dressing."
+        "price": 49,
+        "desc": "Crispy spiced golden potato patty with onions, tomatoes & cafe burger sauce."
     },
     {
-        "id": "bg2",
-        "name": "Masala Magic Burger",
+        "id": "bg_mb",
+        "name": "Masala Burger",
         "cat": "burger",
-        "price": 45,
-        "desc": "Spicy zesty potato patty with mint-chilli sauce & crunch."
+        "price": 59,
+        "desc": "Zesty spiced patty seasoned with secret chaat masala & mint spread."
     },
     {
-        "id": "bg3",
+        "id": "bg_sat",
         "name": "Supreme Aloo Tikki Burger",
         "cat": "burger",
         "price": 65,
-        "desc": "Loaded double layer patty with fresh lettuce, onions & tangy sauce."
+        "desc": "Loaded double layer patty with fresh lettuce, onions & tangy relish."
     },
     {
-        "id": "bg4",
+        "id": "bg_cb",
         "name": "Cheese Burger",
         "cat": "burger",
         "price": 70,
-        "desc": "Crispy veggie patty blanketed in melted rich cheese slice."
+        "desc": "Crisp golden veggie patty topped with a thick slice of melted cheddar."
     },
     {
-        "id": "bg5",
-        "name": "Extra Cheese Slice",
+        "id": "bg_gsb",
+        "name": "Special Gupshup Burger",
+        "cat": "burger",
+        "price": 79,
+        "desc": "Signature chef burger loaded with double veggies, cheese, and house secret sauce."
+    },
+    {
+        "id": "bg_pb",
+        "name": "Paneer Burger",
+        "cat": "burger",
+        "price": 89,
+        "desc": "Fresh cottage cheese steak seasoned in mild spices and grilled golden."
+    },
+    {
+        "id": "bg_spb",
+        "name": "Spicy Paneer Burger",
+        "cat": "burger",
+        "price": 99,
+        "desc": "Fiery marinated paneer patty infused with spicy peri-peri marinade & jalapenos."
+    },
+    {
+        "id": "bg_ecs",
+        "name": "Extra Cheese Slice (Add-on)",
         "cat": "burger",
         "price": 20,
-        "desc": "Add on extra rich melted cheddar cheese slice."
+        "desc": "Add extra creamy melted cheddar cheese slice."
     },
     {
-        "id": "vp1",
+        "id": "vp_mumbai",
         "name": "Mumbai Vada Pav",
         "cat": "burger",
-        "price": 50,
-        "desc": "Authentic Mumbai style batata vada with spicy red garlic dry chutney."
+        "price": 39,
+        "desc": "Authentic Mumbai street batata vada with spicy red garlic dry chutney & fried chilli."
     },
     {
-        "id": "vp2",
+        "id": "vp_schez",
         "name": "Schezwan Vada Pav",
         "cat": "burger",
-        "price": 60,
-        "desc": "Spicy street style vada pav spiked with fiery schezwan sauce."
+        "price": 49,
+        "desc": "Crispy batata vada layered with fiery wok-tossed Schezwan sauce."
     },
     {
-        "id": "vp3",
+        "id": "vp_cheese",
         "name": "Cheese Vada Pav",
         "cat": "burger",
-        "price": 80,
-        "desc": "Melted cheese slice layered over hot crispy batata vada."
+        "price": 59,
+        "desc": "Hot crispy batata vada topped with gooey melted cheese inside a soft buttered pav."
     },
     {
-        "id": "cs1",
-        "name": "Mayonnaise Sandwich",
+        "id": "sw_veg_cold",
+        "name": "Vegetable Cold Sandwich",
         "cat": "sandwiches",
-        "price": 60,
-        "desc": "Chilled creamy mayonnaise tossed with crunchy veggies."
+        "price": 39,
+        "desc": "Chilled refreshing cucumber, tomato & onion slices with mint chutney."
     },
     {
-        "id": "cs2",
-        "name": "Bombay Masala Sandwich",
+        "id": "sw_bm_cold",
+        "name": "Bombay Masala Cold Sandwich",
         "cat": "sandwiches",
-        "price": 60,
-        "desc": "Spiced potato masala with beet, tomato, cucumber & green chutney."
+        "price": 49,
+        "desc": "Classic Bombay spiced potato masala layered with beetroot & coriander."
     },
     {
-        "id": "cs3",
-        "name": "Vegetable Sandwich",
+        "id": "sw_mg_cold",
+        "name": "Mayo Green Cold Sandwich",
         "cat": "sandwiches",
-        "price": 80,
-        "desc": "Fresh farm veggies stacked between soft bread with butter."
+        "price": 59,
+        "desc": "Creamy mayonnaise whipped with fresh herbs, capsicum & crisp greens."
     },
     {
-        "id": "cs4",
-        "name": "Veg Cheese Sandwich",
+        "id": "sw_vc_cold",
+        "name": "Veg Cheese Cold Sandwich",
         "cat": "sandwiches",
-        "price": 90,
-        "desc": "Crispy chilled veggies with a thick blanket of cheese."
+        "price": 69,
+        "desc": "Crunchy seasoned garden vegetables topped with a thick layer of grated cheese."
     },
     {
-        "id": "gs1",
-        "name": "Bombay Street Sandwich",
+        "id": "sw_bv_grill",
+        "name": "Bombay Veggie Grill Sandwich",
         "cat": "sandwiches",
-        "price": 80,
-        "desc": "Golden toasted street style sandwich with spiced potato & spices."
+        "price": 59,
+        "desc": "Crisp toasted sandwich loaded with sliced vegetables and Bombay herb chutney."
     },
     {
-        "id": "gs2",
+        "id": "sw_vg_grill",
         "name": "Veg. Grilled Sandwich",
         "cat": "sandwiches",
-        "price": 99,
-        "desc": "Triple layered golden grilled sandwich packed with fresh veggies."
+        "price": 69,
+        "desc": "Golden grill-pressed bread stuffed with spiced potatoes, onions & capsicum."
     },
     {
-        "id": "gs3",
+        "id": "sw_vm_grill",
+        "name": "Veggie Mayonese Grill Sandwich",
+        "cat": "sandwiches",
+        "price": 79,
+        "desc": "Toasted with luscious eggless mayonnaise, mixed veggies and black pepper."
+    },
+    {
+        "id": "sw_sc_grill",
+        "name": "Sweet Corn Grilled Sandwich",
+        "cat": "sandwiches",
+        "price": 89,
+        "desc": "Juicy golden American sweet corn kernels tossed with butter, herbs and spices."
+    },
+    {
+        "id": "sw_gs_grill",
+        "name": "Gupshup Special Grill Sandwich",
+        "cat": "sandwiches",
+        "price": 99,
+        "desc": "Signature triple-decker sandwich loaded with assorted veggies, paneer & sauces."
+    },
+    {
+        "id": "sw_df_grill",
+        "name": "Double Flav Grilled Sandwich",
+        "cat": "sandwiches",
+        "price": 109,
+        "desc": "Fusion delight with two complementary distinct sauce fillings on twin layers."
+    },
+    {
+        "id": "sw_cb_grill",
+        "name": "Cheese Burst Spicy Grill Sandwich",
+        "cat": "sandwiches",
+        "price": 119,
+        "desc": "Overflowing melted mozzarella & cheddar blended with spicy red chilli flakes."
+    },
+    {
+        "id": "sw_pm_grill",
         "name": "Paneer Makhani Sandwich",
         "cat": "sandwiches",
         "price": 120,
-        "desc": "Succulent paneer cubes simmered in creamy makhani gravy."
+        "desc": "Diced fresh paneer tossed in rich buttery tomato makhani gravy."
     },
     {
-        "id": "gs4",
+        "id": "sw_kp_grill",
         "name": "Kadhai Paneer Sandwich",
         "cat": "sandwiches",
         "price": 120,
-        "desc": "Wok-tossed kadhai spiced paneer with bell peppers & herbs."
+        "desc": "Paneer cubes roasted with bell peppers in aromatic freshly ground kadhai masala."
     },
     {
-        "id": "gs5",
+        "id": "sw_tp_grill",
+        "name": "Tandoori Paneer Sandwich",
+        "cat": "sandwiches",
+        "price": 129,
+        "desc": "Smoky char-grilled tandoori spiced paneer cubes pressed in buttered crust."
+    },
+    {
+        "id": "sw_pk_grill",
         "name": "Paneer Korma Sandwich",
         "cat": "sandwiches",
         "price": 130,
-        "desc": "Rich and velvety korma spiced paneer filling golden toasted."
+        "desc": "Royal slow-cooked mild korma sauce infused with paneer and herbs."
     },
     {
-        "id": "gs6",
+        "id": "sw_sm_grill",
         "name": "Smokey Veg. Grilled Sandwich",
         "cat": "sandwiches",
         "price": 130,
-        "desc": "Char-grilled smokey veggies with house special seasoning."
+        "desc": "Woodsmoke flavoured charcoal grilled assorted garden veggies."
     },
     {
-        "id": "gs7",
+        "id": "sw_pt_grill",
+        "name": "Paneer Tikka Sandwich",
+        "cat": "sandwiches",
+        "price": 139,
+        "desc": "Marinated roasted paneer tikka chunks with capsicum, onion and mint mayo."
+    },
+    {
+        "id": "sw_ccb_grill",
         "name": "Cheese Corn Bite Sandwich",
         "cat": "sandwiches",
-        "price": 130,
-        "desc": "Sweet American corn loaded with melted mozzarella cheese."
+        "price": 140,
+        "desc": "Sweet corn bites smothered in bubbling hot cheese and melted butter."
     },
     {
-        "id": "gs8",
+        "id": "sw_pl_grill",
         "name": "Paneer Lababdar Sandwich",
         "cat": "sandwiches",
         "price": 140,
-        "desc": "Rich lababdar gravy paneer cubes grilled to golden perfection."
+        "desc": "Creamy lababdar gravy with grated cottage cheese and chopped onions."
     },
     {
-        "id": "gs9",
-        "name": "Paneer Tikka Sandwich",
+        "id": "sw_vb_baked",
+        "name": "Veggie Baked Sandwich",
         "cat": "sandwiches",
-        "price": 150,
-        "desc": "Tandoori marinated paneer tikka slices grilled with cheese."
+        "price": 119,
+        "desc": "Oven-baked sandwich crusted with golden cheese and herb-infused veggies."
     },
     {
-        "id": "bs1",
-        "name": "Punjabi Veg. Sandwich (Baked)",
+        "id": "sw_mb_baked",
+        "name": "Mexican Baked Sandwich",
+        "cat": "sandwiches",
+        "price": 129,
+        "desc": "Baked with salsa sauce, jalapeños, sweet corn and Mexican fiesta spices."
+    },
+    {
+        "id": "sw_cc_baked",
+        "name": "Corn and Cheese Baked Sandwich",
+        "cat": "sandwiches",
+        "price": 139,
+        "desc": "Rich sweet corn kernels baked beneath a bubbling blanket of golden mozzarella."
+    },
+    {
+        "id": "sw_cb_baked",
+        "name": "Cheese Baked Sandwich",
+        "cat": "sandwiches",
+        "price": 149,
+        "desc": "Decadent triple cheese blend baked till golden brown and stretchable."
+    },
+    {
+        "id": "sw_pj_baked",
+        "name": "Punjabi Veg. Baked Sandwich",
         "cat": "sandwiches",
         "price": 140,
-        "desc": "Oven-baked robust Punjabi spiced veggies topped with melted cheese."
+        "desc": "Robust rustic North Indian spiced veggies baked with farmhouse cheese."
     },
     {
-        "id": "bs2",
-        "name": "Makhani Veg. Sandwich (Baked)",
+        "id": "sw_mk_baked",
+        "name": "Makhani Veg. Baked Sandwich",
         "cat": "sandwiches",
-        "price": 150,
-        "desc": "Baked sandwich drenched in buttery makhani sauce & cheese."
-    },
-    {
-        "id": "bs3",
-        "name": "Kadhai Veg. Sandwich (Baked)",
-        "cat": "sandwiches",
-        "price": 150,
-        "desc": "Oven-baked sandwich with fiery kadhai veggies and golden crust."
-    },
-    {
-        "id": "bs4",
-        "name": "Cheese Veg. Sandwich (Baked)",
-        "cat": "sandwiches",
-        "price": 160,
-        "desc": "Heavy loaded cheese baked over spiced veggie filling."
-    },
-    {
-        "id": "pz1",
-        "name": "Margherita Pizza (Regular)",
-        "cat": "pizza",
-        "price": 99,
-        "desc": "Classic hand-stretched crust with Italian basil & mozzarella cheese."
-    },
-    {
-        "id": "pz2",
-        "name": "Margherita Pizza (Medium)",
-        "cat": "pizza",
-        "price": 180,
-        "desc": "Medium 8-inch classic pizza loaded with gooey mozzarella."
-    },
-    {
-        "id": "pz3",
-        "name": "Double Cheese Corn Pizza (Regular)",
-        "cat": "pizza",
-        "price": 110,
-        "desc": "Golden crust with double mozzarella & sweet American corn."
-    },
-    {
-        "id": "pz4",
-        "name": "Double Cheese Corn Pizza (Medium)",
-        "cat": "pizza",
-        "price": 199,
-        "desc": "Medium 8-inch crust with double mozzarella & golden sweetcorn."
-    },
-    {
-        "id": "pz5",
-        "name": "Farmhouse Gourmet Pizza (Regular)",
-        "cat": "pizza",
         "price": 140,
-        "desc": "Black olives, fiery jalapenos, onions, capsicum & mozzarella."
+        "desc": "Silky makhani sauce and fresh veggies baked in hot stone oven."
     },
     {
-        "id": "pz6",
-        "name": "Farmhouse Gourmet Pizza (Medium)",
-        "cat": "pizza",
-        "price": 240,
-        "desc": "Medium 8-inch farm fresh pizza loaded with vegetables & herbs."
-    },
-    {
-        "id": "pz7",
-        "name": "Spicy Peri Peri Pizza (Regular)",
-        "cat": "pizza",
+        "id": "sw_kd_baked",
+        "name": "Kadhai Veg. Baked Sandwich",
+        "cat": "sandwiches",
         "price": 150,
-        "desc": "Fiery peri peri spiced veggies, capsicum, onion and mozzarella."
+        "desc": "Oven-baked with crunchy bell peppers and robust kadhai masala."
     },
     {
-        "id": "pz8",
-        "name": "Spicy Peri Peri Pizza (Medium)",
-        "cat": "pizza",
-        "price": 250,
-        "desc": "Medium peri peri pizza packed with zesty toppings."
-    },
-    {
-        "id": "pz9",
-        "name": "Paneer Makhani Pizza (Regular)",
-        "cat": "pizza",
+        "id": "sw_cv_baked",
+        "name": "Cheese Veg. Baked Sandwich",
+        "cat": "sandwiches",
         "price": 160,
-        "desc": "Tandoori spiced paneer cubes on rich makhani sauce base."
+        "desc": "Ultimate baked indulgence loaded with vegetables and double cheese crust."
     },
     {
-        "id": "pz10",
-        "name": "Paneer Makhani Pizza (Medium)",
+        "id": "pz_margh_7",
+        "name": "Margherita Pizza (7 inch)",
         "cat": "pizza",
-        "price": 260,
-        "desc": "Medium makhani pizza topped with buttery spiced cottage cheese."
+        "price": 129,
+        "desc": "Classic hand-tossed crust with Italian san marzano tomato sauce, fresh basil & 100% mozzarella."
     },
     {
-        "id": "pz11",
-        "name": "Tandoori Paneer Pizza (Regular)",
-        "cat": "pizza",
-        "price": 170,
-        "desc": "Clay oven spiced paneer chunks, red paprika, onion & cheese."
-    },
-    {
-        "id": "pz12",
-        "name": "Tandoori Paneer Pizza (Medium)",
-        "cat": "pizza",
-        "price": 270,
-        "desc": "Medium smoky tandoori paneer pizza with melted cheese pull."
-    },
-    {
-        "id": "pz13",
-        "name": "Veggie Delight Pizza (Regular)",
-        "cat": "pizza",
-        "price": 130,
-        "desc": "Loaded with onions, crisp capsicum and fresh tomato slices."
-    },
-    {
-        "id": "pz14",
-        "name": "Veggie Delight Pizza (Medium)",
-        "cat": "pizza",
-        "price": 220,
-        "desc": "Medium classic vegetable pizza with mozzarella."
-    },
-    {
-        "id": "pz15",
-        "name": "Paneer Tikka Pizza (Regular)",
-        "cat": "pizza",
-        "price": 160,
-        "desc": "Marinated paneer tikka, capsicum, onion and tandoori herbs."
-    },
-    {
-        "id": "pz16",
-        "name": "Paneer Tikka Pizza (Medium)",
-        "cat": "pizza",
-        "price": 260,
-        "desc": "Medium paneer tikka pizza loaded with cheese."
-    },
-    {
-        "id": "pz17",
-        "name": "Gupshup Special Pizza (Regular)",
+        "id": "pz_margh_9",
+        "name": "Margherita Pizza (9 inch Medium)",
         "cat": "pizza",
         "price": 199,
-        "desc": "The ultimate chef creation overloaded with all veggies & double cheese."
+        "desc": "Medium 9 inch classic Italian cheese pizza loaded with rich bubbling golden mozzarella."
     },
     {
-        "id": "pz18",
-        "name": "Gupshup Special Pizza (Medium)",
+        "id": "pz_onion_7",
+        "name": "Onion Pizza (7 inch)",
+        "cat": "pizza",
+        "price": 139,
+        "desc": "Crisp red onions and herbs spread generously over seasoned tomato puree & mozzarella."
+    },
+    {
+        "id": "pz_onion_9",
+        "name": "Onion Pizza (9 inch Medium)",
+        "cat": "pizza",
+        "price": 219,
+        "desc": "Medium 9 inch pizza with caramelised & crisp onions baked under aromatic herbs & cheese."
+    },
+    {
+        "id": "pz_corn_7",
+        "name": "Corn & Cheese Pizza (7 inch)",
+        "cat": "pizza",
+        "price": 149,
+        "desc": "Juicy golden sweet corn paired with gooey melted mozzarella cheese."
+    },
+    {
+        "id": "pz_corn_9",
+        "name": "Corn & Cheese Pizza (9 inch Medium)",
+        "cat": "pizza",
+        "price": 239,
+        "desc": "Medium 9 inch pizza loaded with abundant sweet corn kernels and extra mozzarella."
+    },
+    {
+        "id": "pz_farm_7",
+        "name": "Farm Fresh Pizza (7 inch)",
+        "cat": "pizza",
+        "price": 159,
+        "desc": "Crunchy capsicum, red onions, ripe tomatoes and sweet corn over herb tomato base."
+    },
+    {
+        "id": "pz_farm_9",
+        "name": "Farm Fresh Pizza (9 inch Medium)",
+        "cat": "pizza",
+        "price": 249,
+        "desc": "Medium 9 inch garden fresh pizza with colourful crisp vegetables and mozzarella."
+    },
+    {
+        "id": "pz_gupshup_7",
+        "name": "Gupshup Special Pizza (7 inch)",
+        "cat": "pizza",
+        "price": 179,
+        "desc": "Signature cafe creation with marinated paneer, olives, jalapenos, corn and house special spice."
+    },
+    {
+        "id": "pz_gupshup_9",
+        "name": "Gupshup Special Pizza (9 inch Medium)",
+        "cat": "pizza",
+        "price": 279,
+        "desc": "Medium 9 inch signature pizza topped with generous chef toppings and triple cheese."
+    },
+    {
+        "id": "pz_ptikka_7",
+        "name": "Paneer Tikka Pizza (7 inch)",
+        "cat": "pizza",
+        "price": 179,
+        "desc": "Tandoori roasted spicy paneer cubes, crisp capsicum & onions with Indian herb dust."
+    },
+    {
+        "id": "pz_ptikka_9",
+        "name": "Paneer Tikka Pizza (9 inch Medium)",
+        "cat": "pizza",
+        "price": 279,
+        "desc": "Medium 9 inch paneer tikka pizza loaded with smoky roasted cottage cheese & cheese."
+    },
+    {
+        "id": "pz_spicy_p_7",
+        "name": "Spicy Paneer Pizza (7 inch)",
+        "cat": "pizza",
+        "price": 189,
+        "desc": "Fiery marinated paneer cubes, red paprika, jalapenos & spicy schezwan-tomato swirl."
+    },
+    {
+        "id": "pz_spicy_p_9",
+        "name": "Spicy Paneer Pizza (9 inch Medium)",
+        "cat": "pizza",
+        "price": 289,
+        "desc": "Medium 9 inch spicy paneer pizza designed for spice lovers with hot pepper toppings."
+    },
+    {
+        "id": "pz_tand_p_7",
+        "name": "Tandoori Paneer Pizza (7 inch)",
+        "cat": "pizza",
+        "price": 189,
+        "desc": "Charcoal infused clay-oven spiced paneer chunks, coriander drizzle & golden cheese."
+    },
+    {
+        "id": "pz_tand_p_9",
+        "name": "Tandoori Paneer Pizza (9 inch Medium)",
+        "cat": "pizza",
+        "price": 289,
+        "desc": "Medium 9 inch tandoori style pizza with rich roasted paneer, onion rings and mozzarella."
+    },
+    {
+        "id": "pz_overload_7",
+        "name": "Overloaded Pizza (7 inch)",
+        "cat": "pizza",
+        "price": 199,
+        "desc": "Extravaganza of all available toppings: paneer, corn, capsicum, olives, onions & double cheese."
+    },
+    {
+        "id": "pz_overload_9",
+        "name": "Overloaded Pizza (9 inch Medium)",
         "cat": "pizza",
         "price": 299,
-        "desc": "Chef signature medium pizza with exotic veggies, olives & cheese."
+        "desc": "Medium 9 inch fully loaded pizza overflowing with supreme toppings and cheese."
     },
     {
-        "id": "mg1",
-        "name": "Plain Maggi",
-        "cat": "maggi",
-        "price": 50,
-        "desc": "Simple & comforting classic maggi cooked to piping hot perfection."
-    },
-    {
-        "id": "mg2",
+        "id": "mg_masala",
         "name": "Masala Maggi",
         "cat": "maggi",
-        "price": 60,
-        "desc": "Tossed with extra chatpata spices, butter and fresh coriander."
+        "price": 49,
+        "desc": "All-time favourite 2-minute classic Maggi cooked with authentic tastemaker & mild herbs."
     },
     {
-        "id": "mg3",
+        "id": "mg_veggie",
         "name": "Veggie Maggi",
         "cat": "maggi",
-        "price": 70,
-        "desc": "Loaded with sweet corn, onions, green peas and carrots."
+        "price": 59,
+        "desc": "Hot steaming Maggi noodles tossed with chopped carrots, green peas, onions and capsicum."
     },
     {
-        "id": "mg4",
-        "name": "Skillet Melted Cheesy Maggi",
+        "id": "mg_butter",
+        "name": "Butter Maggi",
         "cat": "maggi",
-        "price": 100,
-        "desc": "Double noodles with butter, corn, herbs & thick molten cheese pull."
+        "price": 69,
+        "desc": "Rich creamy Maggi prepared with generous melting golden Amul butter dollop."
     },
     {
-        "id": "mg5",
-        "name": "Tandoori Tadka Maggi",
+        "id": "mg_cheese",
+        "name": "Cheese Maggi",
         "cat": "maggi",
-        "price": 110,
-        "desc": "Smoky clay oven tandoori tadka with fresh chopped veggies."
+        "price": 79,
+        "desc": "Topped with a generous mound of finely shredded gooey melted cheddar cheese."
     },
     {
-        "id": "ch1",
+        "id": "mg_tandoori",
+        "name": "Tandoori Maggi",
+        "cat": "maggi",
+        "price": 89,
+        "desc": "Smoky clay-oven tandoori tadka infused into piping hot spicy Maggi noodles."
+    },
+    {
+        "id": "ch_veg_ndl",
         "name": "Veg Noodles",
         "cat": "chinese",
-        "price": 80,
-        "desc": "Wok-tossed thin noodles with crunchy julienne vegetables."
+        "price": 69,
+        "desc": "Wok-tossed noodles with shredded cabbage, carrots, spring onions and light soy sauce."
     },
     {
-        "id": "ch2",
+        "id": "ch_hakka_ndl",
         "name": "Hakka Noodles",
         "cat": "chinese",
-        "price": 90,
-        "desc": "Classic street style Indo-Chinese hakka noodles with soya and chilli."
+        "price": 79,
+        "desc": "Classic Indo-Chinese street style Hakka noodles tossed on high flame with bell peppers."
     },
     {
-        "id": "ch3",
+        "id": "ch_schez_ndl",
         "name": "Schezwan Noodles",
         "cat": "chinese",
-        "price": 100,
-        "desc": "Spicy wok noodles tossed in fiery homemade schezwan sauce."
+        "price": 89,
+        "desc": "Fiery noodles stir-fried with house special garlic-chilli Schezwan sauce."
     },
     {
-        "id": "ch4",
+        "id": "ch_cg_ndl",
         "name": "Chilli Garlic Noodles",
         "cat": "chinese",
-        "price": 110,
-        "desc": "Infused with roasted crushed garlic, dry red chillies and scallions."
+        "price": 99,
+        "desc": "Spicy noodles bursting with charred garlic cloves, red chillies and scallions."
     },
     {
-        "id": "ch5",
-        "name": "Veg Fried Rice",
+        "id": "ch_gs_ndl",
+        "name": "Gupshup Special Noodles",
         "cat": "chinese",
-        "price": 90,
-        "desc": "Fragrant basmati rice wok-fried with crisp garden vegetables."
+        "price": 119,
+        "desc": "Signature chef noodles tossed with exotic vegetables, paneer strips and secret sauce."
     },
     {
-        "id": "ch6",
+        "id": "ch_fried_rice",
+        "name": "Fried Rice",
+        "cat": "chinese",
+        "price": 79,
+        "desc": "Fluffy basmati rice wok-fried with crisp diced vegetables and aromatic seasoning."
+    },
+    {
+        "id": "ch_schez_rice",
         "name": "Schezwan Fried Rice",
         "cat": "chinese",
-        "price": 100,
-        "desc": "Zesty fried rice tossed with fiery schezwan paste and herbs."
+        "price": 89,
+        "desc": "Spicy stir-fried basmati rice laced with fiery red Schezwan pepper paste."
     },
     {
-        "id": "ch7",
-        "name": "Chilli Paneer Dry",
+        "id": "ch_cg_rice",
+        "name": "Chilli Garlic Fried Rice",
         "cat": "chinese",
-        "price": 140,
-        "desc": "Crispy golden paneer cubes wok-tossed with bell peppers & garlic."
+        "price": 99,
+        "desc": "Fragrant basmati rice tossed with crispy roasted garlic and dried red chillies."
     },
     {
-        "id": "ch8",
-        "name": "Chilli Paneer Gravy",
-        "cat": "chinese",
-        "price": 160,
-        "desc": "Paneer simmered in savory soya garlic gravy — pairs great with fried rice."
-    },
-    {
-        "id": "ch9",
+        "id": "ch_vm_dry",
         "name": "Veg Manchurian Dry",
         "cat": "chinese",
-        "price": 130,
-        "desc": "Crispy vegetable dumplings tossed in tangy ginger-garlic sauce."
+        "price": 99,
+        "desc": "Crisp golden vegetable dumplings tossed with ginger, garlic, green chillies & dark soy."
     },
     {
-        "id": "ch10",
+        "id": "ch_vm_gravy",
         "name": "Veg Manchurian Gravy",
         "cat": "chinese",
-        "price": 140,
-        "desc": "Vegetable manchurian balls in rich aromatic Indo-Chinese gravy."
+        "price": 119,
+        "desc": "Juicy veg dumplings simmered in rich, glossy and tangy Indo-Chinese brown gravy."
     },
     {
-        "id": "ch11",
-        "name": "Honey Chilli Potato",
+        "id": "ch_cp_dry",
+        "name": "Chilli Paneer Dry",
         "cat": "chinese",
-        "price": 120,
-        "desc": "Crispy potato fingers glazed with sweet honey and roasted sesame seeds."
+        "price": 129,
+        "desc": "Battered succulent paneer cubes stir-fried with diced onions, capsicum & green chillies."
     },
     {
-        "id": "ch12",
-        "name": "Crispy Corn",
+        "id": "ch_cp_gravy",
+        "name": "Chilli Paneer Gravy",
         "cat": "chinese",
-        "price": 110,
-        "desc": "Golden fried American sweetcorn kernels tossed with salt, pepper & lemon."
+        "price": 139,
+        "desc": "Fresh cottage cheese cubes drenched in sweet, spicy and savoury dark garlic gravy."
     },
     {
-        "id": "wr1",
-        "name": "Veg Frankie Roll",
+        "id": "ch_gsm",
+        "name": "Gupshup Special Manchurian",
+        "cat": "chinese",
+        "price": 149,
+        "desc": "House specialty manchurian prepared with premium paneer-veggie balls in rich gravy."
+    },
+    {
+        "id": "gb_bt",
+        "name": "Butter Toast",
         "cat": "rolls",
-        "price": 80,
-        "desc": "Crisp flaky paratha wrapped with spiced veggie potato patty & onions."
+        "price": 29,
+        "desc": "Crispy golden toasted bread slices slathered with pure rich salted butter."
     },
     {
-        "id": "wr2",
-        "name": "Paneer Tikka Roll",
+        "id": "gb_mbt",
+        "name": "Masala Butter Toast",
         "cat": "rolls",
-        "price": 110,
-        "desc": "Marinated paneer chunks with mint dip rolled in hot buttered wrap."
+        "price": 39,
+        "desc": "Toasted bread topped with aromatic chaat masala, pepper and melting butter."
     },
     {
-        "id": "wr3",
-        "name": "Schezwan Paneer Roll",
+        "id": "gb_cgt",
+        "name": "Cheese Garlic Toast",
         "cat": "rolls",
-        "price": 120,
-        "desc": "Fiery schezwan paneer tossed with capsicum and rolled fresh."
+        "price": 59,
+        "desc": "Crisp bread toasts brushed with roasted garlic butter and smothered in melted cheese."
     },
     {
-        "id": "gb5",
-        "name": "Cheese Chilli Toast",
+        "id": "gb_ccgt",
+        "name": "Cheese Chilli Garlic Toast",
         "cat": "rolls",
-        "price": 100,
-        "desc": "Crisp toasted bread topped with molten cheese and spicy green chillies."
+        "price": 69,
+        "desc": "Golden toast topped with garlic, green chillies and bubbling melted mozzarella."
     },
     {
-        "id": "gb1",
+        "id": "gb_cpt",
+        "name": "Cheese Paneer Toast",
+        "cat": "rolls",
+        "price": 79,
+        "desc": "Spiced crushed paneer and melted cheese layered on crispy herb toast."
+    },
+    {
+        "id": "gb_plain",
         "name": "Plain Garlic Bread",
         "cat": "pasta",
         "price": 60,
-        "desc": "Toasted baguette slices rubbed with roasted garlic herb butter."
+        "desc": "Warm oven-baked baguette slices infused with fragrant garlic herb butter."
     },
     {
-        "id": "gb2",
+        "id": "gb_cheese",
         "name": "Cheese Garlic Bread",
         "cat": "pasta",
         "price": 90,
-        "desc": "Melted mozzarella layered over garlic herb butter toast."
+        "desc": "Classic garlic bread topped with a thick layer of melted mozzarella cheese."
     },
     {
-        "id": "gb3",
+        "id": "gb_double",
         "name": "Double Cheese Garlic Bread",
         "cat": "pasta",
         "price": 110,
-        "desc": "Double layer of rich stretchy cheese over crispy garlic toast."
+        "desc": "Loaded with double portions of mozzarella and cheddar cheese."
     },
     {
-        "id": "gb4",
+        "id": "gb_veggie",
         "name": "Veggie Cheese Garlic Bread",
         "cat": "pasta",
         "price": 130,
-        "desc": "Topped with sweet corn, jalapenos, onions & molten cheese."
+        "desc": "Topped with diced bell peppers, sweet corn, jalapeños and cheese."
     },
     {
-        "id": "ps1",
-        "name": "Red Pasta",
+        "id": "rl_veg",
+        "name": "Veg Roll",
+        "cat": "rolls",
+        "price": 49,
+        "desc": "Crisp flaky paratha wrapped with spiced potato-veggie filling and mint chutney."
+    },
+    {
+        "id": "rl_kathi",
+        "name": "Kathi Roll",
+        "cat": "rolls",
+        "price": 59,
+        "desc": "Kolkata street style kathi roll filled with crunchy veggies, onions and tangy sauces."
+    },
+    {
+        "id": "rl_paneer",
+        "name": "Paneer Roll",
+        "cat": "rolls",
+        "price": 79,
+        "desc": "Succulent spiced cottage cheese chunks wrapped in warm buttered flatbread."
+    },
+    {
+        "id": "rl_special",
+        "name": "Gupshup Special Roll",
+        "cat": "rolls",
+        "price": 99,
+        "desc": "Signature stuffed roll bursting with grilled paneer, sweet corn, cheese and secret dip."
+    },
+    {
+        "id": "pa_red",
+        "name": "Red Pasta (Arrabbiata)",
         "cat": "pasta",
         "price": 110,
-        "desc": "Penne tossed in spicy tangy tomato-basil arrabbiata sauce."
+        "desc": "Penne pasta tossed in spicy Italian plum tomato sauce, garlic & fresh basil."
     },
     {
-        "id": "ps2",
-        "name": "White Pasta",
+        "id": "pa_white",
+        "name": "White Pasta (Alfredo)",
         "cat": "pasta",
         "price": 150,
-        "desc": "Rich velvety alfredo cream sauce tossed with sweet corn & herbs."
+        "desc": "Velvety rich cream cheese sauce with garlic, butter and aromatic Italian herbs."
     },
     {
-        "id": "ps3",
-        "name": "Pink Pasta",
+        "id": "pa_pink",
+        "name": "Pink Pasta (Mix Sauce)",
         "cat": "pasta",
         "price": 160,
-        "desc": "Chef special blend of tangy marinara and velvety cream sauce."
+        "desc": "Harmonious blend of creamy white Alfredo and tangy red Arrabbiata sauces."
     },
     {
-        "id": "ps4",
+        "id": "pa_tandoori",
         "name": "Tandoori Creamy Pasta",
         "cat": "pasta",
         "price": 180,
-        "desc": "Spicy tandoori spiced sauce with smoked veggies & cheese."
+        "desc": "Fusion pasta tossed in rich smoky tandoori sauce with Indian herbs."
     },
     {
-        "id": "ps5",
+        "id": "pa_makhani",
         "name": "Makhani Creamy Pasta",
         "cat": "pasta",
         "price": 180,
-        "desc": "Buttery rich makhani gravy tossed with Italian penne."
+        "desc": "Penne smothered in royal buttery tomato makhani cream sauce."
     },
     {
-        "id": "ps6",
+        "id": "pa_kadhai",
         "name": "Kadhai Pasta",
         "cat": "pasta",
-        "price": 180,
-        "desc": "Wok tossed spicy kadhai masala pasta with bell peppers."
+        "price": 190,
+        "desc": "Bold rustic flavours with sautéed capsicum, onions and freshly ground kadhai masala."
     },
     {
-        "id": "ps7",
-        "name": "Mac. Cheese Pasta",
+        "id": "pa_mac_cheese",
+        "name": "Mac & Cheese Pasta",
+        "cat": "pasta",
+        "price": 190,
+        "desc": "Elbow macaroni blanketed in thick, bubbling cheddar and mozzarella sauce."
+    },
+    {
+        "id": "pa_mac_baked",
+        "name": "Mac Tomato Baked Pasta",
         "cat": "pasta",
         "price": 199,
-        "desc": "Classic macaroni baked in thick creamy Cheddar & mozzarella sauce."
+        "desc": "Oven-baked macaroni in seasoned tomato herb sauce with golden crusted cheese."
     },
     {
-        "id": "ps8",
-        "name": "Mac. Tomato Baked Pasta",
-        "cat": "pasta",
-        "price": 199,
-        "desc": "Oven-baked macaroni in rich tomato ragu with golden cheese crust."
-    },
-    {
-        "id": "fr1",
+        "id": "fr_masala",
         "name": "Masala Fries",
         "cat": "fries_nachos",
         "price": 80,
-        "desc": "Crispy golden french fries tossed in spicy chatpata masala."
+        "desc": "Crispy potato fries dusted with zesty chaat masala and lemon mist."
     },
     {
-        "id": "fr2",
+        "id": "fr_mexican",
         "name": "Mexican Fries",
         "cat": "fries_nachos",
         "price": 90,
-        "desc": "Fries dusted with tangy Mexican salsa seasoning."
+        "desc": "Fries seasoned with Mexican herbs, salsa drizzle and tangy mayo."
     },
     {
-        "id": "fr3",
+        "id": "fr_periperi",
         "name": "Peri Peri Fries",
         "cat": "fries_nachos",
         "price": 90,
-        "desc": "Fiery peri peri spiced crispy golden potato fries."
+        "desc": "Fiery African bird’s eye chilli spice dusted over piping hot crunchy fries."
     },
     {
-        "id": "fr4",
+        "id": "fr_cheesy",
         "name": "Cheesy Loaded Fries",
         "cat": "fries_nachos",
         "price": 110,
-        "desc": "Crispy fries smothered in liquid cheese & jalapeño relish."
+        "desc": "Smothered in creamy warm cheese sauce and jalapeño bits."
     },
     {
-        "id": "fr5",
+        "id": "fr_tandoori",
         "name": "Tandoori Loaded Fries",
         "cat": "fries_nachos",
-        "price": 110,
-        "desc": "Loaded fries topped with tandoori gravy & herbs."
+        "price": 120,
+        "desc": "Loaded with smoky tandoori mayo, onions and melted cheese."
     },
     {
-        "id": "fr6",
-        "name": "Extra Dip",
+        "id": "fr_extra_dip",
+        "name": "Extra Dip (Mayo / Mint / Cheese)",
         "cat": "fries_nachos",
         "price": 20,
-        "desc": "Side of creamy mayo, garlic dip or schezwan dip."
+        "desc": "Chef crafted dipping sauce for extra indulgence."
     },
     {
-        "id": "nc1",
+        "id": "nc_dip",
         "name": "Nachos With Dip",
         "cat": "fries_nachos",
         "price": 90,
-        "desc": "Crispy corn tortilla chips served with cheesy salsa dip."
+        "desc": "Crunchy corn tortilla chips served with zesty tomato salsa and cheese dip."
     },
     {
-        "id": "nc2",
+        "id": "nc_cheese",
         "name": "Cheese Nachos",
         "cat": "fries_nachos",
         "price": 120,
-        "desc": "Tortilla chips smothered in melted yellow cheese sauce."
+        "desc": "Golden tortilla chips drizzled generously with hot liquid cheese."
     },
     {
-        "id": "nc3",
+        "id": "nc_masala",
         "name": "Masala Cheese Nachos",
         "cat": "fries_nachos",
         "price": 140,
-        "desc": "Topped with chopped tomatoes, onions, spices & cheese."
+        "desc": "Loaded with diced onions, tomatoes, green chillies and spiced cheese."
     },
     {
-        "id": "nc4",
+        "id": "nc_baked",
         "name": "Baked Cheese Nachos",
         "cat": "fries_nachos",
         "price": 160,
-        "desc": "Oven-baked nachos with olives, jalapeños & golden bubbling cheese."
+        "desc": "Tortilla chips baked in stone oven with refried beans, salsa, olives & mozzarella."
     },
     {
-        "id": "ct1",
+        "id": "ct_kurkure",
         "name": "Crunchy Chaat (Kurkure)",
         "cat": "chaat",
         "price": 70,
-        "desc": "Crispy kurkure tossed with onions, tomatoes, lemon & chaat masala."
+        "desc": "Tangy mix of crunchy Kurkure with chopped onions, tomatoes, lemon & mint."
     },
     {
-        "id": "ct2",
-        "name": "Tangy Bhel (Rings)",
+        "id": "ct_bingo",
+        "name": "Tangy Bhel (Bingo)",
         "cat": "chaat",
         "price": 70,
-        "desc": "Tangy puffed rings bhel tossed with fresh mint & tamarind chutneys."
+        "desc": "Bingo triangles tossed with sweet-sour tamarind chutney, sev and fresh coriander."
     },
     {
-        "id": "ct3",
-        "name": "Kurkure Bhel",
+        "id": "ct_bhel",
+        "name": "Bhel Puri / Bhel",
         "cat": "chaat",
         "price": 80,
-        "desc": "Spicy fusion bhel tossed with crunchy kurkure and chutneys."
+        "desc": "Traditional street bhel with puffed rice, crispy puris, tangy chutneys and sev."
     },
     {
-        "id": "ct4",
+        "id": "ct_corn",
+        "name": "Crispy Corn",
+        "cat": "chaat",
+        "price": 100,
+        "desc": "Golden batter-fried sweet corn tossed with capsicum, pepper and spices."
+    },
+    {
+        "id": "ct_spring_roll",
         "name": "Veg. Spring Roll (6 pcs)",
         "cat": "chaat",
         "price": 120,
-        "desc": "Crispy golden fried rolls stuffed with seasoned wok veggies."
+        "desc": "Crispy golden rolls filled with shredded seasonal vegetables & sweet chilli dip."
     },
     {
-        "id": "hc1",
-        "name": "Regular Coffee (Small)",
-        "cat": "coffee",
-        "price": 40,
-        "desc": "Steaming hot espresso brewed with creamy milk."
-    },
-    {
-        "id": "hc2",
-        "name": "Regular Coffee (Large)",
-        "cat": "coffee",
-        "price": 70,
-        "desc": "Large cup of steaming hot classic barista coffee."
-    },
-    {
-        "id": "hc3",
-        "name": "Classic Caramel Coffee (Small)",
-        "cat": "coffee",
-        "price": 60,
-        "desc": "Rich caramel swirl blended into hot frothy coffee."
-    },
-    {
-        "id": "hc4",
-        "name": "Classic Caramel Coffee (Large)",
-        "cat": "coffee",
-        "price": 80,
-        "desc": "Large hot coffee infused with sweet buttery caramel."
-    },
-    {
-        "id": "hc5",
-        "name": "Irish Coffee (Small)",
-        "cat": "coffee",
-        "price": 60,
-        "desc": "Aromatic Irish cream essence in rich dark roast."
-    },
-    {
-        "id": "hc6",
-        "name": "Irish Coffee (Large)",
-        "cat": "coffee",
-        "price": 90,
-        "desc": "Large cup of velvety Irish cream hot brew."
-    },
-    {
-        "id": "hc7",
-        "name": "Hazelnut Coffee (Small)",
-        "cat": "coffee",
-        "price": 70,
-        "desc": "Toasted hazelnut flavor folded into hot velvety espresso."
-    },
-    {
-        "id": "hc8",
-        "name": "Hazelnut Coffee (Large)",
-        "cat": "coffee",
-        "price": 90,
-        "desc": "Large cup of rich roasted hazelnut hot coffee."
-    },
-    {
-        "id": "cc1",
-        "name": "Cold Coffee (Small)",
-        "cat": "coffee",
-        "price": 50,
-        "desc": "Chilled espresso shaken with milk, sugar and crushed ice."
-    },
-    {
-        "id": "cc2",
-        "name": "Cold Coffee (Large)",
-        "cat": "coffee",
-        "price": 80,
-        "desc": "Large glass of classic creamy barista cold coffee."
-    },
-    {
-        "id": "cc3",
-        "name": "Caramel Cold Coffee (Small)",
-        "cat": "coffee",
-        "price": 70,
-        "desc": "Buttery caramel syrup swirled in chilled creamy coffee."
-    },
-    {
-        "id": "cc4",
-        "name": "Caramel Cold Coffee (Large)",
-        "cat": "coffee",
-        "price": 90,
-        "desc": "Large caramel cold coffee with golden drizzle."
-    },
-    {
-        "id": "cc5",
-        "name": "Chocolate Coffee (Small)",
-        "cat": "coffee",
-        "price": 70,
-        "desc": "Dark Dutch cocoa blended with chilled espresso."
-    },
-    {
-        "id": "cc6",
-        "name": "Chocolate Coffee (Large)",
-        "cat": "coffee",
-        "price": 90,
-        "desc": "Large cold coffee loaded with rich chocolate fudge."
-    },
-    {
-        "id": "cc7",
-        "name": "Cold Coffee with Ice Cream (Small)",
-        "cat": "coffee",
-        "price": 80,
-        "desc": "Chilled thick coffee crowned with a vanilla scoop."
-    },
-    {
-        "id": "cc8",
-        "name": "Cold Coffee with Ice Cream (Large)",
-        "cat": "coffee",
-        "price": 110,
-        "desc": "Large cold coffee with double vanilla ice cream scoop."
-    },
-    {
-        "id": "cc9",
-        "name": "Irish Cold Coffee (Small)",
-        "cat": "coffee",
-        "price": 80,
-        "desc": "Chilled Irish cream cold coffee over ice."
-    },
-    {
-        "id": "cc10",
-        "name": "Irish Cold Coffee (Large)",
-        "cat": "coffee",
-        "price": 110,
-        "desc": "Large creamy Irish cold brew shake."
-    },
-    {
-        "id": "cc11",
-        "name": "Hazelnut Cold Coffee (Small)",
-        "cat": "coffee",
-        "price": 80,
-        "desc": "Roasted hazelnut shaken with cold milk and espresso."
-    },
-    {
-        "id": "cc12",
-        "name": "Hazelnut Cold Coffee (Large)",
-        "cat": "coffee",
-        "price": 110,
-        "desc": "Large artisanal hazelnut cold coffee."
-    },
-    {
-        "id": "cc13",
-        "name": "Coffee with Ice Cream & Choco Chips (Small)",
-        "cat": "coffee",
-        "price": 90,
-        "desc": "Topped with ice cream scoop and dark choco chips."
-    },
-    {
-        "id": "cc14",
-        "name": "Coffee with Ice Cream & Choco Chips (Large)",
-        "cat": "coffee",
-        "price": 120,
-        "desc": "Large cold coffee with ice cream & crunchy choco chips."
-    },
-    {
-        "id": "ht1",
+        "id": "tea_apni",
         "name": "Apni Chai",
         "cat": "tea",
         "price": 25,
-        "desc": "Classic home-style kadak milk tea brewed fresh 24/7."
+        "desc": "Homestyle strong milk tea brewed with crushed ginger and aromatic tea leaves."
     },
     {
-        "id": "ht2",
+        "id": "tea_ginger_el",
         "name": "Ginger Elaichi Tea",
         "cat": "tea",
         "price": 30,
-        "desc": "Infused with crushed fresh ginger root and green cardamom."
+        "desc": "Fragrant cardamom and fresh crushed ginger slow simmered in rich milk."
     },
     {
-        "id": "ht3",
+        "id": "tea_masala",
         "name": "Masala Tea",
         "cat": "tea",
-        "price": 35,
-        "desc": "Secret 5-spice royal masala blend simmered in fresh milk."
+        "price": 30,
+        "desc": "Traditional chai infused with whole spices: clove, cinnamon, black pepper & star anise."
     },
     {
-        "id": "ht4",
+        "id": "tea_lemon_ging",
         "name": "Lemon Ginger Tea",
         "cat": "tea",
         "price": 50,
-        "desc": "Zesty fresh lemon juice with steeped crushed ginger."
+        "desc": "Soothing black tea infused with fresh lemon juice, crushed ginger and honey."
     },
     {
-        "id": "ht5",
+        "id": "tea_green",
         "name": "Green Tea",
         "cat": "tea",
         "price": 50,
-        "desc": "Antioxidant rich whole leaf organic green tea."
+        "desc": "Antioxidant rich pure whole-leaf green tea for light, healthy rejuvenation."
     },
     {
-        "id": "ht6",
+        "id": "tea_kesar_el",
         "name": "Kesar Elaichi Tea",
         "cat": "tea",
         "price": 70,
-        "desc": "Premium saffron strands and aromatic green cardamom milk tea."
+        "desc": "Royal saffron strands and fragrant green cardamom steeped in velvety milk chai."
     },
     {
-        "id": "it1",
+        "id": "it_peach",
         "name": "Peach Ice Tea",
         "cat": "tea",
-        "price": 80,
-        "desc": "Sweet sun-ripened peach syrup shaken with chilled brewed tea."
+        "price": 60,
+        "desc": "Refreshing brewed black tea infused with sweet fragrant peach nectar and ice."
     },
     {
-        "id": "it2",
+        "id": "it_lemon",
         "name": "Lemon Ice Tea",
         "cat": "tea",
-        "price": 80,
-        "desc": "Zesty fresh lemon & mint shaken with crushed ice and iced tea."
+        "price": 70,
+        "desc": "Classic chilled iced tea spiked with tangy lemon extract and fresh mint."
     },
     {
-        "id": "it3",
+        "id": "it_green_apple",
         "name": "Green Apple Ice Tea",
         "cat": "tea",
-        "price": 100,
-        "desc": "Crisp sour green apple essence with invigorating iced tea."
+        "price": 90,
+        "desc": "Crisp tart green apple syrup shaken with iced tea and chilled lime."
     },
     {
-        "id": "it4",
+        "id": "it_redbull",
         "name": "Red Bull Ice Tea",
         "cat": "tea",
-        "price": 150,
-        "desc": "High-energy boost of Red Bull infused with iced tea and lime."
+        "price": 100,
+        "desc": "High-energy iced tea topped with Red Bull energy splash."
     },
     {
-        "id": "it5",
+        "id": "it_raspberry",
         "name": "Raspberry Ice Tea",
         "cat": "tea",
         "price": 110,
-        "desc": "Sweet tart wild raspberry syrup shaken over chilled iced tea."
+        "desc": "Sweet-tart wild raspberry crush blended with chilled brewed Ceylon tea."
     },
     {
-        "id": "sh1",
+        "id": "cf_reg_s",
+        "name": "Regular Coffee (Small)",
+        "cat": "coffee",
+        "price": 40,
+        "desc": "Creamy frothy Indian filter style hot coffee."
+    },
+    {
+        "id": "cf_reg_l",
+        "name": "Regular Coffee (Large)",
+        "cat": "coffee",
+        "price": 70,
+        "desc": "Large mug of frothy, aromatic hot coffee brewed fresh."
+    },
+    {
+        "id": "cf_car_s",
+        "name": "Classic Caramel Coffee (Small)",
+        "cat": "coffee",
+        "price": 60,
+        "desc": "Steamed milk and espresso swirled with rich golden caramel syrup."
+    },
+    {
+        "id": "cf_car_l",
+        "name": "Classic Caramel Coffee (Large)",
+        "cat": "coffee",
+        "price": 80,
+        "desc": "Large cup of sweet buttery caramel hot coffee with velvety foam."
+    },
+    {
+        "id": "cf_irish_s",
+        "name": "Irish Coffee (Small)",
+        "cat": "coffee",
+        "price": 60,
+        "desc": "Non-alcoholic Irish cream flavour notes infused with dark roasted coffee."
+    },
+    {
+        "id": "cf_irish_l",
+        "name": "Irish Coffee (Large)",
+        "cat": "coffee",
+        "price": 80,
+        "desc": "Large rich cup of aromatic Irish cream flavoured coffee."
+    },
+    {
+        "id": "cf_hazel_s",
+        "name": "Hazelnut Coffee (Small)",
+        "cat": "coffee",
+        "price": 70,
+        "desc": "Earthy roasted hazelnut essence folded into steaming espresso and milk."
+    },
+    {
+        "id": "cf_hazel_l",
+        "name": "Hazelnut Coffee (Large)",
+        "cat": "coffee",
+        "price": 90,
+        "desc": "Large mug of rich hazelnut infused hot coffee."
+    },
+    {
+        "id": "cc_reg_s",
+        "name": "Cold Coffee (Small)",
+        "cat": "coffee",
+        "price": 50,
+        "desc": "Thick blended cold coffee made with rich milk, sugar and fine espresso."
+    },
+    {
+        "id": "cc_reg_l",
+        "name": "Cold Coffee (Large)",
+        "cat": "coffee",
+        "price": 70,
+        "desc": "Tall glass of refreshing creamy cold coffee whipped to perfection."
+    },
+    {
+        "id": "cc_car_s",
+        "name": "Caramel Cold Coffee (Small)",
+        "cat": "coffee",
+        "price": 70,
+        "desc": "Chilled coffee swirled with decadent salted caramel drizzle."
+    },
+    {
+        "id": "cc_car_l",
+        "name": "Caramel Cold Coffee (Large)",
+        "cat": "coffee",
+        "price": 90,
+        "desc": "Tall glass of creamy cold coffee layered with golden caramel ribbons."
+    },
+    {
+        "id": "cc_choc_s",
+        "name": "Chocolate Coffee (Small)",
+        "cat": "coffee",
+        "price": 70,
+        "desc": "Rich cocoa blend and espresso blended cold with velvety milk."
+    },
+    {
+        "id": "cc_choc_l",
+        "name": "Chocolate Coffee (Large)",
+        "cat": "coffee",
+        "price": 90,
+        "desc": "Tall glass of chocolate iced mocha coffee."
+    },
+    {
+        "id": "cc_icecream_s",
+        "name": "Cold Coffee with Ice Cream (Small)",
+        "cat": "coffee",
+        "price": 80,
+        "desc": "Thick cold coffee topped with a creamy scoop of vanilla ice cream."
+    },
+    {
+        "id": "cc_icecream_l",
+        "name": "Cold Coffee with Ice Cream (Large)",
+        "cat": "coffee",
+        "price": 100,
+        "desc": "Tall cold coffee float topped with generous vanilla ice cream."
+    },
+    {
+        "id": "cc_irish_s",
+        "name": "Irish Cold Coffee (Small)",
+        "cat": "coffee",
+        "price": 80,
+        "desc": "Blended cold coffee infused with non-alcoholic Irish cream syrup."
+    },
+    {
+        "id": "cc_irish_l",
+        "name": "Irish Cold Coffee (Large)",
+        "cat": "coffee",
+        "price": 110,
+        "desc": "Tall glass of velvety Irish cream cold coffee."
+    },
+    {
+        "id": "cc_hazel_s",
+        "name": "Hazelnut Cold Coffee (Small)",
+        "cat": "coffee",
+        "price": 80,
+        "desc": "Rich nutty hazelnut puree blended with chilled espresso and milk."
+    },
+    {
+        "id": "cc_hazel_l",
+        "name": "Hazelnut Cold Coffee (Large)",
+        "cat": "coffee",
+        "price": 110,
+        "desc": "Tall glass of roasted hazelnut frappe."
+    },
+    {
+        "id": "cc_chips_s",
+        "name": "Coffee with Ice Cream & Choco Chips (Small)",
+        "cat": "coffee",
+        "price": 90,
+        "desc": "Cold coffee with vanilla scoop and crunchy dark chocolate chips."
+    },
+    {
+        "id": "cc_chips_l",
+        "name": "Coffee with Ice Cream & Choco Chips (Large)",
+        "cat": "coffee",
+        "price": 120,
+        "desc": "Deluxe tall cold coffee loaded with ice cream, chocolate syrup and choco chips."
+    },
+    {
+        "id": "sk_chocolate",
         "name": "Chocolate Shake",
         "cat": "shakes",
         "price": 90,
-        "desc": "Creamy chilled chocolate thick shake."
+        "desc": "Creamy milkshake blended with rich Hershey chocolate fudge."
     },
     {
-        "id": "sh2",
+        "id": "sk_butterscotch",
         "name": "Butter Scotch Shake",
         "cat": "shakes",
         "price": 100,
-        "desc": "Velvety butterscotch shake with caramelized praline crunch."
+        "desc": "Velvety shake with crunchy butterscotch praline morsels."
     },
     {
-        "id": "sh3",
+        "id": "sk_strawberry",
         "name": "Strawberry Shake",
         "cat": "shakes",
         "price": 100,
-        "desc": "Sweet strawberry cream shake with berry drizzle."
+        "desc": "Sweet strawberry puree whipped with fresh chilled milk."
     },
     {
-        "id": "sh4",
+        "id": "sk_paan",
         "name": "Paan Shake",
         "cat": "shakes",
         "price": 100,
-        "desc": "Royal refreshing meetha paan infused thick dairy shake."
+        "desc": "Authentic Banarasi meetha paan infused shake with gulkand and fennel."
     },
     {
-        "id": "sh5",
+        "id": "sk_banana_car",
         "name": "Banana Caramel Shake",
         "cat": "shakes",
-        "price": 120,
-        "desc": "Ripe bananas blended with golden caramel and ice cream."
+        "price": 110,
+        "desc": "Ripe banana puree blended with sweet butterscotch caramel."
     },
     {
-        "id": "sh6",
+        "id": "sk_oreo",
         "name": "Oreo Shake",
         "cat": "shakes",
         "price": 120,
-        "desc": "Crushed chocolate Oreo cookies churned with vanilla cream."
+        "desc": "Crushed Oreo cookies whipped with vanilla cream and milk."
     },
     {
-        "id": "sh7",
+        "id": "sk_kitkat",
         "name": "Kit Kat Shake",
         "cat": "shakes",
-        "price": 120,
-        "desc": "Crispy KitKat wafer bars blended into thick chocolate shake."
+        "price": 130,
+        "desc": "Crunchy Kit Kat wafer fingers blended into chocolate shake."
     },
     {
-        "id": "sh8",
+        "id": "sk_blueberry",
         "name": "Blueberry Shake",
         "cat": "shakes",
         "price": 130,
-        "desc": "Wild blueberry puree blended with thick dairy ice cream."
+        "desc": "Exotic wild blueberry crush blended thick and frosty."
     },
     {
-        "id": "sh9",
+        "id": "sk_dbc",
         "name": "DBC Shake (Death By Chocolate)",
         "cat": "shakes",
-        "price": 150,
-        "desc": "Overloaded with dark chocolate, brownie bits and fudge."
+        "price": 140,
+        "desc": "Ultimate chocolate overload with brownie, chocolate sauce and choco chips."
     },
     {
-        "id": "sh10",
+        "id": "sk_bs_oreo",
         "name": "Butterscotch Oreo Shake",
         "cat": "shakes",
         "price": 150,
-        "desc": "Crunchy butterscotch praline married with crushed Oreo."
+        "desc": "Crunchy Oreo meets butterscotch praline in an ultra-thick shake."
     },
     {
-        "id": "sh11",
+        "id": "sk_pb",
         "name": "Peanut Butter Shake",
         "cat": "shakes",
         "price": 150,
-        "desc": "Creamy peanut butter churned with vanilla ice cream."
+        "desc": "Roasted American peanut butter whipped with milk and honey."
     },
     {
-        "id": "sh12",
+        "id": "sk_pb_oreo",
         "name": "Peanut Butter Oreo Shake",
         "cat": "shakes",
-        "price": 180,
-        "desc": "Indulgent blend of crunchy peanut butter and Oreo cookies."
+        "price": 160,
+        "desc": "Gourmet combination of creamy peanut butter and crunchy Oreos."
     },
     {
-        "id": "sh13",
+        "id": "sk_hazel_brownie",
         "name": "Hazelnut Brownie Shake",
         "cat": "shakes",
         "price": 180,
-        "desc": "Chewy chocolate brownie and roasted hazelnut thick shake."
+        "desc": "Decadent fudgy chocolate brownie blended with hazelnut spread."
     },
     {
-        "id": "mk1",
+        "id": "mk_spicy_mango",
         "name": "Spicy Mango Mocktail",
         "cat": "mocktails",
         "price": 90,
-        "desc": "Alphonso mango juice with a fiery kick of green chilli & rock salt."
+        "desc": "Sweet Alphonso mango pulp with fiery green chilli and chaat masala."
     },
     {
-        "id": "mk2",
+        "id": "mk_malt_beer",
         "name": "Malt Beer (Non-Alcoholic)",
         "cat": "mocktails",
         "price": 90,
-        "desc": "Chilled roasted malt non-alcoholic refreshing brew."
+        "desc": "Refreshing fizzy barley brewed malt beverage served ice cold."
     },
     {
-        "id": "mk3",
+        "id": "mk_blue_lagoon",
         "name": "Blue Lagoon",
         "cat": "mocktails",
-        "price": 110,
-        "desc": "Blue curaçao syrup, lemon juice, soda and crushed ice."
+        "price": 100,
+        "desc": "Curacao citrus cordial muddled with lemon juice and sparkling Sprite."
     },
     {
-        "id": "mk4",
+        "id": "mk_pina_colada",
         "name": "Pina Colada",
         "cat": "mocktails",
-        "price": 110,
-        "desc": "Chilled blend of pineapple juice, coconut cream and crushed ice."
+        "price": 100,
+        "desc": "Creamy coconut milk and fresh pineapple juice shaken over ice."
     },
     {
-        "id": "mk5",
+        "id": "mk_lychee",
         "name": "Lychee Booster",
         "cat": "mocktails",
-        "price": 110,
-        "desc": "Sweet lychee nectar shaken with fresh mint and citrus."
+        "price": 100,
+        "desc": "Sweet tropical lychee nectar mixed with crushed mint and soda."
     },
     {
-        "id": "mk6",
+        "id": "mk_virgin_mojito",
         "name": "Virgin Mojito",
         "cat": "mocktails",
-        "price": 110,
-        "desc": "Muddled fresh mint, lime chunks, cane sugar & sparkling soda."
+        "price": 100,
+        "desc": "Fresh garden mint sprigs and lime wedges muddled with sparkling soda."
     },
     {
-        "id": "mk7",
+        "id": "mk_tropical_moj",
         "name": "Tropical Mojito",
         "cat": "mocktails",
         "price": 120,
-        "desc": "Exotic tropical fruits muddled with fresh mint and fizz."
+        "desc": "Passion fruit, pineapple and lime muddled with fresh mint and fizz."
     },
     {
-        "id": "mk8",
+        "id": "mk_raspberry_moj",
         "name": "Raspberry Mojito",
         "cat": "mocktails",
         "price": 120,
-        "desc": "Wild raspberry syrup shaken with crushed mint and soda."
+        "desc": "Wild raspberry coulis shaken with fresh lime and sparkling water."
     },
     {
-        "id": "mk9",
+        "id": "mk_mix_berry",
         "name": "Mix Berry Mojito",
         "cat": "mocktails",
-        "price": 130,
+        "price": 120,
         "desc": "Blackberry, raspberry and blueberry crush with sparkling soda."
     },
     {
-        "id": "mk10",
+        "id": "mk_green_apple",
         "name": "Green Apple Mojito",
         "cat": "mocktails",
         "price": 130,
         "desc": "Tangy green apple syrup with fresh lime and mint fizz."
     },
     {
-        "id": "mk11",
+        "id": "mk_bull_mojito",
         "name": "Bull Mojito",
         "cat": "mocktails",
         "price": 130,
         "desc": "Red Bull energy boost muddled with fresh mint, lime and ice."
     },
     {
-        "id": "lm1",
+        "id": "lm_fresh_water",
         "name": "Fresh Lime Water",
         "cat": "mocktails",
-        "price": 60,
+        "price": 40,
         "desc": "Freshly squeezed lemon with rock salt and sweet cane sugar."
     },
     {
-        "id": "lm2",
+        "id": "lm_fresh_soda",
         "name": "Fresh Lime Soda",
         "cat": "mocktails",
-        "price": 80,
+        "price": 60,
         "desc": "Crisp sparkling soda with freshly squeezed lime and cumin."
     },
     {
-        "id": "lm3",
+        "id": "lm_masala",
         "name": "Masala Lemonade",
         "cat": "mocktails",
-        "price": 100,
-        "desc": "Spiced lemonade with roasted cumin, black salt and mint."
+        "price": 80,
+        "desc": "Spiced lemonade with roasted cumin, black salt and fresh mint."
     },
     {
-        "id": "lm4",
+        "id": "lm_watermelon",
         "name": "Watermelon Lemonade",
         "cat": "mocktails",
         "price": 100,
         "desc": "Fresh watermelon juice shaken with lime and chilled soda."
     },
     {
-        "id": "sp1",
+        "id": "sp_butter_handi",
         "name": "Delhi Butter Handi Momos",
         "cat": "momos",
         "price": 250,
-        "desc": "Tender veg dimsums slow-simmered in rich tandoori butter gravy in clay pot."
+        "desc": "Tender veg dimsums slow-simmered in rich tandoori butter gravy in clay handi."
     },
     {
-        "id": "sp2",
+        "id": "sp_tandoori_fried",
         "name": "Tandoori Fried Momos",
         "cat": "momos",
         "price": 180,
-        "desc": "Crispy fried momos tossed with chaat masala & fresh mint chutney."
+        "desc": "Crispy fried momos tossed with chaat masala, spicy red dip & mint chutney."
     }
 ];
-
 
   var currentCat = 'all';
   var cart = {}; // { id: count }
